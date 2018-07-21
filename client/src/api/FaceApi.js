@@ -33,7 +33,7 @@
   /**
    * Face service.
    * @module api/FaceApi
-   * @version 1.0.9
+   * @version 1.1.0
    */
 
   /**
@@ -51,7 +51,7 @@
      * Callback function to receive the result of the faceCropFirst operation.
      * @callback module:api/FaceApi~faceCropFirstCallback
      * @param {String} error Error message, if any.
-     * @param {File} data The data returned by the service call.
+     * @param {Object} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -60,7 +60,7 @@
      * Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/FaceApi~faceCropFirstCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link File}
+     * data is of type: {@link Object}
      */
     this.faceCropFirst = function(imageFile, callback) {
       var postBody = null;
@@ -86,7 +86,7 @@
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
       var accepts = ['application/octet-stream'];
-      var returnType = File;
+      var returnType = Object;
 
       return this.apiClient.callApi(
         '/image/face/crop/first', 'POST',
@@ -99,7 +99,7 @@
      * Callback function to receive the result of the faceCropFirstRound operation.
      * @callback module:api/FaceApi~faceCropFirstRoundCallback
      * @param {String} error Error message, if any.
-     * @param {File} data The data returned by the service call.
+     * @param {Object} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -108,7 +108,7 @@
      * Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/FaceApi~faceCropFirstRoundCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link File}
+     * data is of type: {@link Object}
      */
     this.faceCropFirstRound = function(imageFile, callback) {
       var postBody = null;
@@ -134,7 +134,7 @@
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
       var accepts = ['application/octet-stream'];
-      var returnType = File;
+      var returnType = Object;
 
       return this.apiClient.callApi(
         '/image/face/crop/first/round', 'POST',

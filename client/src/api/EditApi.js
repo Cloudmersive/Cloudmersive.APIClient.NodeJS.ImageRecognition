@@ -33,7 +33,7 @@
   /**
    * Edit service.
    * @module api/EditApi
-   * @version 1.0.9
+   * @version 1.1.0
    */
 
   /**
@@ -51,7 +51,7 @@
      * Callback function to receive the result of the editCompositeBasic operation.
      * @callback module:api/EditApi~editCompositeBasicCallback
      * @param {String} error Error message, if any.
-     * @param {File} data The data returned by the service call.
+     * @param {Object} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -62,7 +62,7 @@
      * @param {File} baseImage Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {File} layeredImage Image to layer on top of the base image.
      * @param {module:api/EditApi~editCompositeBasicCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link File}
+     * data is of type: {@link Object}
      */
     this.editCompositeBasic = function(location, baseImage, layeredImage, callback) {
       var postBody = null;
@@ -100,7 +100,7 @@
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
       var accepts = ['image/png'];
-      var returnType = File;
+      var returnType = Object;
 
       return this.apiClient.callApi(
         '/image/edit/composite/{location}', 'POST',

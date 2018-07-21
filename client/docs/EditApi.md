@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="editCompositeBasic"></a>
 # **editCompositeBasic**
-> File editCompositeBasic(location, baseImage, layeredImage)
+> Object editCompositeBasic(location, baseImage, layeredImage)
 
 Composite two images together
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Object**
 
 ### Authorization
 

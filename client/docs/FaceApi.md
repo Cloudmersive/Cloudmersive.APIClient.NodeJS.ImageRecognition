@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="faceCropFirst"></a>
 # **faceCropFirst**
-> File faceCropFirst(imageFile)
+> Object faceCropFirst(imageFile)
 
 Crop image to face (square)
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Object**
 
 ### Authorization
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 <a name="faceCropFirstRound"></a>
 # **faceCropFirstRound**
-> File faceCropFirstRound(imageFile)
+> Object faceCropFirstRound(imageFile)
 
 Crop image to face (round)
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Object**
 
 ### Authorization
 

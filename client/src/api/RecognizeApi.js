@@ -33,7 +33,7 @@
   /**
    * Recognize service.
    * @module api/RecognizeApi
-   * @version 1.0.9
+   * @version 1.1.0
    */
 
   /**

@@ -36,7 +36,7 @@
   /**
    * The DrawRectangleRequest model module.
    * @module model/DrawRectangleRequest
-   * @version 1.0.9
+   * @version 1.1.0
    */
 
   /**
