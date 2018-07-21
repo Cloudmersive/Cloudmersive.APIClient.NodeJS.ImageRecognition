@@ -25,20 +25,20 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.ResizeApi = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.ArtisticApi = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
   /**
-   * Resize service.
-   * @module api/ResizeApi
+   * Artistic service.
+   * @module api/ArtisticApi
    * @version 1.0.9
    */
 
   /**
-   * Constructs a new ResizeApi. 
-   * @alias module:api/ResizeApi
+   * Constructs a new ArtisticApi. 
+   * @alias module:api/ArtisticApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -48,44 +48,37 @@
 
 
     /**
-     * Callback function to receive the result of the resizePost operation.
-     * @callback module:api/ResizeApi~resizePostCallback
+     * Callback function to receive the result of the artisticPainting operation.
+     * @callback module:api/ArtisticApi~artisticPaintingCallback
      * @param {String} error Error message, if any.
      * @param {Object} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Resize an image with parameters
-     * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio
-     * @param {Number} maxWidth Maximum width of the output image - final image will be as large as possible while less than or equial to this width
-     * @param {Number} maxHeight Maximum height of the output image - final image will be as large as possible while less than or equial to this height
+     * Transform an image into an artistic painting automatically
+     * Uses machine learning to automatically transform an image into an artistic painting.  Due to depth of AI processing, depending on image size this operation can take up to 20 seconds.
+     * @param {String} style The style of the painting to apply.  To start, try \&quot;udnie\&quot; a modernist\&quot; painting style.  Possible values are: \&quot;udnie\&quot;, \&quot;wave\&quot;, \&quot;la_muse\&quot;, \&quot;rain_princess\&quot;.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-     * @param {module:api/ResizeApi~resizePostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/ArtisticApi~artisticPaintingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    this.resizePost = function(maxWidth, maxHeight, imageFile, callback) {
+    this.artisticPainting = function(style, imageFile, callback) {
       var postBody = null;
 
-      // verify the required parameter 'maxWidth' is set
-      if (maxWidth === undefined || maxWidth === null) {
-        throw new Error("Missing the required parameter 'maxWidth' when calling resizePost");
-      }
-
-      // verify the required parameter 'maxHeight' is set
-      if (maxHeight === undefined || maxHeight === null) {
-        throw new Error("Missing the required parameter 'maxHeight' when calling resizePost");
+      // verify the required parameter 'style' is set
+      if (style === undefined || style === null) {
+        throw new Error("Missing the required parameter 'style' when calling artisticPainting");
       }
 
       // verify the required parameter 'imageFile' is set
       if (imageFile === undefined || imageFile === null) {
-        throw new Error("Missing the required parameter 'imageFile' when calling resizePost");
+        throw new Error("Missing the required parameter 'imageFile' when calling artisticPainting");
       }
 
 
       var pathParams = {
-        'maxWidth': maxWidth,
-        'maxHeight': maxHeight
+        'style': style
       };
       var queryParams = {
       };
@@ -99,11 +92,11 @@
 
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
-      var accepts = ['image/png'];
+      var accepts = ['application/octet-stream'];
       var returnType = Object;
 
       return this.apiClient.callApi(
-        '/image/resize/preserveAspectRatio/{maxWidth}/{maxHeight}', 'POST',
+        '/image/artistic/painting/{style}', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

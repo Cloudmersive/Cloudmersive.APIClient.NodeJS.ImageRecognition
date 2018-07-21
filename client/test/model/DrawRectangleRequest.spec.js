@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.RecognizeApi();
+    instance = new CloudmersiveImageApiClient.DrawRectangleRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,37 +49,31 @@
       object[property] = value;
   }
 
-  describe('RecognizeApi', function() {
-    describe('recognizeDescribe', function() {
-      it('should call recognizeDescribe successfully', function(done) {
-        //uncomment below and update the code to test recognizeDescribe
-        //instance.recognizeDescribe(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('DrawRectangleRequest', function() {
+    it('should create an instance of DrawRectangleRequest', function() {
+      // uncomment below and update the code to test DrawRectangleRequest
+      //var instane = new CloudmersiveImageApiClient.DrawRectangleRequest();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.DrawRectangleRequest);
     });
-    describe('recognizeDetectObjects', function() {
-      it('should call recognizeDetectObjects successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectObjects
-        //instance.recognizeDetectObjects(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property baseImageBytes (base name: "BaseImageBytes")', function() {
+      // uncomment below and update the code to test the property baseImageBytes
+      //var instane = new CloudmersiveImageApiClient.DrawRectangleRequest();
+      //expect(instance).to.be();
     });
-    describe('recognizeDetectPeople', function() {
-      it('should call recognizeDetectPeople successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectPeople
-        //instance.recognizeDetectPeople(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property baseImageUrl (base name: "BaseImageUrl")', function() {
+      // uncomment below and update the code to test the property baseImageUrl
+      //var instane = new CloudmersiveImageApiClient.DrawRectangleRequest();
+      //expect(instance).to.be();
     });
+
+    it('should have the property rectanglesToDraw (base name: "RectanglesToDraw")', function() {
+      // uncomment below and update the code to test the property rectanglesToDraw
+      //var instane = new CloudmersiveImageApiClient.DrawRectangleRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

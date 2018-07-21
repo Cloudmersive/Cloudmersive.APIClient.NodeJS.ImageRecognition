@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.RecognizeApi();
+    instance = new CloudmersiveImageApiClient.ObjectDetectionResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,37 +49,31 @@
       object[property] = value;
   }
 
-  describe('RecognizeApi', function() {
-    describe('recognizeDescribe', function() {
-      it('should call recognizeDescribe successfully', function(done) {
-        //uncomment below and update the code to test recognizeDescribe
-        //instance.recognizeDescribe(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('ObjectDetectionResult', function() {
+    it('should create an instance of ObjectDetectionResult', function() {
+      // uncomment below and update the code to test ObjectDetectionResult
+      //var instane = new CloudmersiveImageApiClient.ObjectDetectionResult();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.ObjectDetectionResult);
     });
-    describe('recognizeDetectObjects', function() {
-      it('should call recognizeDetectObjects successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectObjects
-        //instance.recognizeDetectObjects(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property successful (base name: "Successful")', function() {
+      // uncomment below and update the code to test the property successful
+      //var instane = new CloudmersiveImageApiClient.ObjectDetectionResult();
+      //expect(instance).to.be();
     });
-    describe('recognizeDetectPeople', function() {
-      it('should call recognizeDetectPeople successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectPeople
-        //instance.recognizeDetectPeople(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property objects (base name: "Objects")', function() {
+      // uncomment below and update the code to test the property objects
+      //var instane = new CloudmersiveImageApiClient.ObjectDetectionResult();
+      //expect(instance).to.be();
     });
+
+    it('should have the property objectCount (base name: "ObjectCount")', function() {
+      // uncomment below and update the code to test the property objectCount
+      //var instane = new CloudmersiveImageApiClient.ObjectDetectionResult();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

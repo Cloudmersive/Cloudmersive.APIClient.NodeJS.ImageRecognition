@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.RecognizeApi();
+    instance = new CloudmersiveImageApiClient.ArtisticApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,31 +49,11 @@
       object[property] = value;
   }
 
-  describe('RecognizeApi', function() {
-    describe('recognizeDescribe', function() {
-      it('should call recognizeDescribe successfully', function(done) {
-        //uncomment below and update the code to test recognizeDescribe
-        //instance.recognizeDescribe(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('recognizeDetectObjects', function() {
-      it('should call recognizeDetectObjects successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectObjects
-        //instance.recognizeDetectObjects(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('recognizeDetectPeople', function() {
-      it('should call recognizeDetectPeople successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectPeople
-        //instance.recognizeDetectPeople(function(error) {
+  describe('ArtisticApi', function() {
+    describe('artisticPainting', function() {
+      it('should call artisticPainting successfully', function(done) {
+        //uncomment below and update the code to test artisticPainting
+        //instance.artisticPainting(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

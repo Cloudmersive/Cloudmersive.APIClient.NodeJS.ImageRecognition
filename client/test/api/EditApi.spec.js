@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.RecognizeApi();
+    instance = new CloudmersiveImageApiClient.EditApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,31 +49,31 @@
       object[property] = value;
   }
 
-  describe('RecognizeApi', function() {
-    describe('recognizeDescribe', function() {
-      it('should call recognizeDescribe successfully', function(done) {
-        //uncomment below and update the code to test recognizeDescribe
-        //instance.recognizeDescribe(function(error) {
+  describe('EditApi', function() {
+    describe('editCompositeBasic', function() {
+      it('should call editCompositeBasic successfully', function(done) {
+        //uncomment below and update the code to test editCompositeBasic
+        //instance.editCompositeBasic(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeDetectObjects', function() {
-      it('should call recognizeDetectObjects successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectObjects
-        //instance.recognizeDetectObjects(function(error) {
+    describe('editDrawRectangle', function() {
+      it('should call editDrawRectangle successfully', function(done) {
+        //uncomment below and update the code to test editDrawRectangle
+        //instance.editDrawRectangle(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeDetectPeople', function() {
-      it('should call recognizeDetectPeople successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectPeople
-        //instance.recognizeDetectPeople(function(error) {
+    describe('editDrawText', function() {
+      it('should call editDrawText successfully', function(done) {
+        //uncomment below and update the code to test editDrawText
+        //instance.editDrawText(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

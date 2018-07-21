@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/DetectedObject'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./DetectedObject'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.NsfwResult = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.ObjectDetectionResult = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.DetectedObject);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, DetectedObject) {
   'use strict';
 
 
 
 
   /**
-   * The NsfwResult model module.
-   * @module model/NsfwResult
+   * The ObjectDetectionResult model module.
+   * @module model/ObjectDetectionResult
    * @version 1.0.9
    */
 
   /**
-   * Constructs a new <code>NsfwResult</code>.
-   * Result of an NSFW classification
-   * @alias module:model/NsfwResult
+   * Constructs a new <code>ObjectDetectionResult</code>.
+   * Result of detecting objects in an image
+   * @alias module:model/ObjectDetectionResult
    * @class
    */
   var exports = function() {
@@ -54,11 +54,11 @@
   };
 
   /**
-   * Constructs a <code>NsfwResult</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ObjectDetectionResult</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/NsfwResult} obj Optional instance to populate.
-   * @return {module:model/NsfwResult} The populated <code>NsfwResult</code> instance.
+   * @param {module:model/ObjectDetectionResult} obj Optional instance to populate.
+   * @return {module:model/ObjectDetectionResult} The populated <code>ObjectDetectionResult</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -67,31 +67,31 @@
       if (data.hasOwnProperty('Successful')) {
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
-      if (data.hasOwnProperty('Score')) {
-        obj['Score'] = ApiClient.convertToType(data['Score'], 'Number');
+      if (data.hasOwnProperty('Objects')) {
+        obj['Objects'] = ApiClient.convertToType(data['Objects'], [DetectedObject]);
       }
-      if (data.hasOwnProperty('ClassificationOutcome')) {
-        obj['ClassificationOutcome'] = ApiClient.convertToType(data['ClassificationOutcome'], 'String');
+      if (data.hasOwnProperty('ObjectCount')) {
+        obj['ObjectCount'] = ApiClient.convertToType(data['ObjectCount'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * True if the classification was successfully run, false otherwise
+   * Was the image processed successfully?
    * @member {Boolean} Successful
    */
   exports.prototype['Successful'] = undefined;
   /**
-   * Score between 0.0 and 1.0.  Scores of 0.0-0.2 represent high probability safe content, while scores 0.8-1.0 represent high probability unsafe content.  Content between 0.2 and 0.8 is of increasing raciness.
-   * @member {Number} Score
+   * Array of objects detected in the scene
+   * @member {Array.<module:model/DetectedObject>} Objects
    */
-  exports.prototype['Score'] = undefined;
+  exports.prototype['Objects'] = undefined;
   /**
-   * Classification result into four categories: SafeContent_HighProbability, UnsafeContent_HighProbability, RacyContent, SafeContent_ModerateProbability
-   * @member {String} ClassificationOutcome
+   * Number of objects detected in the scene
+   * @member {Number} ObjectCount
    */
-  exports.prototype['ClassificationOutcome'] = undefined;
+  exports.prototype['ObjectCount'] = undefined;
 
 
 

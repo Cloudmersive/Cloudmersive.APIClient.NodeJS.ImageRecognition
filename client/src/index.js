@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Face', 'model/FaceLocateResponse', 'model/ImageDescriptionResponse', 'model/NsfwResult', 'model/RecognitionOutcome', 'api/FaceApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi'], factory);
+    define(['ApiClient', 'model/DetectedObject', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceLocateResponse', 'model/ImageDescriptionResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/RecognitionOutcome', 'api/ArtisticApi', 'api/EditApi', 'api/FaceApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Face'), require('./model/FaceLocateResponse'), require('./model/ImageDescriptionResponse'), require('./model/NsfwResult'), require('./model/RecognitionOutcome'), require('./api/FaceApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/DetectedObject'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceLocateResponse'), require('./model/ImageDescriptionResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/RecognitionOutcome'), require('./api/ArtisticApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'));
   }
-}(function(ApiClient, Face, FaceLocateResponse, ImageDescriptionResponse, NsfwResult, RecognitionOutcome, FaceApi, NsfwApi, RecognizeApi, ResizeApi) {
+}(function(ApiClient, DetectedObject, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceLocateResponse, ImageDescriptionResponse, NsfwResult, ObjectDetectionResult, RecognitionOutcome, ArtisticApi, EditApi, FaceApi, NsfwApi, RecognizeApi, ResizeApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 1.0.8
+   * @version 1.0.9
    */
   var exports = {
     /**
@@ -61,6 +61,31 @@
      * @property {module:ApiClient}
      */
     ApiClient: ApiClient,
+    /**
+     * The DetectedObject model constructor.
+     * @property {module:model/DetectedObject}
+     */
+    DetectedObject: DetectedObject,
+    /**
+     * The DrawRectangleInstance model constructor.
+     * @property {module:model/DrawRectangleInstance}
+     */
+    DrawRectangleInstance: DrawRectangleInstance,
+    /**
+     * The DrawRectangleRequest model constructor.
+     * @property {module:model/DrawRectangleRequest}
+     */
+    DrawRectangleRequest: DrawRectangleRequest,
+    /**
+     * The DrawTextInstance model constructor.
+     * @property {module:model/DrawTextInstance}
+     */
+    DrawTextInstance: DrawTextInstance,
+    /**
+     * The DrawTextRequest model constructor.
+     * @property {module:model/DrawTextRequest}
+     */
+    DrawTextRequest: DrawTextRequest,
     /**
      * The Face model constructor.
      * @property {module:model/Face}
@@ -82,10 +107,25 @@
      */
     NsfwResult: NsfwResult,
     /**
+     * The ObjectDetectionResult model constructor.
+     * @property {module:model/ObjectDetectionResult}
+     */
+    ObjectDetectionResult: ObjectDetectionResult,
+    /**
      * The RecognitionOutcome model constructor.
      * @property {module:model/RecognitionOutcome}
      */
     RecognitionOutcome: RecognitionOutcome,
+    /**
+     * The ArtisticApi service constructor.
+     * @property {module:api/ArtisticApi}
+     */
+    ArtisticApi: ArtisticApi,
+    /**
+     * The EditApi service constructor.
+     * @property {module:api/EditApi}
+     */
+    EditApi: EditApi,
     /**
      * The FaceApi service constructor.
      * @property {module:api/FaceApi}

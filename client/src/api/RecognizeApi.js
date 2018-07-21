@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ImageDescriptionResponse'], factory);
+    define(['ApiClient', 'model/ImageDescriptionResponse', 'model/ObjectDetectionResult'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ImageDescriptionResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/ImageDescriptionResponse'), require('../model/ObjectDetectionResult'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.RecognizeApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.ImageDescriptionResponse);
+    root.CloudmersiveImageApiClient.RecognizeApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.ImageDescriptionResponse, root.CloudmersiveImageApiClient.ObjectDetectionResult);
   }
-}(this, function(ApiClient, ImageDescriptionResponse) {
+}(this, function(ApiClient, ImageDescriptionResponse, ObjectDetectionResult) {
   'use strict';
 
   /**
    * Recognize service.
    * @module api/RecognizeApi
-   * @version 1.0.8
+   * @version 1.0.9
    */
 
   /**
@@ -90,6 +90,102 @@
 
       return this.apiClient.callApi(
         '/image/recognize/describe', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the recognizeDetectObjects operation.
+     * @callback module:api/RecognizeApi~recognizeDetectObjectsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ObjectDetectionResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Detect objects, including types and locations, in an image
+     * Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/RecognizeApi~recognizeDetectObjectsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ObjectDetectionResult}
+     */
+    this.recognizeDetectObjects = function(imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling recognizeDetectObjects");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = ObjectDetectionResult;
+
+      return this.apiClient.callApi(
+        '/image/recognize/detect-objects', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the recognizeDetectPeople operation.
+     * @callback module:api/RecognizeApi~recognizeDetectPeopleCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ObjectDetectionResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Detect people, including locations, in an image
+     * Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/RecognizeApi~recognizeDetectPeopleCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ObjectDetectionResult}
+     */
+    this.recognizeDetectPeople = function(imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling recognizeDetectPeople");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = ObjectDetectionResult;
+
+      return this.apiClient.callApi(
+        '/image/recognize/detect-people', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

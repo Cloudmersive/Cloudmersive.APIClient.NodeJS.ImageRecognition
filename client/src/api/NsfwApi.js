@@ -33,7 +33,7 @@
   /**
    * Nsfw service.
    * @module api/NsfwApi
-   * @version 1.0.8
+   * @version 1.0.9
    */
 
   /**
@@ -56,7 +56,7 @@
      */
 
     /**
-     * NSFW image classifier
+     * Not safe for work (NSFW) racy content classification
      * Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/NsfwApi~nsfwClassifyCallback} callback The callback function, accepting three arguments: error, data, response

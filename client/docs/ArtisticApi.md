@@ -1,19 +1,19 @@
-# CloudmersiveImageApiClient.NsfwApi
+# CloudmersiveImageApiClient.ArtisticApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**nsfwClassify**](NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
+[**artisticPainting**](ArtisticApi.md#artisticPainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
 
 
-<a name="nsfwClassify"></a>
-# **nsfwClassify**
-> NsfwResult nsfwClassify(imageFile)
+<a name="artisticPainting"></a>
+# **artisticPainting**
+> Object artisticPainting(style, imageFile)
 
-Not safe for work (NSFW) racy content classification
+Transform an image into an artistic painting automatically
 
-Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
+Uses machine learning to automatically transform an image into an artistic painting.  Due to depth of AI processing, depending on image size this operation can take up to 20 seconds.
 
 ### Example
 ```javascript
@@ -26,7 +26,9 @@ Apikey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix = 'Token';
 
-var apiInstance = new CloudmersiveImageApiClient.NsfwApi();
+var apiInstance = new CloudmersiveImageApiClient.ArtisticApi();
+
+var style = "style_example"; // String | The style of the painting to apply.  To start, try \"udnie\" a modernist\" painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\".
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -38,18 +40,19 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.nsfwClassify(imageFile, callback);
+apiInstance.artisticPainting(style, imageFile, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **style** | **String**| The style of the painting to apply.  To start, try \&quot;udnie\&quot; a modernist\&quot; painting style.  Possible values are: \&quot;udnie\&quot;, \&quot;wave\&quot;, \&quot;la_muse\&quot;, \&quot;rain_princess\&quot;. | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**NsfwResult**](NsfwResult.md)
+**Object**
 
 ### Authorization
 
@@ -58,5 +61,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
