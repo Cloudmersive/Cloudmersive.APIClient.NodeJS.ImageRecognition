@@ -36,7 +36,7 @@
   /**
    * The FaceLocateResponse model module.
    * @module model/FaceLocateResponse
-   * @version 1.1.0
+   * @version 1.1.1
    */
 
   /**
@@ -47,6 +47,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -64,6 +65,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('ErrorDetails')) {
+        obj['ErrorDetails'] = ApiClient.convertToType(data['ErrorDetails'], 'String');
+      }
       if (data.hasOwnProperty('Successful')) {
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
@@ -77,6 +81,10 @@
     return obj;
   }
 
+  /**
+   * @member {String} ErrorDetails
+   */
+  exports.prototype['ErrorDetails'] = undefined;
   /**
    * True if the operation was successful, false otherwise
    * @member {Boolean} Successful

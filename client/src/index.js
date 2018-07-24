@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DetectedObject', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceLocateResponse', 'model/ImageDescriptionResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/RecognitionOutcome', 'api/ArtisticApi', 'api/EditApi', 'api/FaceApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi'], factory);
+    define(['ApiClient', 'model/AgeDetectionResult', 'model/DetectedObject', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceLocateResponse', 'model/ImageDescriptionResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/PersonWithAge', 'model/RecognitionOutcome', 'api/ArtisticApi', 'api/EditApi', 'api/FaceApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/DetectedObject'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceLocateResponse'), require('./model/ImageDescriptionResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/RecognitionOutcome'), require('./api/ArtisticApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/DetectedObject'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceLocateResponse'), require('./model/ImageDescriptionResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/PersonWithAge'), require('./model/RecognitionOutcome'), require('./api/ArtisticApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'));
   }
-}(function(ApiClient, DetectedObject, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceLocateResponse, ImageDescriptionResponse, NsfwResult, ObjectDetectionResult, RecognitionOutcome, ArtisticApi, EditApi, FaceApi, NsfwApi, RecognizeApi, ResizeApi) {
+}(function(ApiClient, AgeDetectionResult, DetectedObject, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceLocateResponse, ImageDescriptionResponse, NsfwResult, ObjectDetectionResult, PersonWithAge, RecognitionOutcome, ArtisticApi, EditApi, FaceApi, NsfwApi, RecognizeApi, ResizeApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 1.1.0
+   * @version 1.1.1
    */
   var exports = {
     /**
@@ -61,6 +61,11 @@
      * @property {module:ApiClient}
      */
     ApiClient: ApiClient,
+    /**
+     * The AgeDetectionResult model constructor.
+     * @property {module:model/AgeDetectionResult}
+     */
+    AgeDetectionResult: AgeDetectionResult,
     /**
      * The DetectedObject model constructor.
      * @property {module:model/DetectedObject}
@@ -111,6 +116,11 @@
      * @property {module:model/ObjectDetectionResult}
      */
     ObjectDetectionResult: ObjectDetectionResult,
+    /**
+     * The PersonWithAge model constructor.
+     * @property {module:model/PersonWithAge}
+     */
+    PersonWithAge: PersonWithAge,
     /**
      * The RecognitionOutcome model constructor.
      * @property {module:model/RecognitionOutcome}

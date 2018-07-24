@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/FaceLocateResponse'], factory);
+    define(['ApiClient', 'model/AgeDetectionResult', 'model/FaceLocateResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/FaceLocateResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/AgeDetectionResult'), require('../model/FaceLocateResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.FaceApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.FaceLocateResponse);
+    root.CloudmersiveImageApiClient.FaceApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.AgeDetectionResult, root.CloudmersiveImageApiClient.FaceLocateResponse);
   }
-}(this, function(ApiClient, FaceLocateResponse) {
+}(this, function(ApiClient, AgeDetectionResult, FaceLocateResponse) {
   'use strict';
 
   /**
    * Face service.
    * @module api/FaceApi
-   * @version 1.1.0
+   * @version 1.1.1
    */
 
   /**
@@ -138,6 +138,54 @@
 
       return this.apiClient.callApi(
         '/image/face/crop/first/round', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the faceDetectAge operation.
+     * @callback module:api/FaceApi~faceDetectAgeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AgeDetectionResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Detect the age of people in an image
+     * Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/FaceApi~faceDetectAgeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AgeDetectionResult}
+     */
+    this.faceDetectAge = function(imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling faceDetectAge");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = AgeDetectionResult;
+
+      return this.apiClient.callApi(
+        '/image/face/detect-age', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

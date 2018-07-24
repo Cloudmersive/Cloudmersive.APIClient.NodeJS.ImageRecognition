@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DetectedObject'], factory);
+    define(['ApiClient', 'model/PersonWithAge'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DetectedObject'));
+    module.exports = factory(require('../ApiClient'), require('./PersonWithAge'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.ObjectDetectionResult = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.DetectedObject);
+    root.CloudmersiveImageApiClient.AgeDetectionResult = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.PersonWithAge);
   }
-}(this, function(ApiClient, DetectedObject) {
+}(this, function(ApiClient, PersonWithAge) {
   'use strict';
 
 
 
 
   /**
-   * The ObjectDetectionResult model module.
-   * @module model/ObjectDetectionResult
+   * The AgeDetectionResult model module.
+   * @module model/AgeDetectionResult
    * @version 1.1.1
    */
 
   /**
-   * Constructs a new <code>ObjectDetectionResult</code>.
-   * Result of detecting objects in an image
-   * @alias module:model/ObjectDetectionResult
+   * Constructs a new <code>AgeDetectionResult</code>.
+   * Result from classifying the Age of people in an image
+   * @alias module:model/AgeDetectionResult
    * @class
    */
   var exports = function() {
@@ -54,11 +54,11 @@
   };
 
   /**
-   * Constructs a <code>ObjectDetectionResult</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>AgeDetectionResult</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ObjectDetectionResult} obj Optional instance to populate.
-   * @return {module:model/ObjectDetectionResult} The populated <code>ObjectDetectionResult</code> instance.
+   * @param {module:model/AgeDetectionResult} obj Optional instance to populate.
+   * @return {module:model/AgeDetectionResult} The populated <code>AgeDetectionResult</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -67,31 +67,31 @@
       if (data.hasOwnProperty('Successful')) {
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
-      if (data.hasOwnProperty('Objects')) {
-        obj['Objects'] = ApiClient.convertToType(data['Objects'], [DetectedObject]);
+      if (data.hasOwnProperty('PeopleWithAge')) {
+        obj['PeopleWithAge'] = ApiClient.convertToType(data['PeopleWithAge'], [PersonWithAge]);
       }
-      if (data.hasOwnProperty('ObjectCount')) {
-        obj['ObjectCount'] = ApiClient.convertToType(data['ObjectCount'], 'Number');
+      if (data.hasOwnProperty('PeopleIdentified')) {
+        obj['PeopleIdentified'] = ApiClient.convertToType(data['PeopleIdentified'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * Was the image processed successfully?
+   * True if the operation was successful, false otherwise
    * @member {Boolean} Successful
    */
   exports.prototype['Successful'] = undefined;
   /**
-   * Array of objects detected in the scene
-   * @member {Array.<module:model/DetectedObject>} Objects
+   * People in the image annotated with age information
+   * @member {Array.<module:model/PersonWithAge>} PeopleWithAge
    */
-  exports.prototype['Objects'] = undefined;
+  exports.prototype['PeopleWithAge'] = undefined;
   /**
-   * Number of objects detected in the scene
-   * @member {Number} ObjectCount
+   * Number of people identified in the image with an age
+   * @member {Number} PeopleIdentified
    */
-  exports.prototype['ObjectCount'] = undefined;
+  exports.prototype['PeopleIdentified'] = undefined;
 
 
 

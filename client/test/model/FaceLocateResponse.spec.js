@@ -56,6 +56,12 @@
       //expect(instance).to.be.a(CloudmersiveImageApiClient.FaceLocateResponse);
     });
 
+    it('should have the property errorDetails (base name: "ErrorDetails")', function() {
+      // uncomment below and update the code to test the property errorDetails
+      //var instane = new CloudmersiveImageApiClient.FaceLocateResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property successful (base name: "Successful")', function() {
       // uncomment below and update the code to test the property successful
       //var instane = new CloudmersiveImageApiClient.FaceLocateResponse();

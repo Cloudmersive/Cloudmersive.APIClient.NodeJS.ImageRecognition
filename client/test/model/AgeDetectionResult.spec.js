@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.FaceApi();
+    instance = new CloudmersiveImageApiClient.AgeDetectionResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,47 +49,31 @@
       object[property] = value;
   }
 
-  describe('FaceApi', function() {
-    describe('faceCropFirst', function() {
-      it('should call faceCropFirst successfully', function(done) {
-        //uncomment below and update the code to test faceCropFirst
-        //instance.faceCropFirst(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('AgeDetectionResult', function() {
+    it('should create an instance of AgeDetectionResult', function() {
+      // uncomment below and update the code to test AgeDetectionResult
+      //var instane = new CloudmersiveImageApiClient.AgeDetectionResult();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.AgeDetectionResult);
     });
-    describe('faceCropFirstRound', function() {
-      it('should call faceCropFirstRound successfully', function(done) {
-        //uncomment below and update the code to test faceCropFirstRound
-        //instance.faceCropFirstRound(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property successful (base name: "Successful")', function() {
+      // uncomment below and update the code to test the property successful
+      //var instane = new CloudmersiveImageApiClient.AgeDetectionResult();
+      //expect(instance).to.be();
     });
-    describe('faceDetectAge', function() {
-      it('should call faceDetectAge successfully', function(done) {
-        //uncomment below and update the code to test faceDetectAge
-        //instance.faceDetectAge(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property peopleWithAge (base name: "PeopleWithAge")', function() {
+      // uncomment below and update the code to test the property peopleWithAge
+      //var instane = new CloudmersiveImageApiClient.AgeDetectionResult();
+      //expect(instance).to.be();
     });
-    describe('faceLocate', function() {
-      it('should call faceLocate successfully', function(done) {
-        //uncomment below and update the code to test faceLocate
-        //instance.faceLocate(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property peopleIdentified (base name: "PeopleIdentified")', function() {
+      // uncomment below and update the code to test the property peopleIdentified
+      //var instane = new CloudmersiveImageApiClient.AgeDetectionResult();
+      //expect(instance).to.be();
     });
+
   });
 
 }));
