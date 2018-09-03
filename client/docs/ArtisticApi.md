@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="artisticPainting"></a>
 # **artisticPainting**
-> Object artisticPainting(style, imageFile)
+> &#39;Blob&#39; artisticPainting(style, imageFile)
 
 Transform an image into an artistic painting automatically
 
@@ -28,7 +28,7 @@ Apikey.apiKey = 'YOUR API KEY';
 
 var apiInstance = new CloudmersiveImageApiClient.ArtisticApi();
 
-var style = "style_example"; // String | The style of the painting to apply.  To start, try \"udnie\" a modernist\" painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\".
+var style = "style_example"; // String | The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\".
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -47,12 +47,12 @@ apiInstance.artisticPainting(style, imageFile, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **style** | **String**| The style of the painting to apply.  To start, try \&quot;udnie\&quot; a modernist\&quot; painting style.  Possible values are: \&quot;udnie\&quot;, \&quot;wave\&quot;, \&quot;la_muse\&quot;, \&quot;rain_princess\&quot;. | 
+ **style** | **String**| The style of the painting to apply.  To start, try \&quot;udnie\&quot; a painting style.  Possible values are: \&quot;udnie\&quot;, \&quot;wave\&quot;, \&quot;la_muse\&quot;, \&quot;rain_princess\&quot;. | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-**Object**
+**&#39;Blob&#39;**
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="resizePost"></a>
 # **resizePost**
-> Object resizePost(maxWidth, maxHeight, imageFile)
+> &#39;Blob&#39; resizePost(maxWidth, maxHeight, imageFile)
 
 Resize an image with parameters
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**&#39;Blob&#39;**
 
 ### Authorization
 

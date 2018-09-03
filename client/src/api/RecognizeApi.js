@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ImageDescriptionResponse', 'model/ObjectDetectionResult'], factory);
+    define(['ApiClient', 'model/ImageDescriptionResponse', 'model/ObjectDetectionResult', 'model/VehicleLicensePlateDetectionResult'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ImageDescriptionResponse'), require('../model/ObjectDetectionResult'));
+    module.exports = factory(require('../ApiClient'), require('../model/ImageDescriptionResponse'), require('../model/ObjectDetectionResult'), require('../model/VehicleLicensePlateDetectionResult'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.RecognizeApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.ImageDescriptionResponse, root.CloudmersiveImageApiClient.ObjectDetectionResult);
+    root.CloudmersiveImageApiClient.RecognizeApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.ImageDescriptionResponse, root.CloudmersiveImageApiClient.ObjectDetectionResult, root.CloudmersiveImageApiClient.VehicleLicensePlateDetectionResult);
   }
-}(this, function(ApiClient, ImageDescriptionResponse, ObjectDetectionResult) {
+}(this, function(ApiClient, ImageDescriptionResponse, ObjectDetectionResult, VehicleLicensePlateDetectionResult) {
   'use strict';
 
   /**
    * Recognize service.
    * @module api/RecognizeApi
-   * @version 1.1.1
+   * @version 1.1.2
    */
 
   /**
@@ -90,6 +90,58 @@
 
       return this.apiClient.callApi(
         '/image/recognize/describe', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the recognizeDetectAndUnskewDocument operation.
+     * @callback module:api/RecognizeApi~recognizeDetectAndUnskewDocumentCallback
+     * @param {String} error Error message, if any.
+     * @param {'Blob'} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Detect and unskew a photo of a document
+     * Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.postProcessingEffect Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations).
+     * @param {module:api/RecognizeApi~recognizeDetectAndUnskewDocumentCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link 'Blob'}
+     */
+    this.recognizeDetectAndUnskewDocument = function(imageFile, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling recognizeDetectAndUnskewDocument");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+        'PostProcessingEffect': opts['postProcessingEffect']
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = 'Blob';
+
+      return this.apiClient.callApi(
+        '/image/recognize/detect-document/unskew', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -186,6 +238,54 @@
 
       return this.apiClient.callApi(
         '/image/recognize/detect-people', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the recognizeDetectVehicleLicensePlates operation.
+     * @callback module:api/RecognizeApi~recognizeDetectVehicleLicensePlatesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/VehicleLicensePlateDetectionResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Detect vehicle license plates in an image
+     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/RecognizeApi~recognizeDetectVehicleLicensePlatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/VehicleLicensePlateDetectionResult}
+     */
+    this.recognizeDetectVehicleLicensePlates = function(imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling recognizeDetectVehicleLicensePlates");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = VehicleLicensePlateDetectionResult;
+
+      return this.apiClient.callApi(
+        '/image/recognize/detect-vehicle-license-plates', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

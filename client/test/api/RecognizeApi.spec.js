@@ -60,6 +60,16 @@
         done();
       });
     });
+    describe('recognizeDetectAndUnskewDocument', function() {
+      it('should call recognizeDetectAndUnskewDocument successfully', function(done) {
+        //uncomment below and update the code to test recognizeDetectAndUnskewDocument
+        //instance.recognizeDetectAndUnskewDocument(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('recognizeDetectObjects', function() {
       it('should call recognizeDetectObjects successfully', function(done) {
         //uncomment below and update the code to test recognizeDetectObjects
@@ -74,6 +84,16 @@
       it('should call recognizeDetectPeople successfully', function(done) {
         //uncomment below and update the code to test recognizeDetectPeople
         //instance.recognizeDetectPeople(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('recognizeDetectVehicleLicensePlates', function() {
+      it('should call recognizeDetectVehicleLicensePlates successfully', function(done) {
+        //uncomment below and update the code to test recognizeDetectVehicleLicensePlates
+        //instance.recognizeDetectVehicleLicensePlates(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
