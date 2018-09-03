@@ -36,7 +36,7 @@
   /**
    * The VehicleLicensePlateDetectionResult model module.
    * @module model/VehicleLicensePlateDetectionResult
-   * @version 1.1.2
+   * @version 1.1.3
    */
 
   /**

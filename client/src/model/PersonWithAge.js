@@ -36,7 +36,7 @@
   /**
    * The PersonWithAge model module.
    * @module model/PersonWithAge
-   * @version 1.1.2
+   * @version 1.1.3
    */
 
   /**

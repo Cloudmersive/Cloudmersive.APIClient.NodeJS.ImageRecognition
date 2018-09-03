@@ -36,7 +36,7 @@
   /**
    * The ImageDescriptionResponse model module.
    * @module model/ImageDescriptionResponse
-   * @version 1.1.2
+   * @version 1.1.3
    */
 
   /**
