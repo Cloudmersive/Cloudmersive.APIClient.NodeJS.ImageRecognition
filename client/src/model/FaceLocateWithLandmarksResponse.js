@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Face'], factory);
+    define(['ApiClient', 'model/FaceWithLandmarks'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Face'));
+    module.exports = factory(require('../ApiClient'), require('./FaceWithLandmarks'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.FaceLocateResponse = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.Face);
+    root.CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.FaceWithLandmarks);
   }
-}(this, function(ApiClient, Face) {
+}(this, function(ApiClient, FaceWithLandmarks) {
   'use strict';
 
 
 
 
   /**
-   * The FaceLocateResponse model module.
-   * @module model/FaceLocateResponse
+   * The FaceLocateWithLandmarksResponse model module.
+   * @module model/FaceLocateWithLandmarksResponse
    * @version 1.1.5
    */
 
   /**
-   * Constructs a new <code>FaceLocateResponse</code>.
+   * Constructs a new <code>FaceLocateWithLandmarksResponse</code>.
    * Results of locating faces in an image
-   * @alias module:model/FaceLocateResponse
+   * @alias module:model/FaceLocateWithLandmarksResponse
    * @class
    */
   var exports = function() {
@@ -55,11 +55,11 @@
   };
 
   /**
-   * Constructs a <code>FaceLocateResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FaceLocateWithLandmarksResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/FaceLocateResponse} obj Optional instance to populate.
-   * @return {module:model/FaceLocateResponse} The populated <code>FaceLocateResponse</code> instance.
+   * @param {module:model/FaceLocateWithLandmarksResponse} obj Optional instance to populate.
+   * @return {module:model/FaceLocateWithLandmarksResponse} The populated <code>FaceLocateWithLandmarksResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -72,7 +72,7 @@
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
       if (data.hasOwnProperty('Faces')) {
-        obj['Faces'] = ApiClient.convertToType(data['Faces'], [Face]);
+        obj['Faces'] = ApiClient.convertToType(data['Faces'], [FaceWithLandmarks]);
       }
       if (data.hasOwnProperty('FaceCount')) {
         obj['FaceCount'] = ApiClient.convertToType(data['FaceCount'], 'Number');
@@ -92,7 +92,7 @@
   exports.prototype['Successful'] = undefined;
   /**
    * Array of faces found in the image
-   * @member {Array.<module:model/Face>} Faces
+   * @member {Array.<module:model/FaceWithLandmarks>} Faces
    */
   exports.prototype['Faces'] = undefined;
   /**

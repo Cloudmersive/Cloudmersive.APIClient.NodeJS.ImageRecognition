@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AgeDetectionResult', 'model/FaceLocateResponse'], factory);
+    define(['ApiClient', 'model/AgeDetectionResult', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AgeDetectionResult'), require('../model/FaceLocateResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/AgeDetectionResult'), require('../model/FaceCompareResponse'), require('../model/FaceLocateResponse'), require('../model/FaceLocateWithLandmarksResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.FaceApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.AgeDetectionResult, root.CloudmersiveImageApiClient.FaceLocateResponse);
+    root.CloudmersiveImageApiClient.FaceApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.AgeDetectionResult, root.CloudmersiveImageApiClient.FaceCompareResponse, root.CloudmersiveImageApiClient.FaceLocateResponse, root.CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse);
   }
-}(this, function(ApiClient, AgeDetectionResult, FaceLocateResponse) {
+}(this, function(ApiClient, AgeDetectionResult, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse) {
   'use strict';
 
   /**
    * Face service.
    * @module api/FaceApi
-   * @version 1.1.4
+   * @version 1.1.5
    */
 
   /**
@@ -46,6 +46,61 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
+
+    /**
+     * Callback function to receive the result of the faceCompare operation.
+     * @callback module:api/FaceApi~faceCompareCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/FaceCompareResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Compare and match faces
+     * Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.
+     * @param {File} inputImage Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported.
+     * @param {File} matchFace Image of a single face to compare and match against.
+     * @param {module:api/FaceApi~faceCompareCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/FaceCompareResponse}
+     */
+    this.faceCompare = function(inputImage, matchFace, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'inputImage' is set
+      if (inputImage === undefined || inputImage === null) {
+        throw new Error("Missing the required parameter 'inputImage' when calling faceCompare");
+      }
+
+      // verify the required parameter 'matchFace' is set
+      if (matchFace === undefined || matchFace === null) {
+        throw new Error("Missing the required parameter 'matchFace' when calling faceCompare");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'inputImage': inputImage,
+        'matchFace': matchFace
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = FaceCompareResponse;
+
+      return this.apiClient.callApi(
+        '/image/face/compare-and-match', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the faceCropFirst operation.
@@ -234,6 +289,54 @@
 
       return this.apiClient.callApi(
         '/image/face/locate', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the faceLocateWithLandmarks operation.
+     * @callback module:api/FaceApi~faceLocateWithLandmarksCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/FaceLocateWithLandmarksResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/FaceApi~faceLocateWithLandmarksCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/FaceLocateWithLandmarksResponse}
+     */
+    this.faceLocateWithLandmarks = function(imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling faceLocateWithLandmarks");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = FaceLocateWithLandmarksResponse;
+
+      return this.apiClient.callApi(
+        '/image/face/locate-with-landmarks', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

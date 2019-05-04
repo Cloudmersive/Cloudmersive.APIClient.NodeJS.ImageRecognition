@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.Face = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.FaceMatch = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The Face model module.
-   * @module model/Face
+   * The FaceMatch model module.
+   * @module model/FaceMatch
    * @version 1.1.5
    */
 
   /**
-   * Constructs a new <code>Face</code>.
-   * Location of one face in an image
-   * @alias module:model/Face
+   * Constructs a new <code>FaceMatch</code>.
+   * Location of one face in an image, along with match results
+   * @alias module:model/FaceMatch
    * @class
    */
   var exports = function() {
@@ -52,14 +52,16 @@
 
 
 
+
+
   };
 
   /**
-   * Constructs a <code>Face</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FaceMatch</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Face} obj Optional instance to populate.
-   * @return {module:model/Face} The populated <code>Face</code> instance.
+   * @param {module:model/FaceMatch} obj Optional instance to populate.
+   * @return {module:model/FaceMatch} The populated <code>FaceMatch</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -76,6 +78,12 @@
       }
       if (data.hasOwnProperty('BottomY')) {
         obj['BottomY'] = ApiClient.convertToType(data['BottomY'], 'Number');
+      }
+      if (data.hasOwnProperty('HighConfidenceMatch')) {
+        obj['HighConfidenceMatch'] = ApiClient.convertToType(data['HighConfidenceMatch'], 'Boolean');
+      }
+      if (data.hasOwnProperty('MatchScore')) {
+        obj['MatchScore'] = ApiClient.convertToType(data['MatchScore'], 'Number');
       }
     }
     return obj;
@@ -101,6 +109,16 @@
    * @member {Number} BottomY
    */
   exports.prototype['BottomY'] = undefined;
+  /**
+   * True if there is a high confidence match, false otherwise
+   * @member {Boolean} HighConfidenceMatch
+   */
+  exports.prototype['HighConfidenceMatch'] = undefined;
+  /**
+   * Match score from 0.0 to 1.0 with higher scores indicating a greater match; scores above 0.7 indicate a match
+   * @member {Number} MatchScore
+   */
+  exports.prototype['MatchScore'] = undefined;
 
 
 

@@ -50,6 +50,16 @@
   }
 
   describe('FaceApi', function() {
+    describe('faceCompare', function() {
+      it('should call faceCompare successfully', function(done) {
+        //uncomment below and update the code to test faceCompare
+        //instance.faceCompare(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('faceCropFirst', function() {
       it('should call faceCropFirst successfully', function(done) {
         //uncomment below and update the code to test faceCropFirst
@@ -84,6 +94,16 @@
       it('should call faceLocate successfully', function(done) {
         //uncomment below and update the code to test faceLocate
         //instance.faceLocate(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('faceLocateWithLandmarks', function() {
+      it('should call faceLocateWithLandmarks successfully', function(done) {
+        //uncomment below and update the code to test faceLocateWithLandmarks
+        //instance.faceLocateWithLandmarks(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

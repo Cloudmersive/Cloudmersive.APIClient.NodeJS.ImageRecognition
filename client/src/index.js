@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AgeDetectionResult', 'model/DetectedLicensePlate', 'model/DetectedObject', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceLocateResponse', 'model/ImageDescriptionResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/PersonWithAge', 'model/RecognitionOutcome', 'model/VehicleLicensePlateDetectionResult', 'api/ArtisticApi', 'api/EditApi', 'api/FaceApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi'], factory);
+    define(['ApiClient', 'model/AgeDetectionResult', 'model/DetectedLicensePlate', 'model/DetectedObject', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse', 'model/FaceMatch', 'model/FacePoint', 'model/FaceWithLandmarks', 'model/ImageDescriptionResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/PersonWithAge', 'model/RecognitionOutcome', 'model/VehicleLicensePlateDetectionResult', 'api/ArtisticApi', 'api/EditApi', 'api/FaceApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/DetectedLicensePlate'), require('./model/DetectedObject'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceLocateResponse'), require('./model/ImageDescriptionResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/PersonWithAge'), require('./model/RecognitionOutcome'), require('./model/VehicleLicensePlateDetectionResult'), require('./api/ArtisticApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/DetectedLicensePlate'), require('./model/DetectedObject'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceCompareResponse'), require('./model/FaceLocateResponse'), require('./model/FaceLocateWithLandmarksResponse'), require('./model/FaceMatch'), require('./model/FacePoint'), require('./model/FaceWithLandmarks'), require('./model/ImageDescriptionResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/PersonWithAge'), require('./model/RecognitionOutcome'), require('./model/VehicleLicensePlateDetectionResult'), require('./api/ArtisticApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'));
   }
-}(function(ApiClient, AgeDetectionResult, DetectedLicensePlate, DetectedObject, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceLocateResponse, ImageDescriptionResponse, NsfwResult, ObjectDetectionResult, PersonWithAge, RecognitionOutcome, VehicleLicensePlateDetectionResult, ArtisticApi, EditApi, FaceApi, NsfwApi, RecognizeApi, ResizeApi) {
+}(function(ApiClient, AgeDetectionResult, DetectedLicensePlate, DetectedObject, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse, FaceMatch, FacePoint, FaceWithLandmarks, ImageDescriptionResponse, NsfwResult, ObjectDetectionResult, PersonWithAge, RecognitionOutcome, VehicleLicensePlateDetectionResult, ArtisticApi, EditApi, FaceApi, NsfwApi, RecognizeApi, ResizeApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 1.1.4
+   * @version 1.1.5
    */
   var exports = {
     /**
@@ -102,10 +102,35 @@
      */
     Face: Face,
     /**
+     * The FaceCompareResponse model constructor.
+     * @property {module:model/FaceCompareResponse}
+     */
+    FaceCompareResponse: FaceCompareResponse,
+    /**
      * The FaceLocateResponse model constructor.
      * @property {module:model/FaceLocateResponse}
      */
     FaceLocateResponse: FaceLocateResponse,
+    /**
+     * The FaceLocateWithLandmarksResponse model constructor.
+     * @property {module:model/FaceLocateWithLandmarksResponse}
+     */
+    FaceLocateWithLandmarksResponse: FaceLocateWithLandmarksResponse,
+    /**
+     * The FaceMatch model constructor.
+     * @property {module:model/FaceMatch}
+     */
+    FaceMatch: FaceMatch,
+    /**
+     * The FacePoint model constructor.
+     * @property {module:model/FacePoint}
+     */
+    FacePoint: FacePoint,
+    /**
+     * The FaceWithLandmarks model constructor.
+     * @property {module:model/FaceWithLandmarks}
+     */
+    FaceWithLandmarks: FaceWithLandmarks,
     /**
      * The ImageDescriptionResponse model constructor.
      * @property {module:model/ImageDescriptionResponse}

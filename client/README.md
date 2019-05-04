@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.1.4
+- Package version: 1.1.5
 
 
 ## Installation
@@ -131,10 +131,12 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.EditApi* | [**editCompositeBasic**](docs/EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 *CloudmersiveImageApiClient.EditApi* | [**editDrawRectangle**](docs/EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
 *CloudmersiveImageApiClient.EditApi* | [**editDrawText**](docs/EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
+*CloudmersiveImageApiClient.FaceApi* | [**faceCompare**](docs/FaceApi.md#faceCompare) | **POST** /image/face/compare-and-match | Compare and match faces
 *CloudmersiveImageApiClient.FaceApi* | [**faceCropFirst**](docs/FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)
 *CloudmersiveImageApiClient.FaceApi* | [**faceCropFirstRound**](docs/FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face (round)
 *CloudmersiveImageApiClient.FaceApi* | [**faceDetectAge**](docs/FaceApi.md#faceDetectAge) | **POST** /image/face/detect-age | Detect the age of people in an image
 *CloudmersiveImageApiClient.FaceApi* | [**faceLocate**](docs/FaceApi.md#faceLocate) | **POST** /image/face/locate | Find faces in an image
+*CloudmersiveImageApiClient.FaceApi* | [**faceLocateWithLandmarks**](docs/FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
 *CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDescribe**](docs/RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
@@ -154,7 +156,12 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.DrawTextInstance](docs/DrawTextInstance.md)
  - [CloudmersiveImageApiClient.DrawTextRequest](docs/DrawTextRequest.md)
  - [CloudmersiveImageApiClient.Face](docs/Face.md)
+ - [CloudmersiveImageApiClient.FaceCompareResponse](docs/FaceCompareResponse.md)
  - [CloudmersiveImageApiClient.FaceLocateResponse](docs/FaceLocateResponse.md)
+ - [CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse](docs/FaceLocateWithLandmarksResponse.md)
+ - [CloudmersiveImageApiClient.FaceMatch](docs/FaceMatch.md)
+ - [CloudmersiveImageApiClient.FacePoint](docs/FacePoint.md)
+ - [CloudmersiveImageApiClient.FaceWithLandmarks](docs/FaceWithLandmarks.md)
  - [CloudmersiveImageApiClient.ImageDescriptionResponse](docs/ImageDescriptionResponse.md)
  - [CloudmersiveImageApiClient.NsfwResult](docs/NsfwResult.md)
  - [CloudmersiveImageApiClient.ObjectDetectionResult](docs/ObjectDetectionResult.md)

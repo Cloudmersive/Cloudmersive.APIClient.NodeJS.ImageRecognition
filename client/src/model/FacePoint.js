@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.Face = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.FacePoint = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The Face model module.
-   * @module model/Face
+   * The FacePoint model module.
+   * @module model/FacePoint
    * @version 1.1.5
    */
 
   /**
-   * Constructs a new <code>Face</code>.
-   * Location of one face in an image
-   * @alias module:model/Face
+   * Constructs a new <code>FacePoint</code>.
+   * Point location within a face
+   * @alias module:model/FacePoint
    * @class
    */
   var exports = function() {
@@ -50,57 +50,39 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>Face</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FacePoint</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Face} obj Optional instance to populate.
-   * @return {module:model/Face} The populated <code>Face</code> instance.
+   * @param {module:model/FacePoint} obj Optional instance to populate.
+   * @return {module:model/FacePoint} The populated <code>FacePoint</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('LeftX')) {
-        obj['LeftX'] = ApiClient.convertToType(data['LeftX'], 'Number');
+      if (data.hasOwnProperty('X')) {
+        obj['X'] = ApiClient.convertToType(data['X'], 'Number');
       }
-      if (data.hasOwnProperty('TopY')) {
-        obj['TopY'] = ApiClient.convertToType(data['TopY'], 'Number');
-      }
-      if (data.hasOwnProperty('RightX')) {
-        obj['RightX'] = ApiClient.convertToType(data['RightX'], 'Number');
-      }
-      if (data.hasOwnProperty('BottomY')) {
-        obj['BottomY'] = ApiClient.convertToType(data['BottomY'], 'Number');
+      if (data.hasOwnProperty('Y')) {
+        obj['Y'] = ApiClient.convertToType(data['Y'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * X coordinate of the left side of the face
-   * @member {Number} LeftX
+   * X location, where 0 is the left-most pixel
+   * @member {Number} X
    */
-  exports.prototype['LeftX'] = undefined;
+  exports.prototype['X'] = undefined;
   /**
-   * Y coordinate of the top side of the face
-   * @member {Number} TopY
+   * Y location, where 0 is the top-most pixel
+   * @member {Number} Y
    */
-  exports.prototype['TopY'] = undefined;
-  /**
-   * X coordinate of the right side of the face
-   * @member {Number} RightX
-   */
-  exports.prototype['RightX'] = undefined;
-  /**
-   * Y coordinate of the bottom side of the face
-   * @member {Number} BottomY
-   */
-  exports.prototype['BottomY'] = undefined;
+  exports.prototype['Y'] = undefined;
 
 
 
