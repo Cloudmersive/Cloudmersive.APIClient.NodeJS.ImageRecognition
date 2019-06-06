@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.1.5
+- Package version: 1.1.6
 
 
 ## Installation
@@ -142,6 +142,8 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectObjects**](docs/RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectPeople**](docs/RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
+*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextFine**](docs/RecognizeApi.md#recognizeDetectTextFine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
+*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextLarge**](docs/RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectVehicleLicensePlates**](docs/RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
 *CloudmersiveImageApiClient.ResizeApi* | [**resizePost**](docs/ResizeApi.md#resizePost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image with parameters
 
@@ -162,11 +164,15 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.FaceMatch](docs/FaceMatch.md)
  - [CloudmersiveImageApiClient.FacePoint](docs/FacePoint.md)
  - [CloudmersiveImageApiClient.FaceWithLandmarks](docs/FaceWithLandmarks.md)
+ - [CloudmersiveImageApiClient.FineTextDetectionResult](docs/FineTextDetectionResult.md)
+ - [CloudmersiveImageApiClient.FineTextItem](docs/FineTextItem.md)
  - [CloudmersiveImageApiClient.ImageDescriptionResponse](docs/ImageDescriptionResponse.md)
  - [CloudmersiveImageApiClient.NsfwResult](docs/NsfwResult.md)
  - [CloudmersiveImageApiClient.ObjectDetectionResult](docs/ObjectDetectionResult.md)
  - [CloudmersiveImageApiClient.PersonWithAge](docs/PersonWithAge.md)
  - [CloudmersiveImageApiClient.RecognitionOutcome](docs/RecognitionOutcome.md)
+ - [CloudmersiveImageApiClient.TextDetectionResult](docs/TextDetectionResult.md)
+ - [CloudmersiveImageApiClient.TextItem](docs/TextItem.md)
  - [CloudmersiveImageApiClient.VehicleLicensePlateDetectionResult](docs/VehicleLicensePlateDetectionResult.md)
 
 

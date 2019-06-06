@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.FaceMatch = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.TextItem = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The FaceMatch model module.
-   * @module model/FaceMatch
+   * The TextItem model module.
+   * @module model/TextItem
    * @version 1.1.6
    */
 
   /**
-   * Constructs a new <code>FaceMatch</code>.
-   * Location of one face in an image, along with match results
-   * @alias module:model/FaceMatch
+   * Constructs a new <code>TextItem</code>.
+   * Individual instance of text occuring in an image; one piece of text
+   * @alias module:model/TextItem
    * @class
    */
   var exports = function() {
@@ -52,16 +52,14 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>FaceMatch</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>TextItem</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/FaceMatch} obj Optional instance to populate.
-   * @return {module:model/FaceMatch} The populated <code>FaceMatch</code> instance.
+   * @param {module:model/TextItem} obj Optional instance to populate.
+   * @return {module:model/TextItem} The populated <code>TextItem</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -73,52 +71,36 @@
       if (data.hasOwnProperty('TopY')) {
         obj['TopY'] = ApiClient.convertToType(data['TopY'], 'Number');
       }
-      if (data.hasOwnProperty('RightX')) {
-        obj['RightX'] = ApiClient.convertToType(data['RightX'], 'Number');
+      if (data.hasOwnProperty('Width')) {
+        obj['Width'] = ApiClient.convertToType(data['Width'], 'Number');
       }
-      if (data.hasOwnProperty('BottomY')) {
-        obj['BottomY'] = ApiClient.convertToType(data['BottomY'], 'Number');
-      }
-      if (data.hasOwnProperty('HighConfidenceMatch')) {
-        obj['HighConfidenceMatch'] = ApiClient.convertToType(data['HighConfidenceMatch'], 'Boolean');
-      }
-      if (data.hasOwnProperty('MatchScore')) {
-        obj['MatchScore'] = ApiClient.convertToType(data['MatchScore'], 'Number');
+      if (data.hasOwnProperty('Height')) {
+        obj['Height'] = ApiClient.convertToType(data['Height'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * X coordinate of the left side of the face
+   * Left X coordinate of the text location; 0 represents the left edge of the input image
    * @member {Number} LeftX
    */
   exports.prototype['LeftX'] = undefined;
   /**
-   * Y coordinate of the top side of the face
+   * Top Y coordinate of the text location; 0 represents the top edge of the input image
    * @member {Number} TopY
    */
   exports.prototype['TopY'] = undefined;
   /**
-   * X coordinate of the right side of the face
-   * @member {Number} RightX
+   * Width in pixels of the text item
+   * @member {Number} Width
    */
-  exports.prototype['RightX'] = undefined;
+  exports.prototype['Width'] = undefined;
   /**
-   * Y coordinate of the bottom side of the face
-   * @member {Number} BottomY
+   * Height in pixels of the text item
+   * @member {Number} Height
    */
-  exports.prototype['BottomY'] = undefined;
-  /**
-   * True if there is a high confidence match, false otherwise
-   * @member {Boolean} HighConfidenceMatch
-   */
-  exports.prototype['HighConfidenceMatch'] = undefined;
-  /**
-   * Match score from 0.0 to 1.0 with higher scores indicating a greater match; scores above 0.7 indicate a match
-   * @member {Number} MatchScore
-   */
-  exports.prototype['MatchScore'] = undefined;
+  exports.prototype['Height'] = undefined;
 
 
 

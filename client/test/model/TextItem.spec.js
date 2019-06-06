@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    instance = new CloudmersiveImageApiClient.TextItem();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,34 +49,34 @@
       object[property] = value;
   }
 
-  describe('ImageDescriptionResponse', function() {
-    it('should create an instance of ImageDescriptionResponse', function() {
-      // uncomment below and update the code to test ImageDescriptionResponse
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
-      //expect(instance).to.be.a(CloudmersiveImageApiClient.ImageDescriptionResponse);
+  describe('TextItem', function() {
+    it('should create an instance of TextItem', function() {
+      // uncomment below and update the code to test TextItem
+      //var instane = new CloudmersiveImageApiClient.TextItem();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.TextItem);
     });
 
-    it('should have the property successful (base name: "Successful")', function() {
-      // uncomment below and update the code to test the property successful
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property leftX (base name: "LeftX")', function() {
+      // uncomment below and update the code to test the property leftX
+      //var instane = new CloudmersiveImageApiClient.TextItem();
       //expect(instance).to.be();
     });
 
-    it('should have the property highconfidence (base name: "Highconfidence")', function() {
-      // uncomment below and update the code to test the property highconfidence
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property topY (base name: "TopY")', function() {
+      // uncomment below and update the code to test the property topY
+      //var instane = new CloudmersiveImageApiClient.TextItem();
       //expect(instance).to.be();
     });
 
-    it('should have the property bestOutcome (base name: "BestOutcome")', function() {
-      // uncomment below and update the code to test the property bestOutcome
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property width (base name: "Width")', function() {
+      // uncomment below and update the code to test the property width
+      //var instane = new CloudmersiveImageApiClient.TextItem();
       //expect(instance).to.be();
     });
 
-    it('should have the property runnerUpOutcome (base name: "RunnerUpOutcome")', function() {
-      // uncomment below and update the code to test the property runnerUpOutcome
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property height (base name: "Height")', function() {
+      // uncomment below and update the code to test the property height
+      //var instane = new CloudmersiveImageApiClient.TextItem();
       //expect(instance).to.be();
     });
 

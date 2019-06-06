@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    instance = new CloudmersiveImageApiClient.TextDetectionResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,34 +49,28 @@
       object[property] = value;
   }
 
-  describe('ImageDescriptionResponse', function() {
-    it('should create an instance of ImageDescriptionResponse', function() {
-      // uncomment below and update the code to test ImageDescriptionResponse
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
-      //expect(instance).to.be.a(CloudmersiveImageApiClient.ImageDescriptionResponse);
+  describe('TextDetectionResult', function() {
+    it('should create an instance of TextDetectionResult', function() {
+      // uncomment below and update the code to test TextDetectionResult
+      //var instane = new CloudmersiveImageApiClient.TextDetectionResult();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.TextDetectionResult);
     });
 
     it('should have the property successful (base name: "Successful")', function() {
       // uncomment below and update the code to test the property successful
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+      //var instane = new CloudmersiveImageApiClient.TextDetectionResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property highconfidence (base name: "Highconfidence")', function() {
-      // uncomment below and update the code to test the property highconfidence
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property textItems (base name: "TextItems")', function() {
+      // uncomment below and update the code to test the property textItems
+      //var instane = new CloudmersiveImageApiClient.TextDetectionResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property bestOutcome (base name: "BestOutcome")', function() {
-      // uncomment below and update the code to test the property bestOutcome
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property runnerUpOutcome (base name: "RunnerUpOutcome")', function() {
-      // uncomment below and update the code to test the property runnerUpOutcome
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property textItemsCount (base name: "TextItemsCount")', function() {
+      // uncomment below and update the code to test the property textItemsCount
+      //var instane = new CloudmersiveImageApiClient.TextDetectionResult();
       //expect(instance).to.be();
     });
 
