@@ -33,7 +33,7 @@
   /**
    * Face service.
    * @module api/FaceApi
-   * @version 1.1.6
+   * @version 1.1.7
    */
 
   /**

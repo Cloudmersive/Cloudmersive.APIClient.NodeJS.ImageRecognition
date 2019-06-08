@@ -36,7 +36,7 @@
   /**
    * The FaceWithLandmarks model module.
    * @module model/FaceWithLandmarks
-   * @version 1.1.6
+   * @version 1.1.7
    */
 
   /**

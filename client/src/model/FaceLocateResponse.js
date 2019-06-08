@@ -36,7 +36,7 @@
   /**
    * The FaceLocateResponse model module.
    * @module model/FaceLocateResponse
-   * @version 1.1.6
+   * @version 1.1.7
    */
 
   /**

@@ -36,7 +36,7 @@
   /**
    * The FaceCompareResponse model module.
    * @module model/FaceCompareResponse
-   * @version 1.1.6
+   * @version 1.1.7
    */
 
   /**

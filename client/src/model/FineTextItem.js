@@ -36,7 +36,7 @@
   /**
    * The FineTextItem model module.
    * @module model/FineTextItem
-   * @version 1.1.6
+   * @version 1.1.7
    */
 
   /**
@@ -47,6 +47,9 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
 
 
 
@@ -93,6 +96,15 @@
       if (data.hasOwnProperty('BottomRightY')) {
         obj['BottomRightY'] = ApiClient.convertToType(data['BottomRightY'], 'Number');
       }
+      if (data.hasOwnProperty('Width')) {
+        obj['Width'] = ApiClient.convertToType(data['Width'], 'Number');
+      }
+      if (data.hasOwnProperty('Height')) {
+        obj['Height'] = ApiClient.convertToType(data['Height'], 'Number');
+      }
+      if (data.hasOwnProperty('Angle')) {
+        obj['Angle'] = ApiClient.convertToType(data['Angle'], 'Number');
+      }
     }
     return obj;
   }
@@ -137,6 +149,21 @@
    * @member {Number} BottomRightY
    */
   exports.prototype['BottomRightY'] = undefined;
+  /**
+   * Width in pixels of the text
+   * @member {Number} Width
+   */
+  exports.prototype['Width'] = undefined;
+  /**
+   * Height in pixels of the text
+   * @member {Number} Height
+   */
+  exports.prototype['Height'] = undefined;
+  /**
+   * Rotation Angle in radians of the text
+   * @member {Number} Angle
+   */
+  exports.prototype['Angle'] = undefined;
 
 
 

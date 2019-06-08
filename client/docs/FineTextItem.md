@@ -11,5 +11,8 @@ Name | Type | Description | Notes
 **bottomLeftY** | **Number** | Y coordinate of the bottom/left text location; 0 represents the top edge of the input image | [optional] 
 **bottomRightX** | **Number** | X coordinate of the bottom/right text location; 0 represents the left edge of the input image | [optional] 
 **bottomRightY** | **Number** | Y coordinate of the bottom/right text location; 0 represents the top edge of the input image | [optional] 
+**width** | **Number** | Width in pixels of the text | [optional] 
+**height** | **Number** | Height in pixels of the text | [optional] 
+**angle** | **Number** | Rotation Angle in radians of the text | [optional] 
 
 
