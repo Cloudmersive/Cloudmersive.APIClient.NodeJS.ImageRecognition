@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="editCompositeBasic"></a>
 # **editCompositeBasic**
-> Object editCompositeBasic(location, baseImage, layeredImage)
+> &#39;Blob&#39; editCompositeBasic(location, baseImage, layeredImage)
 
 Composite two images together
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 <a name="editDrawRectangle"></a>
 # **editDrawRectangle**
-> Object editDrawRectangle(request)
+> &#39;Blob&#39; editDrawRectangle(request)
 
 Draw rectangle onto an image
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 <a name="editDrawText"></a>
 # **editDrawText**
-> Object editDrawText(request)
+> &#39;Blob&#39; editDrawText(request)
 
 Draw text onto an image
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**&#39;Blob&#39;**
 
 ### Authorization
 
