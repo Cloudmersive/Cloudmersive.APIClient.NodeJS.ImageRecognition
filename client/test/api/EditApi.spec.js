@@ -50,6 +50,16 @@
   }
 
   describe('EditApi', function() {
+    describe('editAutoOrient', function() {
+      it('should call editAutoOrient successfully', function(done) {
+        //uncomment below and update the code to test editAutoOrient
+        //instance.editAutoOrient(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('editCompositeBasic', function() {
       it('should call editCompositeBasic successfully', function(done) {
         //uncomment below and update the code to test editCompositeBasic
