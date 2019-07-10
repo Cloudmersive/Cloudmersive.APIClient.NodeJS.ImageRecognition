@@ -60,6 +60,16 @@
         done();
       });
     });
+    describe('editContrastAdaptive', function() {
+      it('should call editContrastAdaptive successfully', function(done) {
+        //uncomment below and update the code to test editContrastAdaptive
+        //instance.editContrastAdaptive(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('editDrawRectangle', function() {
       it('should call editDrawRectangle successfully', function(done) {
         //uncomment below and update the code to test editDrawRectangle

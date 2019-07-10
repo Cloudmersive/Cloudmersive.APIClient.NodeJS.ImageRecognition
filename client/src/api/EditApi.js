@@ -33,7 +33,7 @@
   /**
    * Edit service.
    * @module api/EditApi
-   * @version 1.1.8
+   * @version 1.1.9
    */
 
   /**
@@ -104,6 +104,61 @@
 
       return this.apiClient.callApi(
         '/image/edit/composite/{location}', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the editContrastAdaptive operation.
+     * @callback module:api/EditApi~editContrastAdaptiveCallback
+     * @param {String} error Error message, if any.
+     * @param {'Blob'} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Adaptively adjust the contrast of the image to be more appealing and easy to see
+     * Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
+     * @param {Number} gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/EditApi~editContrastAdaptiveCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link 'Blob'}
+     */
+    this.editContrastAdaptive = function(gamma, imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'gamma' is set
+      if (gamma === undefined || gamma === null) {
+        throw new Error("Missing the required parameter 'gamma' when calling editContrastAdaptive");
+      }
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling editContrastAdaptive");
+      }
+
+
+      var pathParams = {
+        'gamma': gamma
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['image/png'];
+      var returnType = 'Blob';
+
+      return this.apiClient.callApi(
+        '/image/edit/contrast/{gamma}/adaptive', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

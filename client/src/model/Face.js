@@ -36,7 +36,7 @@
   /**
    * The Face model module.
    * @module model/Face
-   * @version 1.1.8
+   * @version 1.1.9
    */
 
   /**
