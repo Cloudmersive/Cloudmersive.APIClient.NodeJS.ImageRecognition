@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AgeDetectionResult', 'model/DetectedLicensePlate', 'model/DetectedObject', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse', 'model/FaceMatch', 'model/FacePoint', 'model/FaceWithLandmarks', 'model/FineTextDetectionResult', 'model/FineTextItem', 'model/ImageDescriptionResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/PersonWithAge', 'model/RecognitionOutcome', 'model/TextDetectionResult', 'model/TextItem', 'model/VehicleLicensePlateDetectionResult', 'api/ArtisticApi', 'api/EditApi', 'api/FaceApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi'], factory);
+    define(['ApiClient', 'model/AgeDetectionResult', 'model/DetectedLicensePlate', 'model/DetectedObject', 'model/DrawPolygonInstance', 'model/DrawPolygonRequest', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse', 'model/FaceMatch', 'model/FacePoint', 'model/FaceWithLandmarks', 'model/FineTextDetectionResult', 'model/FineTextItem', 'model/ImageDescriptionResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/PersonWithAge', 'model/PolygonPoint', 'model/RecognitionOutcome', 'model/TextDetectionResult', 'model/TextItem', 'model/VehicleLicensePlateDetectionResult', 'api/ArtisticApi', 'api/EditApi', 'api/FaceApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/DetectedLicensePlate'), require('./model/DetectedObject'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceCompareResponse'), require('./model/FaceLocateResponse'), require('./model/FaceLocateWithLandmarksResponse'), require('./model/FaceMatch'), require('./model/FacePoint'), require('./model/FaceWithLandmarks'), require('./model/FineTextDetectionResult'), require('./model/FineTextItem'), require('./model/ImageDescriptionResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/PersonWithAge'), require('./model/RecognitionOutcome'), require('./model/TextDetectionResult'), require('./model/TextItem'), require('./model/VehicleLicensePlateDetectionResult'), require('./api/ArtisticApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/DetectedLicensePlate'), require('./model/DetectedObject'), require('./model/DrawPolygonInstance'), require('./model/DrawPolygonRequest'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceCompareResponse'), require('./model/FaceLocateResponse'), require('./model/FaceLocateWithLandmarksResponse'), require('./model/FaceMatch'), require('./model/FacePoint'), require('./model/FaceWithLandmarks'), require('./model/FineTextDetectionResult'), require('./model/FineTextItem'), require('./model/ImageDescriptionResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/PersonWithAge'), require('./model/PolygonPoint'), require('./model/RecognitionOutcome'), require('./model/TextDetectionResult'), require('./model/TextItem'), require('./model/VehicleLicensePlateDetectionResult'), require('./api/ArtisticApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'));
   }
-}(function(ApiClient, AgeDetectionResult, DetectedLicensePlate, DetectedObject, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse, FaceMatch, FacePoint, FaceWithLandmarks, FineTextDetectionResult, FineTextItem, ImageDescriptionResponse, NsfwResult, ObjectDetectionResult, PersonWithAge, RecognitionOutcome, TextDetectionResult, TextItem, VehicleLicensePlateDetectionResult, ArtisticApi, EditApi, FaceApi, NsfwApi, RecognizeApi, ResizeApi) {
+}(function(ApiClient, AgeDetectionResult, DetectedLicensePlate, DetectedObject, DrawPolygonInstance, DrawPolygonRequest, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse, FaceMatch, FacePoint, FaceWithLandmarks, FineTextDetectionResult, FineTextItem, ImageDescriptionResponse, NsfwResult, ObjectDetectionResult, PersonWithAge, PolygonPoint, RecognitionOutcome, TextDetectionResult, TextItem, VehicleLicensePlateDetectionResult, ArtisticApi, EditApi, FaceApi, NsfwApi, RecognizeApi, ResizeApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 1.2.0
+   * @version 1.2.1
    */
   var exports = {
     /**
@@ -76,6 +76,16 @@
      * @property {module:model/DetectedObject}
      */
     DetectedObject: DetectedObject,
+    /**
+     * The DrawPolygonInstance model constructor.
+     * @property {module:model/DrawPolygonInstance}
+     */
+    DrawPolygonInstance: DrawPolygonInstance,
+    /**
+     * The DrawPolygonRequest model constructor.
+     * @property {module:model/DrawPolygonRequest}
+     */
+    DrawPolygonRequest: DrawPolygonRequest,
     /**
      * The DrawRectangleInstance model constructor.
      * @property {module:model/DrawRectangleInstance}
@@ -161,6 +171,11 @@
      * @property {module:model/PersonWithAge}
      */
     PersonWithAge: PersonWithAge,
+    /**
+     * The PolygonPoint model constructor.
+     * @property {module:model/PolygonPoint}
+     */
+    PolygonPoint: PolygonPoint,
     /**
      * The RecognitionOutcome model constructor.
      * @property {module:model/RecognitionOutcome}

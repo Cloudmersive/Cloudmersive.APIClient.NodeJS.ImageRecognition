@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.2.0
+- Package version: 1.2.1
 
 
 ## Installation
@@ -131,8 +131,10 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.EditApi* | [**editAutoOrient**](docs/EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *CloudmersiveImageApiClient.EditApi* | [**editCompositeBasic**](docs/EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 *CloudmersiveImageApiClient.EditApi* | [**editContrastAdaptive**](docs/EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+*CloudmersiveImageApiClient.EditApi* | [**editDrawPolygon**](docs/EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw polygon onto an image
 *CloudmersiveImageApiClient.EditApi* | [**editDrawRectangle**](docs/EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
 *CloudmersiveImageApiClient.EditApi* | [**editDrawText**](docs/EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
+*CloudmersiveImageApiClient.EditApi* | [**editRotate**](docs/EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 *CloudmersiveImageApiClient.FaceApi* | [**faceCompare**](docs/FaceApi.md#faceCompare) | **POST** /image/face/compare-and-match | Compare and match faces
 *CloudmersiveImageApiClient.FaceApi* | [**faceCropFirst**](docs/FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)
 *CloudmersiveImageApiClient.FaceApi* | [**faceCropFirstRound**](docs/FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face (round)
@@ -155,6 +157,8 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.AgeDetectionResult](docs/AgeDetectionResult.md)
  - [CloudmersiveImageApiClient.DetectedLicensePlate](docs/DetectedLicensePlate.md)
  - [CloudmersiveImageApiClient.DetectedObject](docs/DetectedObject.md)
+ - [CloudmersiveImageApiClient.DrawPolygonInstance](docs/DrawPolygonInstance.md)
+ - [CloudmersiveImageApiClient.DrawPolygonRequest](docs/DrawPolygonRequest.md)
  - [CloudmersiveImageApiClient.DrawRectangleInstance](docs/DrawRectangleInstance.md)
  - [CloudmersiveImageApiClient.DrawRectangleRequest](docs/DrawRectangleRequest.md)
  - [CloudmersiveImageApiClient.DrawTextInstance](docs/DrawTextInstance.md)
@@ -172,6 +176,7 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.NsfwResult](docs/NsfwResult.md)
  - [CloudmersiveImageApiClient.ObjectDetectionResult](docs/ObjectDetectionResult.md)
  - [CloudmersiveImageApiClient.PersonWithAge](docs/PersonWithAge.md)
+ - [CloudmersiveImageApiClient.PolygonPoint](docs/PolygonPoint.md)
  - [CloudmersiveImageApiClient.RecognitionOutcome](docs/RecognitionOutcome.md)
  - [CloudmersiveImageApiClient.TextDetectionResult](docs/TextDetectionResult.md)
  - [CloudmersiveImageApiClient.TextItem](docs/TextItem.md)

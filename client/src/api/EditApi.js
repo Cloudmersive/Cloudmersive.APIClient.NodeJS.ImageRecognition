@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DrawRectangleRequest', 'model/DrawTextRequest'], factory);
+    define(['ApiClient', 'model/DrawPolygonRequest', 'model/DrawRectangleRequest', 'model/DrawTextRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/DrawRectangleRequest'), require('../model/DrawTextRequest'));
+    module.exports = factory(require('../ApiClient'), require('../model/DrawPolygonRequest'), require('../model/DrawRectangleRequest'), require('../model/DrawTextRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.EditApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.DrawRectangleRequest, root.CloudmersiveImageApiClient.DrawTextRequest);
+    root.CloudmersiveImageApiClient.EditApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.DrawPolygonRequest, root.CloudmersiveImageApiClient.DrawRectangleRequest, root.CloudmersiveImageApiClient.DrawTextRequest);
   }
-}(this, function(ApiClient, DrawRectangleRequest, DrawTextRequest) {
+}(this, function(ApiClient, DrawPolygonRequest, DrawRectangleRequest, DrawTextRequest) {
   'use strict';
 
   /**
    * Edit service.
    * @module api/EditApi
-   * @version 1.2.0
+   * @version 1.2.1
    */
 
   /**
@@ -213,6 +213,53 @@
     }
 
     /**
+     * Callback function to receive the result of the editDrawPolygon operation.
+     * @callback module:api/EditApi~editDrawPolygonCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Draw polygon onto an image
+     * Draw one or more polygons, with customized visuals, onto an image
+     * @param {module:model/DrawPolygonRequest} request 
+     * @param {module:api/EditApi~editDrawPolygonCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    this.editDrawPolygon = function(request, callback) {
+      var postBody = request;
+
+      // verify the required parameter 'request' is set
+      if (request === undefined || request === null) {
+        throw new Error("Missing the required parameter 'request' when calling editDrawPolygon");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'];
+      var accepts = ['image/png'];
+      var returnType = Object;
+
+      return this.apiClient.callApi(
+        '/image/edit/draw/polygon', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the editDrawRectangle operation.
      * @callback module:api/EditApi~editDrawRectangleCallback
      * @param {String} error Error message, if any.
@@ -301,6 +348,54 @@
 
       return this.apiClient.callApi(
         '/image/edit/draw/text', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the editRotate operation.
+     * @callback module:api/EditApi~editRotateCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Rotate an image any number of degrees
+     * Rotates an image by an arbitrary number of degrees
+     * @param {Number} degrees Degrees to rotate the image; values range from 0.0 to 360.0.
+     * @param {module:api/EditApi~editRotateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    this.editRotate = function(degrees, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'degrees' is set
+      if (degrees === undefined || degrees === null) {
+        throw new Error("Missing the required parameter 'degrees' when calling editRotate");
+      }
+
+
+      var pathParams = {
+        'degrees': degrees
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = [];
+      var accepts = ['application/octet-stream'];
+      var returnType = Object;
+
+      return this.apiClient.callApi(
+        '/image/edit/rotate/{degrees}/angle', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

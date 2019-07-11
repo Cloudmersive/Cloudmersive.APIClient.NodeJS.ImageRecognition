@@ -80,6 +80,16 @@
         done();
       });
     });
+    describe('editDrawPolygon', function() {
+      it('should call editDrawPolygon successfully', function(done) {
+        //uncomment below and update the code to test editDrawPolygon
+        //instance.editDrawPolygon(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('editDrawRectangle', function() {
       it('should call editDrawRectangle successfully', function(done) {
         //uncomment below and update the code to test editDrawRectangle
@@ -94,6 +104,16 @@
       it('should call editDrawText successfully', function(done) {
         //uncomment below and update the code to test editDrawText
         //instance.editDrawText(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('editRotate', function() {
+      it('should call editRotate successfully', function(done) {
+        //uncomment below and update the code to test editRotate
+        //instance.editRotate(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

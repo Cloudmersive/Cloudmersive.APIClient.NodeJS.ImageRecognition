@@ -7,8 +7,10 @@ Method | HTTP request | Description
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw polygon onto an image
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
+[**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
 <a name="editAutoOrient"></a>
@@ -179,6 +181,59 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: image/png
 
+<a name="editDrawPolygon"></a>
+# **editDrawPolygon**
+> Object editDrawPolygon(request)
+
+Draw polygon onto an image
+
+Draw one or more polygons, with customized visuals, onto an image
+
+### Example
+```javascript
+var CloudmersiveImageApiClient = require('cloudmersive-image-api-client');
+var defaultClient = CloudmersiveImageApiClient.ApiClient.instance;
+
+// Configure API key authorization: Apikey
+var Apikey = defaultClient.authentications['Apikey'];
+Apikey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.apiKeyPrefix = 'Token';
+
+var apiInstance = new CloudmersiveImageApiClient.EditApi();
+
+var request = new CloudmersiveImageApiClient.DrawPolygonRequest(); // DrawPolygonRequest | 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.editDrawPolygon(request, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: image/png
+
 <a name="editDrawRectangle"></a>
 # **editDrawRectangle**
 > &#39;Blob&#39; editDrawRectangle(request)
@@ -284,4 +339,57 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: image/png
+
+<a name="editRotate"></a>
+# **editRotate**
+> Object editRotate(degrees)
+
+Rotate an image any number of degrees
+
+Rotates an image by an arbitrary number of degrees
+
+### Example
+```javascript
+var CloudmersiveImageApiClient = require('cloudmersive-image-api-client');
+var defaultClient = CloudmersiveImageApiClient.ApiClient.instance;
+
+// Configure API key authorization: Apikey
+var Apikey = defaultClient.authentications['Apikey'];
+Apikey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.apiKeyPrefix = 'Token';
+
+var apiInstance = new CloudmersiveImageApiClient.EditApi();
+
+var degrees = 1.2; // Number | Degrees to rotate the image; values range from 0.0 to 360.0.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.editRotate(degrees, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **degrees** | **Number**| Degrees to rotate the image; values range from 0.0 to 360.0. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
 

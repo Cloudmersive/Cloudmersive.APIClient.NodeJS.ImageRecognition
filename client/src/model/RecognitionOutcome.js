@@ -36,7 +36,7 @@
   /**
    * The RecognitionOutcome model module.
    * @module model/RecognitionOutcome
-   * @version 1.2.0
+   * @version 1.2.1
    */
 
   /**

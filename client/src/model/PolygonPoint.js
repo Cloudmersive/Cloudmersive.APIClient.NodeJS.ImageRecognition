@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.FacePoint = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.PolygonPoint = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The FacePoint model module.
-   * @module model/FacePoint
+   * The PolygonPoint model module.
+   * @module model/PolygonPoint
    * @version 1.2.1
    */
 
   /**
-   * Constructs a new <code>FacePoint</code>.
-   * Point location within a face
-   * @alias module:model/FacePoint
+   * Constructs a new <code>PolygonPoint</code>.
+   * One point in a polygon
+   * @alias module:model/PolygonPoint
    * @class
    */
   var exports = function() {
@@ -53,11 +53,11 @@
   };
 
   /**
-   * Constructs a <code>FacePoint</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>PolygonPoint</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/FacePoint} obj Optional instance to populate.
-   * @return {module:model/FacePoint} The populated <code>FacePoint</code> instance.
+   * @param {module:model/PolygonPoint} obj Optional instance to populate.
+   * @return {module:model/PolygonPoint} The populated <code>PolygonPoint</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -74,12 +74,12 @@
   }
 
   /**
-   * X location, where 0 is the left-most pixel
+   * X location in pixels of this point in the polygon
    * @member {Number} X
    */
   exports.prototype['X'] = undefined;
   /**
-   * Y location, where 0 is the top-most pixel
+   * Y location in pixels of this point in the polygon
    * @member {Number} Y
    */
   exports.prototype['Y'] = undefined;

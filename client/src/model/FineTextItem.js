@@ -36,7 +36,7 @@
   /**
    * The FineTextItem model module.
    * @module model/FineTextItem
-   * @version 1.2.0
+   * @version 1.2.1
    */
 
   /**

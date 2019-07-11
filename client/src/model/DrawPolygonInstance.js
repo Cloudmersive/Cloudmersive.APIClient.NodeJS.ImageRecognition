@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/PolygonPoint'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./PolygonPoint'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.DrawRectangleInstance = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.DrawPolygonInstance = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.PolygonPoint);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, PolygonPoint) {
   'use strict';
 
 
 
 
   /**
-   * The DrawRectangleInstance model module.
-   * @module model/DrawRectangleInstance
+   * The DrawPolygonInstance model module.
+   * @module model/DrawPolygonInstance
    * @version 1.2.1
    */
 
   /**
-   * Constructs a new <code>DrawRectangleInstance</code>.
-   * Rectangle instance to draw on an image
-   * @alias module:model/DrawRectangleInstance
+   * Constructs a new <code>DrawPolygonInstance</code>.
+   * Polygon instance to draw on an image
+   * @alias module:model/DrawPolygonInstance
    * @class
    */
   var exports = function() {
@@ -52,17 +52,14 @@
 
 
 
-
-
-
   };
 
   /**
-   * Constructs a <code>DrawRectangleInstance</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DrawPolygonInstance</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/DrawRectangleInstance} obj Optional instance to populate.
-   * @return {module:model/DrawRectangleInstance} The populated <code>DrawRectangleInstance</code> instance.
+   * @param {module:model/DrawPolygonInstance} obj Optional instance to populate.
+   * @return {module:model/DrawPolygonInstance} The populated <code>DrawPolygonInstance</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -77,17 +74,8 @@
       if (data.hasOwnProperty('FillColor')) {
         obj['FillColor'] = ApiClient.convertToType(data['FillColor'], 'String');
       }
-      if (data.hasOwnProperty('X')) {
-        obj['X'] = ApiClient.convertToType(data['X'], 'Number');
-      }
-      if (data.hasOwnProperty('Y')) {
-        obj['Y'] = ApiClient.convertToType(data['Y'], 'Number');
-      }
-      if (data.hasOwnProperty('Width')) {
-        obj['Width'] = ApiClient.convertToType(data['Width'], 'Number');
-      }
-      if (data.hasOwnProperty('Height')) {
-        obj['Height'] = ApiClient.convertToType(data['Height'], 'Number');
+      if (data.hasOwnProperty('Points')) {
+        obj['Points'] = ApiClient.convertToType(data['Points'], [PolygonPoint]);
       }
     }
     return obj;
@@ -99,35 +87,20 @@
    */
   exports.prototype['BorderColor'] = undefined;
   /**
-   * Width in pixels of the border.  Pass in 0 to draw a rectangle with no border
+   * Width in pixels of the border.  Pass in 0 to draw a polygon with no border
    * @member {Number} BorderWidth
    */
   exports.prototype['BorderWidth'] = undefined;
   /**
-   * Fill Color to use - can be a hex value (with #) or HTML common color name.  Transparent colors are supported.  Leave blank to not fill the rectangle.
+   * Fill Color to use - can be a hex value (with #) or HTML common color name.  Transparent colors are supported.  Leave blank to not fill the polygon.
    * @member {String} FillColor
    */
   exports.prototype['FillColor'] = undefined;
   /**
-   * Pixel location of the left edge of the rectangle location
-   * @member {Number} X
+   * Points (vertices) which comprise the polygon; valid polygons must have at least 3 points
+   * @member {Array.<module:model/PolygonPoint>} Points
    */
-  exports.prototype['X'] = undefined;
-  /**
-   * Pixel location of the top edge of the rectangle location
-   * @member {Number} Y
-   */
-  exports.prototype['Y'] = undefined;
-  /**
-   * Width in pixels of the rectangle
-   * @member {Number} Width
-   */
-  exports.prototype['Width'] = undefined;
-  /**
-   * Height in pixels of the rectangle
-   * @member {Number} Height
-   */
-  exports.prototype['Height'] = undefined;
+  exports.prototype['Points'] = undefined;
 
 
 
