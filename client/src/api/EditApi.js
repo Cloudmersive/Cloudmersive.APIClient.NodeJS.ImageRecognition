@@ -33,7 +33,7 @@
   /**
    * Edit service.
    * @module api/EditApi
-   * @version 1.2.1
+   * @version 1.2.2
    */
 
   /**
@@ -216,16 +216,16 @@
      * Callback function to receive the result of the editDrawPolygon operation.
      * @callback module:api/EditApi~editDrawPolygonCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {'Blob'} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Draw polygon onto an image
+     * Draw a polygon onto an image
      * Draw one or more polygons, with customized visuals, onto an image
      * @param {module:model/DrawPolygonRequest} request 
      * @param {module:api/EditApi~editDrawPolygonCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link 'Blob'}
      */
     this.editDrawPolygon = function(request, callback) {
       var postBody = request;
@@ -250,7 +250,7 @@
       var authNames = ['Apikey'];
       var contentTypes = ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'];
       var accepts = ['image/png'];
-      var returnType = Object;
+      var returnType = 'Blob';
 
       return this.apiClient.callApi(
         '/image/edit/draw/polygon', 'POST',
@@ -268,7 +268,7 @@
      */
 
     /**
-     * Draw rectangle onto an image
+     * Draw a rectangle onto an image
      * Draw one or more rectangles, with customized visuals, onto an image
      * @param {module:model/DrawRectangleRequest} request 
      * @param {module:api/EditApi~editDrawRectangleCallback} callback The callback function, accepting three arguments: error, data, response
@@ -357,7 +357,7 @@
      * Callback function to receive the result of the editRotate operation.
      * @callback module:api/EditApi~editRotateCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {'Blob'} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -365,15 +365,21 @@
      * Rotate an image any number of degrees
      * Rotates an image by an arbitrary number of degrees
      * @param {Number} degrees Degrees to rotate the image; values range from 0.0 to 360.0.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/EditApi~editRotateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link 'Blob'}
      */
-    this.editRotate = function(degrees, callback) {
+    this.editRotate = function(degrees, imageFile, callback) {
       var postBody = null;
 
       // verify the required parameter 'degrees' is set
       if (degrees === undefined || degrees === null) {
         throw new Error("Missing the required parameter 'degrees' when calling editRotate");
+      }
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling editRotate");
       }
 
 
@@ -387,12 +393,13 @@
       var headerParams = {
       };
       var formParams = {
+        'imageFile': imageFile
       };
 
       var authNames = ['Apikey'];
-      var contentTypes = [];
+      var contentTypes = ['multipart/form-data'];
       var accepts = ['application/octet-stream'];
-      var returnType = Object;
+      var returnType = 'Blob';
 
       return this.apiClient.callApi(
         '/image/edit/rotate/{degrees}/angle', 'POST',

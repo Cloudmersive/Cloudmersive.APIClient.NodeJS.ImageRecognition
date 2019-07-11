@@ -36,7 +36,7 @@
   /**
    * The ObjectDetectionResult model module.
    * @module model/ObjectDetectionResult
-   * @version 1.2.1
+   * @version 1.2.2
    */
 
   /**

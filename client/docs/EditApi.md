@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
-[**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw polygon onto an image
-[**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
+[**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
+[**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
 [**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
@@ -183,9 +183,9 @@ Name | Type | Description  | Notes
 
 <a name="editDrawPolygon"></a>
 # **editDrawPolygon**
-> Object editDrawPolygon(request)
+> &#39;Blob&#39; editDrawPolygon(request)
 
-Draw polygon onto an image
+Draw a polygon onto an image
 
 Draw one or more polygons, with customized visuals, onto an image
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 # **editDrawRectangle**
 > &#39;Blob&#39; editDrawRectangle(request)
 
-Draw rectangle onto an image
+Draw a rectangle onto an image
 
 Draw one or more rectangles, with customized visuals, onto an image
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 <a name="editRotate"></a>
 # **editRotate**
-> Object editRotate(degrees)
+> &#39;Blob&#39; editRotate(degrees, imageFile)
 
 Rotate an image any number of degrees
 
@@ -363,6 +363,8 @@ var apiInstance = new CloudmersiveImageApiClient.EditApi();
 
 var degrees = 1.2; // Number | Degrees to rotate the image; values range from 0.0 to 360.0.
 
+var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -371,7 +373,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.editRotate(degrees, callback);
+apiInstance.editRotate(degrees, imageFile, callback);
 ```
 
 ### Parameters
@@ -379,10 +381,11 @@ apiInstance.editRotate(degrees, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **degrees** | **Number**| Degrees to rotate the image; values range from 0.0 to 360.0. | 
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-**Object**
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -390,6 +393,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 

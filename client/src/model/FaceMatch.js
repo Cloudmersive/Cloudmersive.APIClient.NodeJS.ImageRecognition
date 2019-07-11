@@ -36,7 +36,7 @@
   /**
    * The FaceMatch model module.
    * @module model/FaceMatch
-   * @version 1.2.1
+   * @version 1.2.2
    */
 
   /**
