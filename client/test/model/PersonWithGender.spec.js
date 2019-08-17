@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.PersonWithAge();
+    instance = new CloudmersiveImageApiClient.PersonWithGender();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,34 +49,28 @@
       object[property] = value;
   }
 
-  describe('PersonWithAge', function() {
-    it('should create an instance of PersonWithAge', function() {
-      // uncomment below and update the code to test PersonWithAge
-      //var instane = new CloudmersiveImageApiClient.PersonWithAge();
-      //expect(instance).to.be.a(CloudmersiveImageApiClient.PersonWithAge);
+  describe('PersonWithGender', function() {
+    it('should create an instance of PersonWithGender', function() {
+      // uncomment below and update the code to test PersonWithGender
+      //var instane = new CloudmersiveImageApiClient.PersonWithGender();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.PersonWithGender);
     });
 
     it('should have the property faceLocation (base name: "FaceLocation")', function() {
       // uncomment below and update the code to test the property faceLocation
-      //var instane = new CloudmersiveImageApiClient.PersonWithAge();
+      //var instane = new CloudmersiveImageApiClient.PersonWithGender();
       //expect(instance).to.be();
     });
 
-    it('should have the property ageClassificationConfidence (base name: "AgeClassificationConfidence")', function() {
-      // uncomment below and update the code to test the property ageClassificationConfidence
-      //var instane = new CloudmersiveImageApiClient.PersonWithAge();
+    it('should have the property genderClassificationConfidence (base name: "GenderClassificationConfidence")', function() {
+      // uncomment below and update the code to test the property genderClassificationConfidence
+      //var instane = new CloudmersiveImageApiClient.PersonWithGender();
       //expect(instance).to.be();
     });
 
-    it('should have the property ageClass (base name: "AgeClass")', function() {
-      // uncomment below and update the code to test the property ageClass
-      //var instane = new CloudmersiveImageApiClient.PersonWithAge();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property age (base name: "Age")', function() {
-      // uncomment below and update the code to test the property age
-      //var instane = new CloudmersiveImageApiClient.PersonWithAge();
+    it('should have the property genderClass (base name: "GenderClass")', function() {
+      // uncomment below and update the code to test the property genderClass
+      //var instane = new CloudmersiveImageApiClient.PersonWithGender();
       //expect(instance).to.be();
     });
 

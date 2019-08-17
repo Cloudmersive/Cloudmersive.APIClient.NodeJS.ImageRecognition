@@ -90,6 +90,16 @@
         done();
       });
     });
+    describe('faceDetectGender', function() {
+      it('should call faceDetectGender successfully', function(done) {
+        //uncomment below and update the code to test faceDetectGender
+        //instance.faceDetectGender(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('faceLocate', function() {
       it('should call faceLocate successfully', function(done) {
         //uncomment below and update the code to test faceLocate

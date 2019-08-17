@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.2.2
+- Package version: 1.2.3
 
 
 ## Installation
@@ -139,6 +139,7 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.FaceApi* | [**faceCropFirst**](docs/FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)
 *CloudmersiveImageApiClient.FaceApi* | [**faceCropFirstRound**](docs/FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face (round)
 *CloudmersiveImageApiClient.FaceApi* | [**faceDetectAge**](docs/FaceApi.md#faceDetectAge) | **POST** /image/face/detect-age | Detect the age of people in an image
+*CloudmersiveImageApiClient.FaceApi* | [**faceDetectGender**](docs/FaceApi.md#faceDetectGender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 *CloudmersiveImageApiClient.FaceApi* | [**faceLocate**](docs/FaceApi.md#faceLocate) | **POST** /image/face/locate | Find faces in an image
 *CloudmersiveImageApiClient.FaceApi* | [**faceLocateWithLandmarks**](docs/FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
 *CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
@@ -172,10 +173,12 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.FaceWithLandmarks](docs/FaceWithLandmarks.md)
  - [CloudmersiveImageApiClient.FineTextDetectionResult](docs/FineTextDetectionResult.md)
  - [CloudmersiveImageApiClient.FineTextItem](docs/FineTextItem.md)
+ - [CloudmersiveImageApiClient.GenderDetectionResult](docs/GenderDetectionResult.md)
  - [CloudmersiveImageApiClient.ImageDescriptionResponse](docs/ImageDescriptionResponse.md)
  - [CloudmersiveImageApiClient.NsfwResult](docs/NsfwResult.md)
  - [CloudmersiveImageApiClient.ObjectDetectionResult](docs/ObjectDetectionResult.md)
  - [CloudmersiveImageApiClient.PersonWithAge](docs/PersonWithAge.md)
+ - [CloudmersiveImageApiClient.PersonWithGender](docs/PersonWithGender.md)
  - [CloudmersiveImageApiClient.PolygonPoint](docs/PolygonPoint.md)
  - [CloudmersiveImageApiClient.RecognitionOutcome](docs/RecognitionOutcome.md)
  - [CloudmersiveImageApiClient.TextDetectionResult](docs/TextDetectionResult.md)

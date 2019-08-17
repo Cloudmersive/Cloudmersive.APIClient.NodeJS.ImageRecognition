@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AgeDetectionResult', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse'], factory);
+    define(['ApiClient', 'model/AgeDetectionResult', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse', 'model/GenderDetectionResult'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AgeDetectionResult'), require('../model/FaceCompareResponse'), require('../model/FaceLocateResponse'), require('../model/FaceLocateWithLandmarksResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/AgeDetectionResult'), require('../model/FaceCompareResponse'), require('../model/FaceLocateResponse'), require('../model/FaceLocateWithLandmarksResponse'), require('../model/GenderDetectionResult'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.FaceApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.AgeDetectionResult, root.CloudmersiveImageApiClient.FaceCompareResponse, root.CloudmersiveImageApiClient.FaceLocateResponse, root.CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse);
+    root.CloudmersiveImageApiClient.FaceApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.AgeDetectionResult, root.CloudmersiveImageApiClient.FaceCompareResponse, root.CloudmersiveImageApiClient.FaceLocateResponse, root.CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse, root.CloudmersiveImageApiClient.GenderDetectionResult);
   }
-}(this, function(ApiClient, AgeDetectionResult, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse) {
+}(this, function(ApiClient, AgeDetectionResult, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse, GenderDetectionResult) {
   'use strict';
 
   /**
    * Face service.
    * @module api/FaceApi
-   * @version 1.2.2
+   * @version 1.2.3
    */
 
   /**
@@ -241,6 +241,54 @@
 
       return this.apiClient.callApi(
         '/image/face/detect-age', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the faceDetectGender operation.
+     * @callback module:api/FaceApi~faceDetectGenderCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GenderDetectionResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Detect the gender of people in an image
+     * Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/FaceApi~faceDetectGenderCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GenderDetectionResult}
+     */
+    this.faceDetectGender = function(imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling faceDetectGender");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = GenderDetectionResult;
+
+      return this.apiClient.callApi(
+        '/image/face/detect-gender', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.PersonWithAge = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.Face);
+    root.CloudmersiveImageApiClient.PersonWithGender = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.Face);
   }
 }(this, function(ApiClient, Face) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The PersonWithAge model module.
-   * @module model/PersonWithAge
+   * The PersonWithGender model module.
+   * @module model/PersonWithGender
    * @version 1.2.3
    */
 
   /**
-   * Constructs a new <code>PersonWithAge</code>.
-   * A person identified in an image age classification operation
-   * @alias module:model/PersonWithAge
+   * Constructs a new <code>PersonWithGender</code>.
+   * A person identified in an image gender classification operation
+   * @alias module:model/PersonWithGender
    * @class
    */
   var exports = function() {
@@ -51,15 +51,14 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>PersonWithAge</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>PersonWithGender</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PersonWithAge} obj Optional instance to populate.
-   * @return {module:model/PersonWithAge} The populated <code>PersonWithAge</code> instance.
+   * @param {module:model/PersonWithGender} obj Optional instance to populate.
+   * @return {module:model/PersonWithGender} The populated <code>PersonWithGender</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -68,14 +67,11 @@
       if (data.hasOwnProperty('FaceLocation')) {
         obj['FaceLocation'] = Face.constructFromObject(data['FaceLocation']);
       }
-      if (data.hasOwnProperty('AgeClassificationConfidence')) {
-        obj['AgeClassificationConfidence'] = ApiClient.convertToType(data['AgeClassificationConfidence'], 'Number');
+      if (data.hasOwnProperty('GenderClassificationConfidence')) {
+        obj['GenderClassificationConfidence'] = ApiClient.convertToType(data['GenderClassificationConfidence'], 'Number');
       }
-      if (data.hasOwnProperty('AgeClass')) {
-        obj['AgeClass'] = ApiClient.convertToType(data['AgeClass'], 'String');
-      }
-      if (data.hasOwnProperty('Age')) {
-        obj['Age'] = ApiClient.convertToType(data['Age'], 'Number');
+      if (data.hasOwnProperty('GenderClass')) {
+        obj['GenderClass'] = ApiClient.convertToType(data['GenderClass'], 'String');
       }
     }
     return obj;
@@ -87,19 +83,15 @@
    */
   exports.prototype['FaceLocation'] = undefined;
   /**
-   * Confidence level of age classification; possible values are between 0.0 and 1.0; higher is better, with values &gt; 0.50 being high confidence results
-   * @member {Number} AgeClassificationConfidence
+   * Confidence level of gender classification; possible values are between 0.0 and 1.0; higher is better, with values &gt; 0.50 being high confidence results
+   * @member {Number} GenderClassificationConfidence
    */
-  exports.prototype['AgeClassificationConfidence'] = undefined;
+  exports.prototype['GenderClassificationConfidence'] = undefined;
   /**
-   * The person's age range classification result in years; possible values are \"0-2\", \"4-6\", \"8-13\", \"15-20\", \"25-32\", \"38-43\", \"48-53\", \"60+\"
-   * @member {String} AgeClass
+   * The person's identified gender; possible values are \"Male\", \"Female\" and \"Unknown\"
+   * @member {String} GenderClass
    */
-  exports.prototype['AgeClass'] = undefined;
-  /**
-   * @member {Number} Age
-   */
-  exports.prototype['Age'] = undefined;
+  exports.prototype['GenderClass'] = undefined;
 
 
 

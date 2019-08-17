@@ -36,7 +36,7 @@
   /**
    * The DetectedObject model module.
    * @module model/DetectedObject
-   * @version 1.2.2
+   * @version 1.2.3
    */
 
   /**
