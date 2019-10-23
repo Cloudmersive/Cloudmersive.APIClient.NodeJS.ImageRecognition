@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 <a name="recognizeDetectTextLarge"></a>
 # **recognizeDetectTextLarge**
-> TextDetectionResult recognizeDetectTextLarge()
+> TextDetectionResult recognizeDetectTextLarge(imageFile)
 
 Detect large text in a photo
 
@@ -303,6 +303,9 @@ Apikey.apiKey = 'YOUR API KEY';
 
 var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
 
+var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -310,11 +313,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.recognizeDetectTextLarge(callback);
+apiInstance.recognizeDetectTextLarge(imageFile, callback);
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
@@ -326,7 +332,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 <a name="recognizeDetectVehicleLicensePlates"></a>

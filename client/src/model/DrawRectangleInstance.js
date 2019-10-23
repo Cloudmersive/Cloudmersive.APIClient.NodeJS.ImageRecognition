@@ -36,7 +36,7 @@
   /**
    * The DrawRectangleInstance model module.
    * @module model/DrawRectangleInstance
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**

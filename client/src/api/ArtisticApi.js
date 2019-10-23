@@ -33,7 +33,7 @@
   /**
    * Artistic service.
    * @module api/ArtisticApi
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**

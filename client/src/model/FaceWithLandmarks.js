@@ -36,7 +36,7 @@
   /**
    * The FaceWithLandmarks model module.
    * @module model/FaceWithLandmarks
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**
@@ -74,6 +74,18 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('LeftX')) {
+        obj['LeftX'] = ApiClient.convertToType(data['LeftX'], 'Number');
+      }
+      if (data.hasOwnProperty('TopY')) {
+        obj['TopY'] = ApiClient.convertToType(data['TopY'], 'Number');
+      }
+      if (data.hasOwnProperty('RightX')) {
+        obj['RightX'] = ApiClient.convertToType(data['RightX'], 'Number');
+      }
+      if (data.hasOwnProperty('BottomY')) {
+        obj['BottomY'] = ApiClient.convertToType(data['BottomY'], 'Number');
+      }
       if (data.hasOwnProperty('LeftEyebrow')) {
         obj['LeftEyebrow'] = ApiClient.convertToType(data['LeftEyebrow'], [FacePoint]);
       }
@@ -101,58 +113,10 @@
       if (data.hasOwnProperty('LipsOuterOutline')) {
         obj['LipsOuterOutline'] = ApiClient.convertToType(data['LipsOuterOutline'], [FacePoint]);
       }
-      if (data.hasOwnProperty('LeftX')) {
-        obj['LeftX'] = ApiClient.convertToType(data['LeftX'], 'Number');
-      }
-      if (data.hasOwnProperty('TopY')) {
-        obj['TopY'] = ApiClient.convertToType(data['TopY'], 'Number');
-      }
-      if (data.hasOwnProperty('RightX')) {
-        obj['RightX'] = ApiClient.convertToType(data['RightX'], 'Number');
-      }
-      if (data.hasOwnProperty('BottomY')) {
-        obj['BottomY'] = ApiClient.convertToType(data['BottomY'], 'Number');
-      }
     }
     return obj;
   }
 
-  /**
-   * @member {Array.<module:model/FacePoint>} LeftEyebrow
-   */
-  exports.prototype['LeftEyebrow'] = undefined;
-  /**
-   * @member {Array.<module:model/FacePoint>} RightEyebrow
-   */
-  exports.prototype['RightEyebrow'] = undefined;
-  /**
-   * @member {Array.<module:model/FacePoint>} LeftEye
-   */
-  exports.prototype['LeftEye'] = undefined;
-  /**
-   * @member {Array.<module:model/FacePoint>} RightEye
-   */
-  exports.prototype['RightEye'] = undefined;
-  /**
-   * @member {Array.<module:model/FacePoint>} BottomAndSidesOfFace
-   */
-  exports.prototype['BottomAndSidesOfFace'] = undefined;
-  /**
-   * @member {Array.<module:model/FacePoint>} NoseBridge
-   */
-  exports.prototype['NoseBridge'] = undefined;
-  /**
-   * @member {Array.<module:model/FacePoint>} NoseBottom
-   */
-  exports.prototype['NoseBottom'] = undefined;
-  /**
-   * @member {Array.<module:model/FacePoint>} LipsInnerOutline
-   */
-  exports.prototype['LipsInnerOutline'] = undefined;
-  /**
-   * @member {Array.<module:model/FacePoint>} LipsOuterOutline
-   */
-  exports.prototype['LipsOuterOutline'] = undefined;
   /**
    * X coordinate of the left side of the face
    * @member {Number} LeftX
@@ -173,6 +137,51 @@
    * @member {Number} BottomY
    */
   exports.prototype['BottomY'] = undefined;
+  /**
+   * Point locations of the left eyebrow (the eyebrow cloesest to the left side of the picture)
+   * @member {Array.<module:model/FacePoint>} LeftEyebrow
+   */
+  exports.prototype['LeftEyebrow'] = undefined;
+  /**
+   * Point locations of the right eyebrow (the eyebrow cloesest to the right side of the picture)
+   * @member {Array.<module:model/FacePoint>} RightEyebrow
+   */
+  exports.prototype['RightEyebrow'] = undefined;
+  /**
+   * Point locations of the left eye (the eye closest to the left side of the picture)
+   * @member {Array.<module:model/FacePoint>} LeftEye
+   */
+  exports.prototype['LeftEye'] = undefined;
+  /**
+   * Point locations of the right eye (the eye closest to the right side of the picture)
+   * @member {Array.<module:model/FacePoint>} RightEye
+   */
+  exports.prototype['RightEye'] = undefined;
+  /**
+   * Point locations of the bottom and sides of the face (cheeks and chin)
+   * @member {Array.<module:model/FacePoint>} BottomAndSidesOfFace
+   */
+  exports.prototype['BottomAndSidesOfFace'] = undefined;
+  /**
+   * Point locations of the nose bridge (the vertical portion of the nose)
+   * @member {Array.<module:model/FacePoint>} NoseBridge
+   */
+  exports.prototype['NoseBridge'] = undefined;
+  /**
+   * Point locations of the bottom (nostrils) of the nose
+   * @member {Array.<module:model/FacePoint>} NoseBottom
+   */
+  exports.prototype['NoseBottom'] = undefined;
+  /**
+   * Point locations of the inner outline of the lips
+   * @member {Array.<module:model/FacePoint>} LipsInnerOutline
+   */
+  exports.prototype['LipsInnerOutline'] = undefined;
+  /**
+   * Point locations of the outer outline of the lips
+   * @member {Array.<module:model/FacePoint>} LipsOuterOutline
+   */
+  exports.prototype['LipsOuterOutline'] = undefined;
 
 
 

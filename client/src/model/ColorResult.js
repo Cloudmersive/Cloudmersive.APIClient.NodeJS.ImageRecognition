@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.RecognitionOutcome = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.ColorResult = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The RecognitionOutcome model module.
-   * @module model/RecognitionOutcome
+   * The ColorResult model module.
+   * @module model/ColorResult
    * @version 1.2.4
    */
 
   /**
-   * Constructs a new <code>RecognitionOutcome</code>.
-   * Specific recognition outcome
-   * @alias module:model/RecognitionOutcome
+   * Constructs a new <code>ColorResult</code>.
+   * Individual color
+   * @alias module:model/ColorResult
    * @class
    */
   var exports = function() {
@@ -50,39 +50,48 @@
 
 
 
+
   };
 
   /**
-   * Constructs a <code>RecognitionOutcome</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ColorResult</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/RecognitionOutcome} obj Optional instance to populate.
-   * @return {module:model/RecognitionOutcome} The populated <code>RecognitionOutcome</code> instance.
+   * @param {module:model/ColorResult} obj Optional instance to populate.
+   * @return {module:model/ColorResult} The populated <code>ColorResult</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('ConfidenceScore')) {
-        obj['ConfidenceScore'] = ApiClient.convertToType(data['ConfidenceScore'], 'Number');
+      if (data.hasOwnProperty('R')) {
+        obj['R'] = ApiClient.convertToType(data['R'], 'Number');
       }
-      if (data.hasOwnProperty('Description')) {
-        obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
+      if (data.hasOwnProperty('G')) {
+        obj['G'] = ApiClient.convertToType(data['G'], 'Number');
+      }
+      if (data.hasOwnProperty('B')) {
+        obj['B'] = ApiClient.convertToType(data['B'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * Scores closer to 1 are better than scores closer to 0
-   * @member {Number} ConfidenceScore
+   * Red (R) channel pixel value of this color
+   * @member {Number} R
    */
-  exports.prototype['ConfidenceScore'] = undefined;
+  exports.prototype['R'] = undefined;
   /**
-   * English language description of the image
-   * @member {String} Description
+   * Green (G) channel pixel value of this color
+   * @member {Number} G
    */
-  exports.prototype['Description'] = undefined;
+  exports.prototype['G'] = undefined;
+  /**
+   * Blue (B) channel pixel value of this color
+   * @member {Number} B
+   */
+  exports.prototype['B'] = undefined;
 
 
 

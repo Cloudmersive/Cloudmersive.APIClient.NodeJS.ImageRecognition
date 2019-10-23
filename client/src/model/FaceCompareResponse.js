@@ -36,7 +36,7 @@
   /**
    * The FaceCompareResponse model module.
    * @module model/FaceCompareResponse
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**
@@ -65,9 +65,6 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('ErrorDetails')) {
-        obj['ErrorDetails'] = ApiClient.convertToType(data['ErrorDetails'], 'String');
-      }
       if (data.hasOwnProperty('Successful')) {
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
@@ -77,14 +74,13 @@
       if (data.hasOwnProperty('FaceCount')) {
         obj['FaceCount'] = ApiClient.convertToType(data['FaceCount'], 'Number');
       }
+      if (data.hasOwnProperty('ErrorDetails')) {
+        obj['ErrorDetails'] = ApiClient.convertToType(data['ErrorDetails'], 'String');
+      }
     }
     return obj;
   }
 
-  /**
-   * @member {String} ErrorDetails
-   */
-  exports.prototype['ErrorDetails'] = undefined;
   /**
    * True if the operation was successful, false otherwise
    * @member {Boolean} Successful
@@ -100,6 +96,11 @@
    * @member {Number} FaceCount
    */
   exports.prototype['FaceCount'] = undefined;
+  /**
+   * Details of any errors that occurred
+   * @member {String} ErrorDetails
+   */
+  exports.prototype['ErrorDetails'] = undefined;
 
 
 

@@ -36,7 +36,7 @@
   /**
    * The DrawTextRequest model module.
    * @module model/DrawTextRequest
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**

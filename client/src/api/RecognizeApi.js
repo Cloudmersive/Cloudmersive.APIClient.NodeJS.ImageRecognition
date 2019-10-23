@@ -33,7 +33,7 @@
   /**
    * Recognize service.
    * @module api/RecognizeApi
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**
@@ -302,11 +302,17 @@
     /**
      * Detect large text in a photo
      * Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/RecognizeApi~recognizeDetectTextLargeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TextDetectionResult}
      */
-    this.recognizeDetectTextLarge = function(callback) {
+    this.recognizeDetectTextLarge = function(imageFile, callback) {
       var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling recognizeDetectTextLarge");
+      }
 
 
       var pathParams = {
@@ -318,10 +324,11 @@
       var headerParams = {
       };
       var formParams = {
+        'imageFile': imageFile
       };
 
       var authNames = ['Apikey'];
-      var contentTypes = [];
+      var contentTypes = ['multipart/form-data'];
       var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
       var returnType = TextDetectionResult;
 

@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.2.3
+- Package version: 1.2.4
 
 
 ## Installation
@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.FaceApi* | [**faceDetectGender**](docs/FaceApi.md#faceDetectGender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 *CloudmersiveImageApiClient.FaceApi* | [**faceLocate**](docs/FaceApi.md#faceLocate) | **POST** /image/face/locate | Find faces in an image
 *CloudmersiveImageApiClient.FaceApi* | [**faceLocateWithLandmarks**](docs/FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+*CloudmersiveImageApiClient.InfoApi* | [**infoGetDominantColor**](docs/InfoApi.md#infoGetDominantColor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
 *CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDescribe**](docs/RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
@@ -156,8 +157,10 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [CloudmersiveImageApiClient.AgeDetectionResult](docs/AgeDetectionResult.md)
+ - [CloudmersiveImageApiClient.ColorResult](docs/ColorResult.md)
  - [CloudmersiveImageApiClient.DetectedLicensePlate](docs/DetectedLicensePlate.md)
  - [CloudmersiveImageApiClient.DetectedObject](docs/DetectedObject.md)
+ - [CloudmersiveImageApiClient.DominantColorResult](docs/DominantColorResult.md)
  - [CloudmersiveImageApiClient.DrawPolygonInstance](docs/DrawPolygonInstance.md)
  - [CloudmersiveImageApiClient.DrawPolygonRequest](docs/DrawPolygonRequest.md)
  - [CloudmersiveImageApiClient.DrawRectangleInstance](docs/DrawRectangleInstance.md)

@@ -36,7 +36,7 @@
   /**
    * The DrawTextInstance model module.
    * @module model/DrawTextInstance
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**

@@ -56,6 +56,18 @@
       //expect(instance).to.be.a(CloudmersiveImageApiClient.DetectedLicensePlate);
     });
 
+    it('should have the property licensePlateTextBestMatch (base name: "LicensePlateText_BestMatch")', function() {
+      // uncomment below and update the code to test the property licensePlateTextBestMatch
+      //var instane = new CloudmersiveImageApiClient.DetectedLicensePlate();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property licensePlateTextRunnerUp (base name: "LicensePlateText_RunnerUp")', function() {
+      // uncomment below and update the code to test the property licensePlateTextRunnerUp
+      //var instane = new CloudmersiveImageApiClient.DetectedLicensePlate();
+      //expect(instance).to.be();
+    });
+
     it('should have the property locationX (base name: "LocationX")', function() {
       // uncomment below and update the code to test the property locationX
       //var instane = new CloudmersiveImageApiClient.DetectedLicensePlate();
@@ -76,18 +88,6 @@
 
     it('should have the property height (base name: "Height")', function() {
       // uncomment below and update the code to test the property height
-      //var instane = new CloudmersiveImageApiClient.DetectedLicensePlate();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property licensePlateTextBestMatch (base name: "LicensePlateText_BestMatch")', function() {
-      // uncomment below and update the code to test the property licensePlateTextBestMatch
-      //var instane = new CloudmersiveImageApiClient.DetectedLicensePlate();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property licensePlateTextRunnerUp (base name: "LicensePlateText_RunnerUp")', function() {
-      // uncomment below and update the code to test the property licensePlateTextRunnerUp
       //var instane = new CloudmersiveImageApiClient.DetectedLicensePlate();
       //expect(instance).to.be();
     });

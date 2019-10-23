@@ -56,6 +56,30 @@
       //expect(instance).to.be.a(CloudmersiveImageApiClient.FaceWithLandmarks);
     });
 
+    it('should have the property leftX (base name: "LeftX")', function() {
+      // uncomment below and update the code to test the property leftX
+      //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property topY (base name: "TopY")', function() {
+      // uncomment below and update the code to test the property topY
+      //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property rightX (base name: "RightX")', function() {
+      // uncomment below and update the code to test the property rightX
+      //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property bottomY (base name: "BottomY")', function() {
+      // uncomment below and update the code to test the property bottomY
+      //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
+      //expect(instance).to.be();
+    });
+
     it('should have the property leftEyebrow (base name: "LeftEyebrow")', function() {
       // uncomment below and update the code to test the property leftEyebrow
       //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
@@ -106,30 +130,6 @@
 
     it('should have the property lipsOuterOutline (base name: "LipsOuterOutline")', function() {
       // uncomment below and update the code to test the property lipsOuterOutline
-      //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property leftX (base name: "LeftX")', function() {
-      // uncomment below and update the code to test the property leftX
-      //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property topY (base name: "TopY")', function() {
-      // uncomment below and update the code to test the property topY
-      //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property rightX (base name: "RightX")', function() {
-      // uncomment below and update the code to test the property rightX
-      //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property bottomY (base name: "BottomY")', function() {
-      // uncomment below and update the code to test the property bottomY
       //var instane = new CloudmersiveImageApiClient.FaceWithLandmarks();
       //expect(instance).to.be();
     });

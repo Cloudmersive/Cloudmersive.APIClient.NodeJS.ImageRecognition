@@ -36,7 +36,7 @@
   /**
    * The DetectedLicensePlate model module.
    * @module model/DetectedLicensePlate
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**
@@ -68,6 +68,12 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('LicensePlateText_BestMatch')) {
+        obj['LicensePlateText_BestMatch'] = ApiClient.convertToType(data['LicensePlateText_BestMatch'], 'String');
+      }
+      if (data.hasOwnProperty('LicensePlateText_RunnerUp')) {
+        obj['LicensePlateText_RunnerUp'] = ApiClient.convertToType(data['LicensePlateText_RunnerUp'], 'String');
+      }
       if (data.hasOwnProperty('LocationX')) {
         obj['LocationX'] = ApiClient.convertToType(data['LocationX'], 'Number');
       }
@@ -80,12 +86,6 @@
       if (data.hasOwnProperty('Height')) {
         obj['Height'] = ApiClient.convertToType(data['Height'], 'Number');
       }
-      if (data.hasOwnProperty('LicensePlateText_BestMatch')) {
-        obj['LicensePlateText_BestMatch'] = ApiClient.convertToType(data['LicensePlateText_BestMatch'], 'String');
-      }
-      if (data.hasOwnProperty('LicensePlateText_RunnerUp')) {
-        obj['LicensePlateText_RunnerUp'] = ApiClient.convertToType(data['LicensePlateText_RunnerUp'], 'String');
-      }
       if (data.hasOwnProperty('LicensePlateRecognitionConfidenceLevel')) {
         obj['LicensePlateRecognitionConfidenceLevel'] = ApiClient.convertToType(data['LicensePlateRecognitionConfidenceLevel'], 'Number');
       }
@@ -93,22 +93,6 @@
     return obj;
   }
 
-  /**
-   * @member {Number} LocationX
-   */
-  exports.prototype['LocationX'] = undefined;
-  /**
-   * @member {Number} LocationY
-   */
-  exports.prototype['LocationY'] = undefined;
-  /**
-   * @member {Number} Width
-   */
-  exports.prototype['Width'] = undefined;
-  /**
-   * @member {Number} Height
-   */
-  exports.prototype['Height'] = undefined;
   /**
    * Text from the license plate, highest-confidence result
    * @member {String} LicensePlateText_BestMatch
@@ -119,6 +103,26 @@
    * @member {String} LicensePlateText_RunnerUp
    */
   exports.prototype['LicensePlateText_RunnerUp'] = undefined;
+  /**
+   * X location of the left edge of the license plate, starting from the left edge of the photo (X = 0)
+   * @member {Number} LocationX
+   */
+  exports.prototype['LocationX'] = undefined;
+  /**
+   * Y location of the top edge of the license plate, starting from the top edge of the photo (Y = 0)
+   * @member {Number} LocationY
+   */
+  exports.prototype['LocationY'] = undefined;
+  /**
+   * Width of the license plate's location in pixels
+   * @member {Number} Width
+   */
+  exports.prototype['Width'] = undefined;
+  /**
+   * Height of the license plate's location in pixels
+   * @member {Number} Height
+   */
+  exports.prototype['Height'] = undefined;
   /**
    * Confidence score on a range of 0.0 - 1.0 of the accuracy of the detected license plate, with higher scores being better; values about 0.75 are high confidence
    * @member {Number} LicensePlateRecognitionConfidenceLevel

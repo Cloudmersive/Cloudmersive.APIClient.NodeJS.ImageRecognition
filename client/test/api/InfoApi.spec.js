@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.FaceCompareResponse();
+    instance = new CloudmersiveImageApiClient.InfoApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,37 +49,17 @@
       object[property] = value;
   }
 
-  describe('FaceCompareResponse', function() {
-    it('should create an instance of FaceCompareResponse', function() {
-      // uncomment below and update the code to test FaceCompareResponse
-      //var instane = new CloudmersiveImageApiClient.FaceCompareResponse();
-      //expect(instance).to.be.a(CloudmersiveImageApiClient.FaceCompareResponse);
+  describe('InfoApi', function() {
+    describe('infoGetDominantColor', function() {
+      it('should call infoGetDominantColor successfully', function(done) {
+        //uncomment below and update the code to test infoGetDominantColor
+        //instance.infoGetDominantColor(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property successful (base name: "Successful")', function() {
-      // uncomment below and update the code to test the property successful
-      //var instane = new CloudmersiveImageApiClient.FaceCompareResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property faces (base name: "Faces")', function() {
-      // uncomment below and update the code to test the property faces
-      //var instane = new CloudmersiveImageApiClient.FaceCompareResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property faceCount (base name: "FaceCount")', function() {
-      // uncomment below and update the code to test the property faceCount
-      //var instane = new CloudmersiveImageApiClient.FaceCompareResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property errorDetails (base name: "ErrorDetails")', function() {
-      // uncomment below and update the code to test the property errorDetails
-      //var instane = new CloudmersiveImageApiClient.FaceCompareResponse();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

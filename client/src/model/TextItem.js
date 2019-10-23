@@ -36,7 +36,7 @@
   /**
    * The TextItem model module.
    * @module model/TextItem
-   * @version 1.2.3
+   * @version 1.2.4
    */
 
   /**

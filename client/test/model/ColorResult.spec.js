@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse();
+    instance = new CloudmersiveImageApiClient.ColorResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,34 +49,28 @@
       object[property] = value;
   }
 
-  describe('FaceLocateWithLandmarksResponse', function() {
-    it('should create an instance of FaceLocateWithLandmarksResponse', function() {
-      // uncomment below and update the code to test FaceLocateWithLandmarksResponse
-      //var instane = new CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse();
-      //expect(instance).to.be.a(CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse);
+  describe('ColorResult', function() {
+    it('should create an instance of ColorResult', function() {
+      // uncomment below and update the code to test ColorResult
+      //var instane = new CloudmersiveImageApiClient.ColorResult();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.ColorResult);
     });
 
-    it('should have the property successful (base name: "Successful")', function() {
-      // uncomment below and update the code to test the property successful
-      //var instane = new CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse();
+    it('should have the property R (base name: "R")', function() {
+      // uncomment below and update the code to test the property R
+      //var instane = new CloudmersiveImageApiClient.ColorResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property faces (base name: "Faces")', function() {
-      // uncomment below and update the code to test the property faces
-      //var instane = new CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse();
+    it('should have the property G (base name: "G")', function() {
+      // uncomment below and update the code to test the property G
+      //var instane = new CloudmersiveImageApiClient.ColorResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property faceCount (base name: "FaceCount")', function() {
-      // uncomment below and update the code to test the property faceCount
-      //var instane = new CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property errorDetails (base name: "ErrorDetails")', function() {
-      // uncomment below and update the code to test the property errorDetails
-      //var instane = new CloudmersiveImageApiClient.FaceLocateWithLandmarksResponse();
+    it('should have the property B (base name: "B")', function() {
+      // uncomment below and update the code to test the property B
+      //var instane = new CloudmersiveImageApiClient.ColorResult();
       //expect(instance).to.be();
     });
 
