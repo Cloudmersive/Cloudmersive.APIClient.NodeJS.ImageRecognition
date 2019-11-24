@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.2.4
+- Package version: 1.2.5
 
 
 ## Installation
@@ -131,9 +131,11 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.EditApi* | [**editAutoOrient**](docs/EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *CloudmersiveImageApiClient.EditApi* | [**editCompositeBasic**](docs/EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 *CloudmersiveImageApiClient.EditApi* | [**editContrastAdaptive**](docs/EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+*CloudmersiveImageApiClient.EditApi* | [**editCropRectangle**](docs/EditApi.md#editCropRectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 *CloudmersiveImageApiClient.EditApi* | [**editDrawPolygon**](docs/EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 *CloudmersiveImageApiClient.EditApi* | [**editDrawRectangle**](docs/EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 *CloudmersiveImageApiClient.EditApi* | [**editDrawText**](docs/EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
+*CloudmersiveImageApiClient.EditApi* | [**editDropShadow**](docs/EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 *CloudmersiveImageApiClient.EditApi* | [**editRotate**](docs/EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 *CloudmersiveImageApiClient.FaceApi* | [**faceCompare**](docs/FaceApi.md#faceCompare) | **POST** /image/face/compare-and-match | Compare and match faces
 *CloudmersiveImageApiClient.FaceApi* | [**faceCropFirst**](docs/FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)
@@ -142,6 +144,14 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.FaceApi* | [**faceDetectGender**](docs/FaceApi.md#faceDetectGender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 *CloudmersiveImageApiClient.FaceApi* | [**faceLocate**](docs/FaceApi.md#faceLocate) | **POST** /image/face/locate | Find faces in an image
 *CloudmersiveImageApiClient.FaceApi* | [**faceLocateWithLandmarks**](docs/FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+*CloudmersiveImageApiClient.FilterApi* | [**filterBlackAndWhite**](docs/FilterApi.md#filterBlackAndWhite) | **POST** /image/filter/black-and-white | Convert image to black-and-white grayscale
+*CloudmersiveImageApiClient.FilterApi* | [**filterDespeckle**](docs/FilterApi.md#filterDespeckle) | **POST** /image/filter/despeckle | Despeckle (remove point noise) from the image
+*CloudmersiveImageApiClient.FilterApi* | [**filterEdgeDetect**](docs/FilterApi.md#filterEdgeDetect) | **POST** /image/filter/edge-detect/{radius} | Detect and highlight edges in an image
+*CloudmersiveImageApiClient.FilterApi* | [**filterEmboss**](docs/FilterApi.md#filterEmboss) | **POST** /image/filter/emboss/{radius}/{sigma} | Emboss an image
+*CloudmersiveImageApiClient.FilterApi* | [**filterGaussianBlur**](docs/FilterApi.md#filterGaussianBlur) | **POST** /image/filter/blur/guassian/{radius}/{sigma} | Perform a guassian blur on the input image
+*CloudmersiveImageApiClient.FilterApi* | [**filterMotionBlur**](docs/FilterApi.md#filterMotionBlur) | **POST** /image/filter/blur/motion/{radius}/{sigma}/{angle} | Perform a motion blur on the input image
+*CloudmersiveImageApiClient.FilterApi* | [**filterPosterize**](docs/FilterApi.md#filterPosterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
+*CloudmersiveImageApiClient.FilterApi* | [**filterSwirl**](docs/FilterApi.md#filterSwirl) | **POST** /image/filter/swirl | Swirl distort the image
 *CloudmersiveImageApiClient.InfoApi* | [**infoGetDominantColor**](docs/InfoApi.md#infoGetDominantColor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
 *CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDescribe**](docs/RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
@@ -151,7 +161,9 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextFine**](docs/RecognizeApi.md#recognizeDetectTextFine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextLarge**](docs/RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectVehicleLicensePlates**](docs/RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
-*CloudmersiveImageApiClient.ResizeApi* | [**resizePost**](docs/ResizeApi.md#resizePost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image with parameters
+*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeFindSymbol**](docs/RecognizeApi.md#recognizeFindSymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+*CloudmersiveImageApiClient.ResizeApi* | [**resizePost**](docs/ResizeApi.md#resizePost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
+*CloudmersiveImageApiClient.ResizeApi* | [**resizeResizeSimple**](docs/ResizeApi.md#resizeResizeSimple) | **POST** /image/resize/target/{width}/{height} | Resize an image
 
 
 ## Documentation for Models
@@ -174,6 +186,7 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.FaceMatch](docs/FaceMatch.md)
  - [CloudmersiveImageApiClient.FacePoint](docs/FacePoint.md)
  - [CloudmersiveImageApiClient.FaceWithLandmarks](docs/FaceWithLandmarks.md)
+ - [CloudmersiveImageApiClient.FindSymbolResult](docs/FindSymbolResult.md)
  - [CloudmersiveImageApiClient.FineTextDetectionResult](docs/FineTextDetectionResult.md)
  - [CloudmersiveImageApiClient.FineTextItem](docs/FineTextItem.md)
  - [CloudmersiveImageApiClient.GenderDetectionResult](docs/GenderDetectionResult.md)

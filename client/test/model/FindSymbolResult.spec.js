@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    instance = new CloudmersiveImageApiClient.FindSymbolResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,34 +49,40 @@
       object[property] = value;
   }
 
-  describe('ImageDescriptionResponse', function() {
-    it('should create an instance of ImageDescriptionResponse', function() {
-      // uncomment below and update the code to test ImageDescriptionResponse
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
-      //expect(instance).to.be.a(CloudmersiveImageApiClient.ImageDescriptionResponse);
+  describe('FindSymbolResult', function() {
+    it('should create an instance of FindSymbolResult', function() {
+      // uncomment below and update the code to test FindSymbolResult
+      //var instane = new CloudmersiveImageApiClient.FindSymbolResult();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.FindSymbolResult);
     });
 
     it('should have the property successful (base name: "Successful")', function() {
       // uncomment below and update the code to test the property successful
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+      //var instane = new CloudmersiveImageApiClient.FindSymbolResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property highconfidence (base name: "Highconfidence")', function() {
-      // uncomment below and update the code to test the property highconfidence
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property xLeft (base name: "XLeft")', function() {
+      // uncomment below and update the code to test the property xLeft
+      //var instane = new CloudmersiveImageApiClient.FindSymbolResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property bestOutcome (base name: "BestOutcome")', function() {
-      // uncomment below and update the code to test the property bestOutcome
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property yTop (base name: "YTop")', function() {
+      // uncomment below and update the code to test the property yTop
+      //var instane = new CloudmersiveImageApiClient.FindSymbolResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property runnerUpOutcome (base name: "RunnerUpOutcome")', function() {
-      // uncomment below and update the code to test the property runnerUpOutcome
-      //var instane = new CloudmersiveImageApiClient.ImageDescriptionResponse();
+    it('should have the property width (base name: "Width")', function() {
+      // uncomment below and update the code to test the property width
+      //var instane = new CloudmersiveImageApiClient.FindSymbolResult();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property height (base name: "Height")', function() {
+      // uncomment below and update the code to test the property height
+      //var instane = new CloudmersiveImageApiClient.FindSymbolResult();
       //expect(instance).to.be();
     });
 

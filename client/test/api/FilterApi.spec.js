@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.RecognizeApi();
+    instance = new CloudmersiveImageApiClient.FilterApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,81 +49,81 @@
       object[property] = value;
   }
 
-  describe('RecognizeApi', function() {
-    describe('recognizeDescribe', function() {
-      it('should call recognizeDescribe successfully', function(done) {
-        //uncomment below and update the code to test recognizeDescribe
-        //instance.recognizeDescribe(function(error) {
+  describe('FilterApi', function() {
+    describe('filterBlackAndWhite', function() {
+      it('should call filterBlackAndWhite successfully', function(done) {
+        //uncomment below and update the code to test filterBlackAndWhite
+        //instance.filterBlackAndWhite(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeDetectAndUnskewDocument', function() {
-      it('should call recognizeDetectAndUnskewDocument successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectAndUnskewDocument
-        //instance.recognizeDetectAndUnskewDocument(function(error) {
+    describe('filterDespeckle', function() {
+      it('should call filterDespeckle successfully', function(done) {
+        //uncomment below and update the code to test filterDespeckle
+        //instance.filterDespeckle(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeDetectObjects', function() {
-      it('should call recognizeDetectObjects successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectObjects
-        //instance.recognizeDetectObjects(function(error) {
+    describe('filterEdgeDetect', function() {
+      it('should call filterEdgeDetect successfully', function(done) {
+        //uncomment below and update the code to test filterEdgeDetect
+        //instance.filterEdgeDetect(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeDetectPeople', function() {
-      it('should call recognizeDetectPeople successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectPeople
-        //instance.recognizeDetectPeople(function(error) {
+    describe('filterEmboss', function() {
+      it('should call filterEmboss successfully', function(done) {
+        //uncomment below and update the code to test filterEmboss
+        //instance.filterEmboss(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeDetectTextFine', function() {
-      it('should call recognizeDetectTextFine successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectTextFine
-        //instance.recognizeDetectTextFine(function(error) {
+    describe('filterGaussianBlur', function() {
+      it('should call filterGaussianBlur successfully', function(done) {
+        //uncomment below and update the code to test filterGaussianBlur
+        //instance.filterGaussianBlur(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeDetectTextLarge', function() {
-      it('should call recognizeDetectTextLarge successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectTextLarge
-        //instance.recognizeDetectTextLarge(function(error) {
+    describe('filterMotionBlur', function() {
+      it('should call filterMotionBlur successfully', function(done) {
+        //uncomment below and update the code to test filterMotionBlur
+        //instance.filterMotionBlur(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeDetectVehicleLicensePlates', function() {
-      it('should call recognizeDetectVehicleLicensePlates successfully', function(done) {
-        //uncomment below and update the code to test recognizeDetectVehicleLicensePlates
-        //instance.recognizeDetectVehicleLicensePlates(function(error) {
+    describe('filterPosterize', function() {
+      it('should call filterPosterize successfully', function(done) {
+        //uncomment below and update the code to test filterPosterize
+        //instance.filterPosterize(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('recognizeFindSymbol', function() {
-      it('should call recognizeFindSymbol successfully', function(done) {
-        //uncomment below and update the code to test recognizeFindSymbol
-        //instance.recognizeFindSymbol(function(error) {
+    describe('filterSwirl', function() {
+      it('should call filterSwirl successfully', function(done) {
+        //uncomment below and update the code to test filterSwirl
+        //instance.filterSwirl(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

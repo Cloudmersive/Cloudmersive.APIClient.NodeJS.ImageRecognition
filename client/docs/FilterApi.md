@@ -1,79 +1,26 @@
-# CloudmersiveImageApiClient.RecognizeApi
+# CloudmersiveImageApiClient.FilterApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**recognizeDescribe**](RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
-[**recognizeDetectAndUnskewDocument**](RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-[**recognizeDetectObjects**](RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
-[**recognizeDetectPeople**](RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
-[**recognizeDetectTextFine**](RecognizeApi.md#recognizeDetectTextFine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
-[**recognizeDetectTextLarge**](RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
-[**recognizeDetectVehicleLicensePlates**](RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
-[**recognizeFindSymbol**](RecognizeApi.md#recognizeFindSymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+[**filterBlackAndWhite**](FilterApi.md#filterBlackAndWhite) | **POST** /image/filter/black-and-white | Convert image to black-and-white grayscale
+[**filterDespeckle**](FilterApi.md#filterDespeckle) | **POST** /image/filter/despeckle | Despeckle (remove point noise) from the image
+[**filterEdgeDetect**](FilterApi.md#filterEdgeDetect) | **POST** /image/filter/edge-detect/{radius} | Detect and highlight edges in an image
+[**filterEmboss**](FilterApi.md#filterEmboss) | **POST** /image/filter/emboss/{radius}/{sigma} | Emboss an image
+[**filterGaussianBlur**](FilterApi.md#filterGaussianBlur) | **POST** /image/filter/blur/guassian/{radius}/{sigma} | Perform a guassian blur on the input image
+[**filterMotionBlur**](FilterApi.md#filterMotionBlur) | **POST** /image/filter/blur/motion/{radius}/{sigma}/{angle} | Perform a motion blur on the input image
+[**filterPosterize**](FilterApi.md#filterPosterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
+[**filterSwirl**](FilterApi.md#filterSwirl) | **POST** /image/filter/swirl | Swirl distort the image
 
 
-<a name="recognizeDescribe"></a>
-# **recognizeDescribe**
-> ImageDescriptionResponse recognizeDescribe(imageFile)
+<a name="filterBlackAndWhite"></a>
+# **filterBlackAndWhite**
+> &#39;Blob&#39; filterBlackAndWhite(imageFile)
 
-Describe an image in natural language
+Convert image to black-and-white grayscale
 
-Generate an English language text description of the image as a sentence.
-
-### Example
-```javascript
-var CloudmersiveImageApiClient = require('cloudmersive-image-api-client');
-var defaultClient = CloudmersiveImageApiClient.ApiClient.instance;
-
-// Configure API key authorization: Apikey
-var Apikey = defaultClient.authentications['Apikey'];
-Apikey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Apikey.apiKeyPrefix = 'Token';
-
-var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
-
-var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.recognizeDescribe(imageFile, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
-
-### Return type
-
-[**ImageDescriptionResponse**](ImageDescriptionResponse.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
-
-<a name="recognizeDetectAndUnskewDocument"></a>
-# **recognizeDetectAndUnskewDocument**
-> &#39;Blob&#39; recognizeDetectAndUnskewDocument(imageFile, opts)
-
-Detect and unskew a photo of a document
-
-Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
+Remove color from the image by converting to a grayscale, black-and-white image
 
 ### Example
 ```javascript
@@ -86,13 +33,10 @@ Apikey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix = 'Token';
 
-var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
+var apiInstance = new CloudmersiveImageApiClient.FilterApi();
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
-var opts = { 
-  'postProcessingEffect': "postProcessingEffect_example" // String | Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations).
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -101,7 +45,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.recognizeDetectAndUnskewDocument(imageFile, opts, callback);
+apiInstance.filterBlackAndWhite(imageFile, callback);
 ```
 
 ### Parameters
@@ -109,7 +53,6 @@ apiInstance.recognizeDetectAndUnskewDocument(imageFile, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
- **postProcessingEffect** | **String**| Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations). | [optional] 
 
 ### Return type
 
@@ -122,15 +65,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
-<a name="recognizeDetectObjects"></a>
-# **recognizeDetectObjects**
-> ObjectDetectionResult recognizeDetectObjects(imageFile)
+<a name="filterDespeckle"></a>
+# **filterDespeckle**
+> &#39;Blob&#39; filterDespeckle(imageFile)
 
-Detect objects, including types and locations, in an image
+Despeckle (remove point noise) from the image
 
-Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
+Remove point noise / despeckle the input image
 
 ### Example
 ```javascript
@@ -143,7 +86,7 @@ Apikey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix = 'Token';
 
-var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
+var apiInstance = new CloudmersiveImageApiClient.FilterApi();
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -155,7 +98,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.recognizeDetectObjects(imageFile, callback);
+apiInstance.filterDespeckle(imageFile, callback);
 ```
 
 ### Parameters
@@ -166,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectDetectionResult**](ObjectDetectionResult.md)
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -175,15 +118,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
-<a name="recognizeDetectPeople"></a>
-# **recognizeDetectPeople**
-> ObjectDetectionResult recognizeDetectPeople(imageFile)
+<a name="filterEdgeDetect"></a>
+# **filterEdgeDetect**
+> &#39;Blob&#39; filterEdgeDetect(radius, imageFile)
 
-Detect people, including locations, in an image
+Detect and highlight edges in an image
 
-Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+Perform an edge detection operation on the input image
 
 ### Example
 ```javascript
@@ -196,7 +139,9 @@ Apikey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix = 'Token';
 
-var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
+var apiInstance = new CloudmersiveImageApiClient.FilterApi();
+
+var radius = 56; // Number | Radius in pixels of the edge detection operation; a larger radius will produce a greater effect
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -208,18 +153,19 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.recognizeDetectPeople(imageFile, callback);
+apiInstance.filterEdgeDetect(radius, imageFile, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **Number**| Radius in pixels of the edge detection operation; a larger radius will produce a greater effect | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**ObjectDetectionResult**](ObjectDetectionResult.md)
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -228,15 +174,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
-<a name="recognizeDetectTextFine"></a>
-# **recognizeDetectTextFine**
-> FineTextDetectionResult recognizeDetectTextFine(imageFile)
+<a name="filterEmboss"></a>
+# **filterEmboss**
+> &#39;Blob&#39; filterEmboss(radius, sigma, imageFile)
 
-Detect fine text in a photo of a document
+Emboss an image
 
-Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
+Perform an emboss operation on the input image
 
 ### Example
 ```javascript
@@ -249,7 +195,11 @@ Apikey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix = 'Token';
 
-var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
+var apiInstance = new CloudmersiveImageApiClient.FilterApi();
+
+var radius = 56; // Number | Radius in pixels of the emboss operation; a larger radius will produce a greater effect
+
+var sigma = 56; // Number | Sigma, or variance, of the emboss operation
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -261,18 +211,20 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.recognizeDetectTextFine(imageFile, callback);
+apiInstance.filterEmboss(radius, sigma, imageFile, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **Number**| Radius in pixels of the emboss operation; a larger radius will produce a greater effect | 
+ **sigma** | **Number**| Sigma, or variance, of the emboss operation | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**FineTextDetectionResult**](FineTextDetectionResult.md)
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -281,15 +233,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
-<a name="recognizeDetectTextLarge"></a>
-# **recognizeDetectTextLarge**
-> TextDetectionResult recognizeDetectTextLarge(imageFile)
+<a name="filterGaussianBlur"></a>
+# **filterGaussianBlur**
+> &#39;Blob&#39; filterGaussianBlur(radius, sigma, imageFile)
 
-Detect large text in a photo
+Perform a guassian blur on the input image
 
-Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+Perform a gaussian blur on the input image
 
 ### Example
 ```javascript
@@ -302,7 +254,11 @@ Apikey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix = 'Token';
 
-var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
+var apiInstance = new CloudmersiveImageApiClient.FilterApi();
+
+var radius = 56; // Number | Radius in pixels of the blur operation; a larger radius will produce a greater blur effect
+
+var sigma = 56; // Number | Sigma, or variance, of the gaussian blur operation
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -314,18 +270,20 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.recognizeDetectTextLarge(imageFile, callback);
+apiInstance.filterGaussianBlur(radius, sigma, imageFile, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **Number**| Radius in pixels of the blur operation; a larger radius will produce a greater blur effect | 
+ **sigma** | **Number**| Sigma, or variance, of the gaussian blur operation | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**TextDetectionResult**](TextDetectionResult.md)
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -334,15 +292,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
-<a name="recognizeDetectVehicleLicensePlates"></a>
-# **recognizeDetectVehicleLicensePlates**
-> VehicleLicensePlateDetectionResult recognizeDetectVehicleLicensePlates(imageFile)
+<a name="filterMotionBlur"></a>
+# **filterMotionBlur**
+> &#39;Blob&#39; filterMotionBlur(radius, sigma, angle, imageFile)
 
-Detect vehicle license plates in an image
+Perform a motion blur on the input image
 
-Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+Perform a motion blur on the input image at a specific angle
 
 ### Example
 ```javascript
@@ -355,7 +313,13 @@ Apikey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix = 'Token';
 
-var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
+var apiInstance = new CloudmersiveImageApiClient.FilterApi();
+
+var radius = 56; // Number | Radius in pixels of the blur operation; a larger radius will produce a greater blur effect
+
+var sigma = 56; // Number | Sigma, or variance, of the motion blur operation
+
+var angle = 56; // Number | Angle of the motion blur in degrees
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -367,18 +331,21 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.recognizeDetectVehicleLicensePlates(imageFile, callback);
+apiInstance.filterMotionBlur(radius, sigma, angle, imageFile, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **Number**| Radius in pixels of the blur operation; a larger radius will produce a greater blur effect | 
+ **sigma** | **Number**| Sigma, or variance, of the motion blur operation | 
+ **angle** | **Number**| Angle of the motion blur in degrees | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**VehicleLicensePlateDetectionResult**](VehicleLicensePlateDetectionResult.md)
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -387,15 +354,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
-<a name="recognizeFindSymbol"></a>
-# **recognizeFindSymbol**
-> FindSymbolResult recognizeFindSymbol(inputImage, targetImage)
+<a name="filterPosterize"></a>
+# **filterPosterize**
+> Object filterPosterize(levels)
 
-Find the location of a symbol in an image
+Posterize the image by reducing distinct colors
 
-Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+Reduce the unique number of colors in the image to the specified level
 
 ### Example
 ```javascript
@@ -408,11 +375,9 @@ Apikey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix = 'Token';
 
-var apiInstance = new CloudmersiveImageApiClient.RecognizeApi();
+var apiInstance = new CloudmersiveImageApiClient.FilterApi();
 
-var inputImage = "/path/to/file.txt"; // File | Image file to search through for the target image.
-
-var targetImage = "/path/to/file.txt"; // File | Image to find in the input image.
+var levels = 56; // Number | Number of unique colors to retain in the output image
 
 
 var callback = function(error, data, response) {
@@ -422,19 +387,74 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.recognizeFindSymbol(inputImage, targetImage, callback);
+apiInstance.filterPosterize(levels, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inputImage** | **File**| Image file to search through for the target image. | 
- **targetImage** | **File**| Image to find in the input image. | 
+ **levels** | **Number**| Number of unique colors to retain in the output image | 
 
 ### Return type
 
-[**FindSymbolResult**](FindSymbolResult.md)
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+<a name="filterSwirl"></a>
+# **filterSwirl**
+> &#39;Blob&#39; filterSwirl(degrees, imageFile)
+
+Swirl distort the image
+
+Swirl distort the image by the specified number of degrees
+
+### Example
+```javascript
+var CloudmersiveImageApiClient = require('cloudmersive-image-api-client');
+var defaultClient = CloudmersiveImageApiClient.ApiClient.instance;
+
+// Configure API key authorization: Apikey
+var Apikey = defaultClient.authentications['Apikey'];
+Apikey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.apiKeyPrefix = 'Token';
+
+var apiInstance = new CloudmersiveImageApiClient.FilterApi();
+
+var degrees = 56; // Number | Degrees of swirl
+
+var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.filterSwirl(degrees, imageFile, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **degrees** | **Number**| Degrees of swirl | 
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -443,5 +463,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 

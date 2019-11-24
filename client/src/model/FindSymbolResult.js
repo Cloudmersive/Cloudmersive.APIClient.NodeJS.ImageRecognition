@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.NsfwResult = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.FindSymbolResult = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The NsfwResult model module.
-   * @module model/NsfwResult
+   * The FindSymbolResult model module.
+   * @module model/FindSymbolResult
    * @version 1.2.5
    */
 
   /**
-   * Constructs a new <code>NsfwResult</code>.
-   * Result of an NSFW classification
-   * @alias module:model/NsfwResult
+   * Constructs a new <code>FindSymbolResult</code>.
+   * Result of a find symbol operation on an input image
+   * @alias module:model/FindSymbolResult
    * @class
    */
   var exports = function() {
@@ -51,14 +51,16 @@
 
 
 
+
+
   };
 
   /**
-   * Constructs a <code>NsfwResult</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FindSymbolResult</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/NsfwResult} obj Optional instance to populate.
-   * @return {module:model/NsfwResult} The populated <code>NsfwResult</code> instance.
+   * @param {module:model/FindSymbolResult} obj Optional instance to populate.
+   * @return {module:model/FindSymbolResult} The populated <code>FindSymbolResult</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -67,31 +69,47 @@
       if (data.hasOwnProperty('Successful')) {
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
-      if (data.hasOwnProperty('Score')) {
-        obj['Score'] = ApiClient.convertToType(data['Score'], 'Number');
+      if (data.hasOwnProperty('XLeft')) {
+        obj['XLeft'] = ApiClient.convertToType(data['XLeft'], 'Number');
       }
-      if (data.hasOwnProperty('ClassificationOutcome')) {
-        obj['ClassificationOutcome'] = ApiClient.convertToType(data['ClassificationOutcome'], 'String');
+      if (data.hasOwnProperty('YTop')) {
+        obj['YTop'] = ApiClient.convertToType(data['YTop'], 'Number');
+      }
+      if (data.hasOwnProperty('Width')) {
+        obj['Width'] = ApiClient.convertToType(data['Width'], 'Number');
+      }
+      if (data.hasOwnProperty('Height')) {
+        obj['Height'] = ApiClient.convertToType(data['Height'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * True if the classification was successfully run, false otherwise
+   * True if successful, false otherwise
    * @member {Boolean} Successful
    */
   exports.prototype['Successful'] = undefined;
   /**
-   * Score between 0.0 and 1.0.  Scores of 0.0-0.2 represent high probability safe content, while scores 0.8-1.0 represent high probability unsafe content.  Content between 0.2 and 0.8 is of increasing raciness.
-   * @member {Number} Score
+   * X location of the left edge of the found location in pixels
+   * @member {Number} XLeft
    */
-  exports.prototype['Score'] = undefined;
+  exports.prototype['XLeft'] = undefined;
   /**
-   * Classification result into four categories: SafeContent_HighProbability, UnsafeContent_HighProbability, RacyContent, SafeContent_ModerateProbability
-   * @member {String} ClassificationOutcome
+   * Y location of the top edge of the found location in pixels
+   * @member {Number} YTop
    */
-  exports.prototype['ClassificationOutcome'] = undefined;
+  exports.prototype['YTop'] = undefined;
+  /**
+   * Width of the found location in pixels
+   * @member {Number} Width
+   */
+  exports.prototype['Width'] = undefined;
+  /**
+   * Height of the found location in pixels
+   * @member {Number} Height
+   */
+  exports.prototype['Height'] = undefined;
 
 
 
