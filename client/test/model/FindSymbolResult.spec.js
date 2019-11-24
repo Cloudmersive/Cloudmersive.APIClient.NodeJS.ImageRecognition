@@ -62,6 +62,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property matchScore (base name: "MatchScore")', function() {
+      // uncomment below and update the code to test the property matchScore
+      //var instane = new CloudmersiveImageApiClient.FindSymbolResult();
+      //expect(instance).to.be();
+    });
+
     it('should have the property xLeft (base name: "XLeft")', function() {
       // uncomment below and update the code to test the property xLeft
       //var instane = new CloudmersiveImageApiClient.FindSymbolResult();

@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.2.6
+- Package version: 1.2.7
 
 
 ## Installation
@@ -128,6 +128,9 @@ All URIs are relative to *https://api.cloudmersive.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CloudmersiveImageApiClient.ArtisticApi* | [**artisticPainting**](docs/ArtisticApi.md#artisticPainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToGif**](docs/ConvertApi.md#convertToGif) | **POST** /image/convert/to/gif | Convert input image to GIF format
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToJpg**](docs/ConvertApi.md#convertToJpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG/JPEG format
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToPng**](docs/ConvertApi.md#convertToPng) | **POST** /image/convert/to/png | Convert input image to PNG format
 *CloudmersiveImageApiClient.EditApi* | [**editAutoOrient**](docs/EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *CloudmersiveImageApiClient.EditApi* | [**editCompositeBasic**](docs/EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 *CloudmersiveImageApiClient.EditApi* | [**editContrastAdaptive**](docs/EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see

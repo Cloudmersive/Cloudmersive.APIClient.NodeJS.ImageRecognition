@@ -33,7 +33,7 @@
   /**
    * Filter service.
    * @module api/FilterApi
-   * @version 1.2.6
+   * @version 1.2.7
    */
 
   /**
@@ -395,7 +395,7 @@
      * Callback function to receive the result of the filterPosterize operation.
      * @callback module:api/FilterApi~filterPosterizeCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {'Blob'} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -403,15 +403,21 @@
      * Posterize the image by reducing distinct colors
      * Reduce the unique number of colors in the image to the specified level
      * @param {Number} levels Number of unique colors to retain in the output image
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/FilterApi~filterPosterizeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link 'Blob'}
      */
-    this.filterPosterize = function(levels, callback) {
+    this.filterPosterize = function(levels, imageFile, callback) {
       var postBody = null;
 
       // verify the required parameter 'levels' is set
       if (levels === undefined || levels === null) {
         throw new Error("Missing the required parameter 'levels' when calling filterPosterize");
+      }
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling filterPosterize");
       }
 
 
@@ -425,12 +431,13 @@
       var headerParams = {
       };
       var formParams = {
+        'imageFile': imageFile
       };
 
       var authNames = ['Apikey'];
-      var contentTypes = [];
+      var contentTypes = ['multipart/form-data'];
       var accepts = ['application/octet-stream'];
-      var returnType = Object;
+      var returnType = 'Blob';
 
       return this.apiClient.callApi(
         '/image/filter/posterize', 'POST',

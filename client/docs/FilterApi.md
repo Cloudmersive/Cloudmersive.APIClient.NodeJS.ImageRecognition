@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 <a name="filterPosterize"></a>
 # **filterPosterize**
-> Object filterPosterize(levels)
+> &#39;Blob&#39; filterPosterize(levels, imageFile)
 
 Posterize the image by reducing distinct colors
 
@@ -379,6 +379,8 @@ var apiInstance = new CloudmersiveImageApiClient.FilterApi();
 
 var levels = 56; // Number | Number of unique colors to retain in the output image
 
+var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -387,7 +389,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.filterPosterize(levels, callback);
+apiInstance.filterPosterize(levels, imageFile, callback);
 ```
 
 ### Parameters
@@ -395,10 +397,11 @@ apiInstance.filterPosterize(levels, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **levels** | **Number**| Number of unique colors to retain in the output image | 
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-**Object**
+**&#39;Blob&#39;**
 
 ### Authorization
 
@@ -406,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 <a name="filterSwirl"></a>

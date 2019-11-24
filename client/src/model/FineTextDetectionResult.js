@@ -36,7 +36,7 @@
   /**
    * The FineTextDetectionResult model module.
    * @module model/FineTextDetectionResult
-   * @version 1.2.6
+   * @version 1.2.7
    */
 
   /**

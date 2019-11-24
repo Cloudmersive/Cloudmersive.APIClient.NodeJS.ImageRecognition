@@ -36,7 +36,7 @@
   /**
    * The FindSymbolResult model module.
    * @module model/FindSymbolResult
-   * @version 1.2.6
+   * @version 1.2.7
    */
 
   /**
@@ -47,6 +47,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -69,6 +70,9 @@
       if (data.hasOwnProperty('Successful')) {
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
+      if (data.hasOwnProperty('MatchScore')) {
+        obj['MatchScore'] = ApiClient.convertToType(data['MatchScore'], 'Number');
+      }
       if (data.hasOwnProperty('XLeft')) {
         obj['XLeft'] = ApiClient.convertToType(data['XLeft'], 'Number');
       }
@@ -90,6 +94,11 @@
    * @member {Boolean} Successful
    */
   exports.prototype['Successful'] = undefined;
+  /**
+   * Score between 0.0 and 1.0 that measures how closely the symbol matched; scores above 0.2 are good
+   * @member {Number} MatchScore
+   */
+  exports.prototype['MatchScore'] = undefined;
   /**
    * X location of the left edge of the found location in pixels
    * @member {Number} XLeft
