@@ -33,7 +33,7 @@
   /**
    * Edit service.
    * @module api/EditApi
-   * @version 1.2.5
+   * @version 1.2.6
    */
 
   /**
@@ -440,25 +440,25 @@
     /**
      * Add a customizeable drop shadow to an image
      * Add a customizeable drop shadow to the image
-     * @param {Number} x Horizontal (X) offset of the drop shadow
-     * @param {Number} y Vertical (Y) offset of the drop shadow
+     * @param {Number} X 
+     * @param {Number} Y 
      * @param {Number} sigma Sigma (blur distance) of the drop shadow
      * @param {Number} opacity Opacity of the drop shadow; 0 is 0% and 100 is 100%
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/EditApi~editDropShadowCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'Blob'}
      */
-    this.editDropShadow = function(x, y, sigma, opacity, imageFile, callback) {
+    this.editDropShadow = function(X, Y, sigma, opacity, imageFile, callback) {
       var postBody = null;
 
-      // verify the required parameter 'x' is set
-      if (x === undefined || x === null) {
-        throw new Error("Missing the required parameter 'x' when calling editDropShadow");
+      // verify the required parameter 'X' is set
+      if (X === undefined || X === null) {
+        throw new Error("Missing the required parameter 'X' when calling editDropShadow");
       }
 
-      // verify the required parameter 'y' is set
-      if (y === undefined || y === null) {
-        throw new Error("Missing the required parameter 'y' when calling editDropShadow");
+      // verify the required parameter 'Y' is set
+      if (Y === undefined || Y === null) {
+        throw new Error("Missing the required parameter 'Y' when calling editDropShadow");
       }
 
       // verify the required parameter 'sigma' is set
@@ -478,8 +478,8 @@
 
 
       var pathParams = {
-        'x': x,
-        'y': y,
+        'X': X,
+        'Y': Y,
         'sigma': sigma,
         'opacity': opacity
       };
@@ -499,7 +499,7 @@
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
-        '/image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity}', 'POST',
+        '/image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity}', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

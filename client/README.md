@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.2.5
+- Package version: 1.2.6
 
 
 ## Installation
@@ -135,7 +135,7 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.EditApi* | [**editDrawPolygon**](docs/EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 *CloudmersiveImageApiClient.EditApi* | [**editDrawRectangle**](docs/EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 *CloudmersiveImageApiClient.EditApi* | [**editDrawText**](docs/EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
-*CloudmersiveImageApiClient.EditApi* | [**editDropShadow**](docs/EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
+*CloudmersiveImageApiClient.EditApi* | [**editDropShadow**](docs/EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 *CloudmersiveImageApiClient.EditApi* | [**editRotate**](docs/EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 *CloudmersiveImageApiClient.FaceApi* | [**faceCompare**](docs/FaceApi.md#faceCompare) | **POST** /image/face/compare-and-match | Compare and match faces
 *CloudmersiveImageApiClient.FaceApi* | [**faceCropFirst**](docs/FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)

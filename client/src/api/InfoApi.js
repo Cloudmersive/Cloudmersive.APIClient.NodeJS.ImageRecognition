@@ -33,7 +33,7 @@
   /**
    * Info service.
    * @module api/InfoApi
-   * @version 1.2.5
+   * @version 1.2.6
    */
 
   /**
