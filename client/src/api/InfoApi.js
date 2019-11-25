@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DominantColorResult'], factory);
+    define(['ApiClient', 'model/DominantColorResult', 'model/ImageMetadata'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/DominantColorResult'));
+    module.exports = factory(require('../ApiClient'), require('../model/DominantColorResult'), require('../model/ImageMetadata'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.InfoApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.DominantColorResult);
+    root.CloudmersiveImageApiClient.InfoApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.DominantColorResult, root.CloudmersiveImageApiClient.ImageMetadata);
   }
-}(this, function(ApiClient, DominantColorResult) {
+}(this, function(ApiClient, DominantColorResult, ImageMetadata) {
   'use strict';
 
   /**
    * Info service.
    * @module api/InfoApi
-   * @version 1.2.7
+   * @version 1.2.8
    */
 
   /**
@@ -90,6 +90,54 @@
 
       return this.apiClient.callApi(
         '/image/get-info/dominant-color', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the infoGetMetadata operation.
+     * @callback module:api/InfoApi~infoGetMetadataCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ImageMetadata} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Returns the image metadata, including EXIF and resolution
+     * Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/InfoApi~infoGetMetadataCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ImageMetadata}
+     */
+    this.infoGetMetadata = function(imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling infoGetMetadata");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = ImageMetadata;
+
+      return this.apiClient.callApi(
+        '/image/get-info/metadata', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

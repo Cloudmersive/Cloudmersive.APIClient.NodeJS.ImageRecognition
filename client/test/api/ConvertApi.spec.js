@@ -50,6 +50,16 @@
   }
 
   describe('ConvertApi', function() {
+    describe('convertToBmp', function() {
+      it('should call convertToBmp successfully', function(done) {
+        //uncomment below and update the code to test convertToBmp
+        //instance.convertToBmp(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('convertToGif', function() {
       it('should call convertToGif successfully', function(done) {
         //uncomment below and update the code to test convertToGif
@@ -70,10 +80,40 @@
         done();
       });
     });
+    describe('convertToPhotoshop', function() {
+      it('should call convertToPhotoshop successfully', function(done) {
+        //uncomment below and update the code to test convertToPhotoshop
+        //instance.convertToPhotoshop(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('convertToPng', function() {
       it('should call convertToPng successfully', function(done) {
         //uncomment below and update the code to test convertToPng
         //instance.convertToPng(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('convertToTiff', function() {
+      it('should call convertToTiff successfully', function(done) {
+        //uncomment below and update the code to test convertToTiff
+        //instance.convertToTiff(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('convertToWebP', function() {
+      it('should call convertToWebP successfully', function(done) {
+        //uncomment below and update the code to test convertToWebP
+        //instance.convertToWebP(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

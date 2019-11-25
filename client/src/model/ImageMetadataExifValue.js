@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.Face = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.ImageMetadataExifValue = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The Face model module.
-   * @module model/Face
+   * The ImageMetadataExifValue model module.
+   * @module model/ImageMetadataExifValue
    * @version 1.2.8
    */
 
   /**
-   * Constructs a new <code>Face</code>.
-   * Location of one face in an image
-   * @alias module:model/Face
+   * Constructs a new <code>ImageMetadataExifValue</code>.
+   * EXIF tag and value
+   * @alias module:model/ImageMetadataExifValue
    * @class
    */
   var exports = function() {
@@ -51,56 +51,47 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>Face</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ImageMetadataExifValue</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Face} obj Optional instance to populate.
-   * @return {module:model/Face} The populated <code>Face</code> instance.
+   * @param {module:model/ImageMetadataExifValue} obj Optional instance to populate.
+   * @return {module:model/ImageMetadataExifValue} The populated <code>ImageMetadataExifValue</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('LeftX')) {
-        obj['LeftX'] = ApiClient.convertToType(data['LeftX'], 'Number');
+      if (data.hasOwnProperty('Tag')) {
+        obj['Tag'] = ApiClient.convertToType(data['Tag'], 'String');
       }
-      if (data.hasOwnProperty('TopY')) {
-        obj['TopY'] = ApiClient.convertToType(data['TopY'], 'Number');
+      if (data.hasOwnProperty('DataType')) {
+        obj['DataType'] = ApiClient.convertToType(data['DataType'], 'String');
       }
-      if (data.hasOwnProperty('RightX')) {
-        obj['RightX'] = ApiClient.convertToType(data['RightX'], 'Number');
-      }
-      if (data.hasOwnProperty('BottomY')) {
-        obj['BottomY'] = ApiClient.convertToType(data['BottomY'], 'Number');
+      if (data.hasOwnProperty('DataValue')) {
+        obj['DataValue'] = ApiClient.convertToType(data['DataValue'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * X coordinate of the left side of the face
-   * @member {Number} LeftX
+   * Tag name for the EXIF value
+   * @member {String} Tag
    */
-  exports.prototype['LeftX'] = undefined;
+  exports.prototype['Tag'] = undefined;
   /**
-   * Y coordinate of the top side of the face
-   * @member {Number} TopY
+   * Date type of the EXIF value
+   * @member {String} DataType
    */
-  exports.prototype['TopY'] = undefined;
+  exports.prototype['DataType'] = undefined;
   /**
-   * X coordinate of the right side of the face
-   * @member {Number} RightX
+   * Value, formatted as a string of the EXIF value
+   * @member {String} DataValue
    */
-  exports.prototype['RightX'] = undefined;
-  /**
-   * Y coordinate of the bottom side of the face
-   * @member {Number} BottomY
-   */
-  exports.prototype['BottomY'] = undefined;
+  exports.prototype['DataValue'] = undefined;
 
 
 

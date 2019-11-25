@@ -36,7 +36,7 @@
   /**
    * The DominantColorResult model module.
    * @module model/DominantColorResult
-   * @version 1.2.7
+   * @version 1.2.8
    */
 
   /**

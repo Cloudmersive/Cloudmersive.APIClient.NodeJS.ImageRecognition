@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.InfoApi();
+    instance = new CloudmersiveImageApiClient.ImageMetadataExifValue();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,27 +49,31 @@
       object[property] = value;
   }
 
-  describe('InfoApi', function() {
-    describe('infoGetDominantColor', function() {
-      it('should call infoGetDominantColor successfully', function(done) {
-        //uncomment below and update the code to test infoGetDominantColor
-        //instance.infoGetDominantColor(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('ImageMetadataExifValue', function() {
+    it('should create an instance of ImageMetadataExifValue', function() {
+      // uncomment below and update the code to test ImageMetadataExifValue
+      //var instane = new CloudmersiveImageApiClient.ImageMetadataExifValue();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.ImageMetadataExifValue);
     });
-    describe('infoGetMetadata', function() {
-      it('should call infoGetMetadata successfully', function(done) {
-        //uncomment below and update the code to test infoGetMetadata
-        //instance.infoGetMetadata(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property tag (base name: "Tag")', function() {
+      // uncomment below and update the code to test the property tag
+      //var instane = new CloudmersiveImageApiClient.ImageMetadataExifValue();
+      //expect(instance).to.be();
     });
+
+    it('should have the property dataType (base name: "DataType")', function() {
+      // uncomment below and update the code to test the property dataType
+      //var instane = new CloudmersiveImageApiClient.ImageMetadataExifValue();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dataValue (base name: "DataValue")', function() {
+      // uncomment below and update the code to test the property dataValue
+      //var instane = new CloudmersiveImageApiClient.ImageMetadataExifValue();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

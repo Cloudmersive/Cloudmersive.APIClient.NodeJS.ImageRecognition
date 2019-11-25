@@ -33,7 +33,7 @@
   /**
    * Nsfw service.
    * @module api/NsfwApi
-   * @version 1.2.7
+   * @version 1.2.8
    */
 
   /**

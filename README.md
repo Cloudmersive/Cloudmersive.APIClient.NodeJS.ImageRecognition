@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.2.7
+- Package version: 1.2.8
 
 
 ## Installation
@@ -128,9 +128,13 @@ All URIs are relative to *https://api.cloudmersive.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CloudmersiveImageApiClient.ArtisticApi* | [**artisticPainting**](docs/ArtisticApi.md#artisticPainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToBmp**](docs/ConvertApi.md#convertToBmp) | **POST** /image/convert/to/bmp | Convert input image to Bitmap BMP format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToGif**](docs/ConvertApi.md#convertToGif) | **POST** /image/convert/to/gif | Convert input image to GIF format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToJpg**](docs/ConvertApi.md#convertToJpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG/JPEG format
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToPhotoshop**](docs/ConvertApi.md#convertToPhotoshop) | **POST** /image/convert/to/psd | Convert input image to Photoshop PSD format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToPng**](docs/ConvertApi.md#convertToPng) | **POST** /image/convert/to/png | Convert input image to PNG format
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToTiff**](docs/ConvertApi.md#convertToTiff) | **POST** /image/convert/to/tiff | Convert input image to TIFF format
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToWebP**](docs/ConvertApi.md#convertToWebP) | **POST** /image/convert/to/webp | Convert input image to WebP format
 *CloudmersiveImageApiClient.EditApi* | [**editAutoOrient**](docs/EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *CloudmersiveImageApiClient.EditApi* | [**editCompositeBasic**](docs/EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 *CloudmersiveImageApiClient.EditApi* | [**editContrastAdaptive**](docs/EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
@@ -156,6 +160,7 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.FilterApi* | [**filterPosterize**](docs/FilterApi.md#filterPosterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
 *CloudmersiveImageApiClient.FilterApi* | [**filterSwirl**](docs/FilterApi.md#filterSwirl) | **POST** /image/filter/swirl | Swirl distort the image
 *CloudmersiveImageApiClient.InfoApi* | [**infoGetDominantColor**](docs/InfoApi.md#infoGetDominantColor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
+*CloudmersiveImageApiClient.InfoApi* | [**infoGetMetadata**](docs/InfoApi.md#infoGetMetadata) | **POST** /image/get-info/metadata | Returns the image metadata, including EXIF and resolution
 *CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDescribe**](docs/RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
@@ -194,6 +199,8 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.FineTextItem](docs/FineTextItem.md)
  - [CloudmersiveImageApiClient.GenderDetectionResult](docs/GenderDetectionResult.md)
  - [CloudmersiveImageApiClient.ImageDescriptionResponse](docs/ImageDescriptionResponse.md)
+ - [CloudmersiveImageApiClient.ImageMetadata](docs/ImageMetadata.md)
+ - [CloudmersiveImageApiClient.ImageMetadataExifValue](docs/ImageMetadataExifValue.md)
  - [CloudmersiveImageApiClient.NsfwResult](docs/NsfwResult.md)
  - [CloudmersiveImageApiClient.ObjectDetectionResult](docs/ObjectDetectionResult.md)
  - [CloudmersiveImageApiClient.PersonWithAge](docs/PersonWithAge.md)
