@@ -36,7 +36,7 @@
   /**
    * The ImageMetadataExifValue model module.
    * @module model/ImageMetadataExifValue
-   * @version 1.2.8
+   * @version 1.2.9
    */
 
   /**

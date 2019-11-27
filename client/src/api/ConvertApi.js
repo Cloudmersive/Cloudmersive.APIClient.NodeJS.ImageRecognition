@@ -33,7 +33,7 @@
   /**
    * Convert service.
    * @module api/ConvertApi
-   * @version 1.2.8
+   * @version 1.2.9
    */
 
   /**

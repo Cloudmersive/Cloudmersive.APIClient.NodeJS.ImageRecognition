@@ -130,6 +130,16 @@
         done();
       });
     });
+    describe('editRemoveTransparency', function() {
+      it('should call editRemoveTransparency successfully', function(done) {
+        //uncomment below and update the code to test editRemoveTransparency
+        //instance.editRemoveTransparency(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('editRotate', function() {
       it('should call editRotate successfully', function(done) {
         //uncomment below and update the code to test editRotate

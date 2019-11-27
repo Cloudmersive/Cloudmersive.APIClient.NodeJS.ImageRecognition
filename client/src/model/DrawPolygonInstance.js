@@ -36,7 +36,7 @@
   /**
    * The DrawPolygonInstance model module.
    * @module model/DrawPolygonInstance
-   * @version 1.2.8
+   * @version 1.2.9
    */
 
   /**

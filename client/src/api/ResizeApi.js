@@ -33,7 +33,7 @@
   /**
    * Resize service.
    * @module api/ResizeApi
-   * @version 1.2.8
+   * @version 1.2.9
    */
 
   /**
