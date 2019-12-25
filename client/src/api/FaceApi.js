@@ -33,7 +33,7 @@
   /**
    * Face service.
    * @module api/FaceApi
-   * @version 1.2.9
+   * @version 1.3.0
    */
 
   /**
@@ -111,7 +111,7 @@
      */
 
     /**
-     * Crop image to face (square)
+     * Crop image to face with square crop
      * Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/FaceApi~faceCropFirstCallback} callback The callback function, accepting three arguments: error, data, response
@@ -159,7 +159,7 @@
      */
 
     /**
-     * Crop image to face (round)
+     * Crop image to face with round crop
      * Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/FaceApi~faceCropFirstRoundCallback} callback The callback function, accepting three arguments: error, data, response
@@ -303,7 +303,7 @@
      */
 
     /**
-     * Find faces in an image
+     * Detect and find faces in an image
      * Locate the positions of all faces in an image
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/FaceApi~faceLocateCallback} callback The callback function, accepting three arguments: error, data, response
@@ -351,7 +351,7 @@
      */
 
     /**
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and landmarks eyes and nose and mouth in image
      * Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/FaceApi~faceLocateWithLandmarksCallback} callback The callback function, accepting three arguments: error, data, response

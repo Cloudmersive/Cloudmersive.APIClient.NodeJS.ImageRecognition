@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editContrastAdaptive"></a>
 # **editContrastAdaptive**
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editCropRectangle"></a>
 # **editCropRectangle**
@@ -270,7 +270,7 @@ Apikey.apiKey = 'YOUR API KEY';
 
 var apiInstance = new CloudmersiveImageApiClient.EditApi();
 
-var request = new CloudmersiveImageApiClient.DrawPolygonRequest(); // DrawPolygonRequest | 
+var request = new CloudmersiveImageApiClient.DrawPolygonRequest(); // DrawPolygonRequest | Polygon drawing request parameters
 
 
 var callback = function(error, data, response) {
@@ -287,7 +287,7 @@ apiInstance.editDrawPolygon(request, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)|  | 
+ **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)| Polygon drawing request parameters | 
 
 ### Return type
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editDrawRectangle"></a>
 # **editDrawRectangle**
@@ -323,7 +323,7 @@ Apikey.apiKey = 'YOUR API KEY';
 
 var apiInstance = new CloudmersiveImageApiClient.EditApi();
 
-var request = new CloudmersiveImageApiClient.DrawRectangleRequest(); // DrawRectangleRequest | 
+var request = new CloudmersiveImageApiClient.DrawRectangleRequest(); // DrawRectangleRequest | Draw rectangle parameters
 
 
 var callback = function(error, data, response) {
@@ -340,7 +340,7 @@ apiInstance.editDrawRectangle(request, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawRectangleRequest**](DrawRectangleRequest.md)|  | 
+ **request** | [**DrawRectangleRequest**](DrawRectangleRequest.md)| Draw rectangle parameters | 
 
 ### Return type
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editDrawText"></a>
 # **editDrawText**
@@ -376,7 +376,7 @@ Apikey.apiKey = 'YOUR API KEY';
 
 var apiInstance = new CloudmersiveImageApiClient.EditApi();
 
-var request = new CloudmersiveImageApiClient.DrawTextRequest(); // DrawTextRequest | 
+var request = new CloudmersiveImageApiClient.DrawTextRequest(); // DrawTextRequest | Draw text parameters
 
 
 var callback = function(error, data, response) {
@@ -393,7 +393,7 @@ apiInstance.editDrawText(request, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawTextRequest**](DrawTextRequest.md)|  | 
+ **request** | [**DrawTextRequest**](DrawTextRequest.md)| Draw text parameters | 
 
 ### Return type
 
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="editDropShadow"></a>
 # **editDropShadow**
@@ -429,9 +429,9 @@ Apikey.apiKey = 'YOUR API KEY';
 
 var apiInstance = new CloudmersiveImageApiClient.EditApi();
 
-var X = 56; // Number | 
+var X = 56; // Number | Horizontal (X) offset of the drop shadow
 
-var Y = 56; // Number | 
+var Y = 56; // Number | Vertical (Y) offset of the drop shadow
 
 var sigma = 56; // Number | Sigma (blur distance) of the drop shadow
 
@@ -454,8 +454,8 @@ apiInstance.editDropShadow(X, Y, sigma, opacity, imageFile, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **X** | **Number**|  | 
- **Y** | **Number**|  | 
+ **X** | **Number**| Horizontal (X) offset of the drop shadow | 
+ **Y** | **Number**| Vertical (Y) offset of the drop shadow | 
  **sigma** | **Number**| Sigma (blur distance) of the drop shadow | 
  **opacity** | **Number**| Opacity of the drop shadow; 0 is 0% and 100 is 100% | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 

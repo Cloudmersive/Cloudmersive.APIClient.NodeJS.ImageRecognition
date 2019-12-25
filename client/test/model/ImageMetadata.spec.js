@@ -62,6 +62,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property isValidImage (base name: "IsValidImage")', function() {
+      // uncomment below and update the code to test the property isValidImage
+      //var instane = new CloudmersiveImageApiClient.ImageMetadata();
+      //expect(instance).to.be();
+    });
+
     it('should have the property fileFormat (base name: "FileFormat")', function() {
       // uncomment below and update the code to test the property fileFormat
       //var instane = new CloudmersiveImageApiClient.ImageMetadata();
@@ -82,6 +88,12 @@
 
     it('should have the property bitDepth (base name: "BitDepth")', function() {
       // uncomment below and update the code to test the property bitDepth
+      //var instane = new CloudmersiveImageApiClient.ImageMetadata();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property hasTransparency (base name: "HasTransparency")', function() {
+      // uncomment below and update the code to test the property hasTransparency
       //var instane = new CloudmersiveImageApiClient.ImageMetadata();
       //expect(instance).to.be();
     });

@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 <a name="resizeResizeSimple"></a>
 # **resizeResizeSimple**
@@ -88,9 +88,9 @@ Apikey.apiKey = 'YOUR API KEY';
 
 var apiInstance = new CloudmersiveImageApiClient.ResizeApi();
 
-var width = 56; // Number | 
+var width = 56; // Number | Width of the output image - final image will be exactly this width
 
-var height = 56; // Number | 
+var height = 56; // Number | Height of the output image - final image will be exactly this height
 
 var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -109,8 +109,8 @@ apiInstance.resizeResizeSimple(width, height, imageFile, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **width** | **Number**|  | 
- **height** | **Number**|  | 
+ **width** | **Number**| Width of the output image - final image will be exactly this width | 
+ **height** | **Number**| Height of the output image - final image will be exactly this height | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
@@ -124,5 +124,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 

@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.2.9
+- Package version: 1.3.0
 
 
 ## Installation
@@ -130,7 +130,7 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.ArtisticApi* | [**artisticPainting**](docs/ArtisticApi.md#artisticPainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToBmp**](docs/ConvertApi.md#convertToBmp) | **POST** /image/convert/to/bmp | Convert input image to Bitmap BMP format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToGif**](docs/ConvertApi.md#convertToGif) | **POST** /image/convert/to/gif | Convert input image to GIF format
-*CloudmersiveImageApiClient.ConvertApi* | [**convertToJpg**](docs/ConvertApi.md#convertToJpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG/JPEG format
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToJpg**](docs/ConvertApi.md#convertToJpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG, JPEG format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToPhotoshop**](docs/ConvertApi.md#convertToPhotoshop) | **POST** /image/convert/to/psd | Convert input image to Photoshop PSD format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToPng**](docs/ConvertApi.md#convertToPng) | **POST** /image/convert/to/png | Convert input image to PNG format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToTiff**](docs/ConvertApi.md#convertToTiff) | **POST** /image/convert/to/tiff | Convert input image to TIFF format
@@ -146,14 +146,14 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.EditApi* | [**editRemoveTransparency**](docs/EditApi.md#editRemoveTransparency) | **POST** /image/edit/remove-transparency | Remove transparency from the image
 *CloudmersiveImageApiClient.EditApi* | [**editRotate**](docs/EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 *CloudmersiveImageApiClient.FaceApi* | [**faceCompare**](docs/FaceApi.md#faceCompare) | **POST** /image/face/compare-and-match | Compare and match faces
-*CloudmersiveImageApiClient.FaceApi* | [**faceCropFirst**](docs/FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face (square)
-*CloudmersiveImageApiClient.FaceApi* | [**faceCropFirstRound**](docs/FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face (round)
+*CloudmersiveImageApiClient.FaceApi* | [**faceCropFirst**](docs/FaceApi.md#faceCropFirst) | **POST** /image/face/crop/first | Crop image to face with square crop
+*CloudmersiveImageApiClient.FaceApi* | [**faceCropFirstRound**](docs/FaceApi.md#faceCropFirstRound) | **POST** /image/face/crop/first/round | Crop image to face with round crop
 *CloudmersiveImageApiClient.FaceApi* | [**faceDetectAge**](docs/FaceApi.md#faceDetectAge) | **POST** /image/face/detect-age | Detect the age of people in an image
 *CloudmersiveImageApiClient.FaceApi* | [**faceDetectGender**](docs/FaceApi.md#faceDetectGender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
-*CloudmersiveImageApiClient.FaceApi* | [**faceLocate**](docs/FaceApi.md#faceLocate) | **POST** /image/face/locate | Find faces in an image
-*CloudmersiveImageApiClient.FaceApi* | [**faceLocateWithLandmarks**](docs/FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+*CloudmersiveImageApiClient.FaceApi* | [**faceLocate**](docs/FaceApi.md#faceLocate) | **POST** /image/face/locate | Detect and find faces in an image
+*CloudmersiveImageApiClient.FaceApi* | [**faceLocateWithLandmarks**](docs/FaceApi.md#faceLocateWithLandmarks) | **POST** /image/face/locate-with-landmarks | Detect and find faces and landmarks eyes and nose and mouth in image
 *CloudmersiveImageApiClient.FilterApi* | [**filterBlackAndWhite**](docs/FilterApi.md#filterBlackAndWhite) | **POST** /image/filter/black-and-white | Convert image to black-and-white grayscale
-*CloudmersiveImageApiClient.FilterApi* | [**filterDespeckle**](docs/FilterApi.md#filterDespeckle) | **POST** /image/filter/despeckle | Despeckle (remove point noise) from the image
+*CloudmersiveImageApiClient.FilterApi* | [**filterDespeckle**](docs/FilterApi.md#filterDespeckle) | **POST** /image/filter/despeckle | Despeckle to remove point noise from the image
 *CloudmersiveImageApiClient.FilterApi* | [**filterEdgeDetect**](docs/FilterApi.md#filterEdgeDetect) | **POST** /image/filter/edge-detect/{radius} | Detect and highlight edges in an image
 *CloudmersiveImageApiClient.FilterApi* | [**filterEmboss**](docs/FilterApi.md#filterEmboss) | **POST** /image/filter/emboss/{radius}/{sigma} | Emboss an image
 *CloudmersiveImageApiClient.FilterApi* | [**filterGaussianBlur**](docs/FilterApi.md#filterGaussianBlur) | **POST** /image/filter/blur/guassian/{radius}/{sigma} | Perform a guassian blur on the input image
@@ -161,12 +161,12 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.FilterApi* | [**filterPosterize**](docs/FilterApi.md#filterPosterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
 *CloudmersiveImageApiClient.FilterApi* | [**filterSwirl**](docs/FilterApi.md#filterSwirl) | **POST** /image/filter/swirl | Swirl distort the image
 *CloudmersiveImageApiClient.InfoApi* | [**infoGetDominantColor**](docs/InfoApi.md#infoGetDominantColor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
-*CloudmersiveImageApiClient.InfoApi* | [**infoGetMetadata**](docs/InfoApi.md#infoGetMetadata) | **POST** /image/get-info/metadata | Returns the image metadata, including EXIF and resolution
-*CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
+*CloudmersiveImageApiClient.InfoApi* | [**infoGetMetadata**](docs/InfoApi.md#infoGetMetadata) | **POST** /image/get-info/metadata | Returns the image metadata including EXIF and resolution
+*CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work NSFW racy content classification
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDescribe**](docs/RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectObjects**](docs/RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
-*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectPeople**](docs/RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
+*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectObjects**](docs/RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects including types and locations in an image
+*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectPeople**](docs/RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people including locations in an image
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextFine**](docs/RecognizeApi.md#recognizeDetectTextFine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextLarge**](docs/RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectVehicleLicensePlates**](docs/RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image

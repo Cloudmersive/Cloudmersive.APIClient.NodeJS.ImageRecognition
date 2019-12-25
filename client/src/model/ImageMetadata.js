@@ -36,7 +36,7 @@
   /**
    * The ImageMetadata model module.
    * @module model/ImageMetadata
-   * @version 1.2.9
+   * @version 1.3.0
    */
 
   /**
@@ -47,6 +47,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -72,6 +74,9 @@
       if (data.hasOwnProperty('Successful')) {
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
+      if (data.hasOwnProperty('IsValidImage')) {
+        obj['IsValidImage'] = ApiClient.convertToType(data['IsValidImage'], 'Boolean');
+      }
       if (data.hasOwnProperty('FileFormat')) {
         obj['FileFormat'] = ApiClient.convertToType(data['FileFormat'], 'String');
       }
@@ -83,6 +88,9 @@
       }
       if (data.hasOwnProperty('BitDepth')) {
         obj['BitDepth'] = ApiClient.convertToType(data['BitDepth'], 'Number');
+      }
+      if (data.hasOwnProperty('HasTransparency')) {
+        obj['HasTransparency'] = ApiClient.convertToType(data['HasTransparency'], 'Boolean');
       }
       if (data.hasOwnProperty('ColorSpace')) {
         obj['ColorSpace'] = ApiClient.convertToType(data['ColorSpace'], 'String');
@@ -103,6 +111,11 @@
    */
   exports.prototype['Successful'] = undefined;
   /**
+   * True if the input image is a valid image file, false otherwise
+   * @member {Boolean} IsValidImage
+   */
+  exports.prototype['IsValidImage'] = undefined;
+  /**
    * File format of the image
    * @member {String} FileFormat
    */
@@ -122,6 +135,11 @@
    * @member {Number} BitDepth
    */
   exports.prototype['BitDepth'] = undefined;
+  /**
+   * True if the image has transaprency in the form of an alpha channel, false otherwise
+   * @member {Boolean} HasTransparency
+   */
+  exports.prototype['HasTransparency'] = undefined;
   /**
    * Color space of the image
    * @member {String} ColorSpace

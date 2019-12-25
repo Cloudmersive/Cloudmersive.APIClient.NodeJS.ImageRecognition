@@ -33,7 +33,7 @@
   /**
    * Resize service.
    * @module api/ResizeApi
-   * @version 1.2.9
+   * @version 1.3.0
    */
 
   /**
@@ -99,7 +99,7 @@
 
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
-      var accepts = ['image/png'];
+      var accepts = ['application/octet-stream'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
@@ -120,8 +120,8 @@
     /**
      * Resize an image
      * Resize an image to a specific width and specific height
-     * @param {Number} width 
-     * @param {Number} height 
+     * @param {Number} width Width of the output image - final image will be exactly this width
+     * @param {Number} height Height of the output image - final image will be exactly this height
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/ResizeApi~resizeResizeSimpleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'Blob'}
@@ -161,7 +161,7 @@
 
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
-      var accepts = ['image/png'];
+      var accepts = ['application/octet-stream'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(

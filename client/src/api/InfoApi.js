@@ -33,7 +33,7 @@
   /**
    * Info service.
    * @module api/InfoApi
-   * @version 1.2.9
+   * @version 1.3.0
    */
 
   /**
@@ -104,7 +104,7 @@
      */
 
     /**
-     * Returns the image metadata, including EXIF and resolution
+     * Returns the image metadata including EXIF and resolution
      * Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/InfoApi~infoGetMetadataCallback} callback The callback function, accepting three arguments: error, data, response

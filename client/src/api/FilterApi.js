@@ -33,7 +33,7 @@
   /**
    * Filter service.
    * @module api/FilterApi
-   * @version 1.2.9
+   * @version 1.3.0
    */
 
   /**
@@ -104,7 +104,7 @@
      */
 
     /**
-     * Despeckle (remove point noise) from the image
+     * Despeckle to remove point noise from the image
      * Remove point noise / despeckle the input image
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/FilterApi~filterDespeckleCallback} callback The callback function, accepting three arguments: error, data, response

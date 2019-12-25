@@ -33,7 +33,7 @@
   /**
    * Edit service.
    * @module api/EditApi
-   * @version 1.2.9
+   * @version 1.3.0
    */
 
   /**
@@ -147,7 +147,7 @@
 
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
-      var accepts = ['image/png'];
+      var accepts = ['application/octet-stream'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
@@ -202,7 +202,7 @@
 
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
-      var accepts = ['image/png'];
+      var accepts = ['application/octet-stream'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
@@ -299,7 +299,7 @@
     /**
      * Draw a polygon onto an image
      * Draw one or more polygons, with customized visuals, onto an image
-     * @param {module:model/DrawPolygonRequest} request 
+     * @param {module:model/DrawPolygonRequest} request Polygon drawing request parameters
      * @param {module:api/EditApi~editDrawPolygonCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'Blob'}
      */
@@ -325,7 +325,7 @@
 
       var authNames = ['Apikey'];
       var contentTypes = ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'];
-      var accepts = ['image/png'];
+      var accepts = ['application/octet-stream'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
@@ -346,7 +346,7 @@
     /**
      * Draw a rectangle onto an image
      * Draw one or more rectangles, with customized visuals, onto an image
-     * @param {module:model/DrawRectangleRequest} request 
+     * @param {module:model/DrawRectangleRequest} request Draw rectangle parameters
      * @param {module:api/EditApi~editDrawRectangleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'Blob'}
      */
@@ -372,7 +372,7 @@
 
       var authNames = ['Apikey'];
       var contentTypes = ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'];
-      var accepts = ['image/png'];
+      var accepts = ['application/octet-stream'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
@@ -393,7 +393,7 @@
     /**
      * Draw text onto an image
      * Draw one or more pieces of text, with customized visuals, onto an image
-     * @param {module:model/DrawTextRequest} request 
+     * @param {module:model/DrawTextRequest} request Draw text parameters
      * @param {module:api/EditApi~editDrawTextCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'Blob'}
      */
@@ -419,7 +419,7 @@
 
       var authNames = ['Apikey'];
       var contentTypes = ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'];
-      var accepts = ['image/png'];
+      var accepts = ['application/octet-stream'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
@@ -440,8 +440,8 @@
     /**
      * Add a customizeable drop shadow to an image
      * Add a customizeable drop shadow to the image
-     * @param {Number} X 
-     * @param {Number} Y 
+     * @param {Number} X Horizontal (X) offset of the drop shadow
+     * @param {Number} Y Vertical (Y) offset of the drop shadow
      * @param {Number} sigma Sigma (blur distance) of the drop shadow
      * @param {Number} opacity Opacity of the drop shadow; 0 is 0% and 100 is 100%
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
