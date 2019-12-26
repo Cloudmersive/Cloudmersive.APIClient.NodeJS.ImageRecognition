@@ -36,7 +36,7 @@
   /**
    * The DetectedLicensePlate model module.
    * @module model/DetectedLicensePlate
-   * @version 1.3.0
+   * @version 1.3.1
    */
 
   /**

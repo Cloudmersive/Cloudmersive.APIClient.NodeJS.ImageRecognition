@@ -36,7 +36,7 @@
   /**
    * The FacePoint model module.
    * @module model/FacePoint
-   * @version 1.3.0
+   * @version 1.3.1
    */
 
   /**

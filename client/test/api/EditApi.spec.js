@@ -130,6 +130,26 @@
         done();
       });
     });
+    describe('editInvert', function() {
+      it('should call editInvert successfully', function(done) {
+        //uncomment below and update the code to test editInvert
+        //instance.editInvert(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('editRemoveExifData', function() {
+      it('should call editRemoveExifData successfully', function(done) {
+        //uncomment below and update the code to test editRemoveExifData
+        //instance.editRemoveExifData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('editRemoveTransparency', function() {
       it('should call editRemoveTransparency successfully', function(done) {
         //uncomment below and update the code to test editRemoveTransparency
