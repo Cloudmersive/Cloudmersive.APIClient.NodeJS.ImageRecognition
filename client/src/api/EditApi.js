@@ -33,7 +33,7 @@
   /**
    * Edit service.
    * @module api/EditApi
-   * @version 1.3.1
+   * @version 1.3.2
    */
 
   /**
@@ -158,6 +158,75 @@
     }
 
     /**
+     * Callback function to receive the result of the editCompositePrecise operation.
+     * @callback module:api/EditApi~editCompositePreciseCallback
+     * @param {String} error Error message, if any.
+     * @param {'Blob'} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Composite two images together precisely
+     * Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+     * @param {File} baseImage Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {File} layeredImage Image to layer on top of the base image.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.top Optional; Desired distance in pixels from the top of the base image to the top of the layered image.
+     * @param {Number} opts.bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.
+     * @param {Number} opts.left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.
+     * @param {Number} opts.right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.
+     * @param {Number} opts.width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.
+     * @param {Number} opts.height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.
+     * @param {module:api/EditApi~editCompositePreciseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link 'Blob'}
+     */
+    this.editCompositePrecise = function(baseImage, layeredImage, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'baseImage' is set
+      if (baseImage === undefined || baseImage === null) {
+        throw new Error("Missing the required parameter 'baseImage' when calling editCompositePrecise");
+      }
+
+      // verify the required parameter 'layeredImage' is set
+      if (layeredImage === undefined || layeredImage === null) {
+        throw new Error("Missing the required parameter 'layeredImage' when calling editCompositePrecise");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+        'top': opts['top'],
+        'bottom': opts['bottom'],
+        'left': opts['left'],
+        'right': opts['right'],
+        'width': opts['width'],
+        'height': opts['height']
+      };
+      var formParams = {
+        'baseImage': baseImage,
+        'layeredImage': layeredImage
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/octet-stream'];
+      var returnType = 'Blob';
+
+      return this.apiClient.callApi(
+        '/image/edit/composite/precise', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the editContrastAdaptive operation.
      * @callback module:api/EditApi~editContrastAdaptiveCallback
      * @param {String} error Error message, if any.
@@ -207,6 +276,75 @@
 
       return this.apiClient.callApi(
         '/image/edit/contrast/{gamma}/adaptive', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the editCropCircle operation.
+     * @callback module:api/EditApi~editCropCircleCallback
+     * @param {String} error Error message, if any.
+     * @param {'Blob'} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Crop an image to an circular area
+     * Crop an image to a target circular area
+     * @param {Number} left The left edge of the circular crop area in pixels (X).
+     * @param {Number} top The top edge of the circular crop area in pixels (Y).
+     * @param {Number} radius The radius of the circular crop area in pixels.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {module:api/EditApi~editCropCircleCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link 'Blob'}
+     */
+    this.editCropCircle = function(left, top, radius, imageFile, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'left' is set
+      if (left === undefined || left === null) {
+        throw new Error("Missing the required parameter 'left' when calling editCropCircle");
+      }
+
+      // verify the required parameter 'top' is set
+      if (top === undefined || top === null) {
+        throw new Error("Missing the required parameter 'top' when calling editCropCircle");
+      }
+
+      // verify the required parameter 'radius' is set
+      if (radius === undefined || radius === null) {
+        throw new Error("Missing the required parameter 'radius' when calling editCropCircle");
+      }
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling editCropCircle");
+      }
+
+
+      var pathParams = {
+        'left': left,
+        'top': top,
+        'radius': radius
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/octet-stream'];
+      var returnType = 'Blob';
+
+      return this.apiClient.callApi(
+        '/image/edit/crop/circle/{left}/{top}/{radius}', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

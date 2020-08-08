@@ -33,7 +33,7 @@
   /**
    * Resize service.
    * @module api/ResizeApi
-   * @version 1.3.1
+   * @version 1.3.2
    */
 
   /**
@@ -57,7 +57,7 @@
 
     /**
      * Resize an image while preserving aspect ratio
-     * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio
+     * Resize an image to a maximum width and maximum height, while preserving the image&#39;s original aspect ratio.  Resize is EXIF-aware.
      * @param {Number} maxWidth Maximum width of the output image - final image will be as large as possible while less than or equial to this width
      * @param {Number} maxHeight Maximum height of the output image - final image will be as large as possible while less than or equial to this height
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -119,7 +119,7 @@
 
     /**
      * Resize an image
-     * Resize an image to a specific width and specific height
+     * Resize an image to a specific width and specific height.  Resize is EXIF-aware.
      * @param {Number} width Width of the output image - final image will be exactly this width
      * @param {Number} height Height of the output image - final image will be exactly this height
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.

@@ -36,7 +36,7 @@
   /**
    * The FaceLocateWithLandmarksResponse model module.
    * @module model/FaceLocateWithLandmarksResponse
-   * @version 1.3.1
+   * @version 1.3.2
    */
 
   /**

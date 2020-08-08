@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.3.1
+- Package version: 1.3.2
 
 
 ## Installation
@@ -137,7 +137,9 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToWebP**](docs/ConvertApi.md#convertToWebP) | **POST** /image/convert/to/webp | Convert input image to WebP format
 *CloudmersiveImageApiClient.EditApi* | [**editAutoOrient**](docs/EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *CloudmersiveImageApiClient.EditApi* | [**editCompositeBasic**](docs/EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
+*CloudmersiveImageApiClient.EditApi* | [**editCompositePrecise**](docs/EditApi.md#editCompositePrecise) | **POST** /image/edit/composite/precise | Composite two images together precisely
 *CloudmersiveImageApiClient.EditApi* | [**editContrastAdaptive**](docs/EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+*CloudmersiveImageApiClient.EditApi* | [**editCropCircle**](docs/EditApi.md#editCropCircle) | **POST** /image/edit/crop/circle/{left}/{top}/{radius} | Crop an image to an circular area
 *CloudmersiveImageApiClient.EditApi* | [**editCropRectangle**](docs/EditApi.md#editCropRectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 *CloudmersiveImageApiClient.EditApi* | [**editDrawPolygon**](docs/EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 *CloudmersiveImageApiClient.EditApi* | [**editDrawRectangle**](docs/EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image

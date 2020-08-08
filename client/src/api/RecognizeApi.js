@@ -33,7 +33,7 @@
   /**
    * Recognize service.
    * @module api/RecognizeApi
-   * @version 1.3.1
+   * @version 1.3.2
    */
 
   /**
@@ -349,7 +349,7 @@
 
     /**
      * Detect vehicle license plates in an image
-     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+     * Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
      * @param {module:api/RecognizeApi~recognizeDetectVehicleLicensePlatesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/VehicleLicensePlateDetectionResult}

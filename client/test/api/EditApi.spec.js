@@ -70,10 +70,30 @@
         done();
       });
     });
+    describe('editCompositePrecise', function() {
+      it('should call editCompositePrecise successfully', function(done) {
+        //uncomment below and update the code to test editCompositePrecise
+        //instance.editCompositePrecise(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('editContrastAdaptive', function() {
       it('should call editContrastAdaptive successfully', function(done) {
         //uncomment below and update the code to test editContrastAdaptive
         //instance.editContrastAdaptive(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('editCropCircle', function() {
+      it('should call editCropCircle successfully', function(done) {
+        //uncomment below and update the code to test editCropCircle
+        //instance.editCropCircle(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

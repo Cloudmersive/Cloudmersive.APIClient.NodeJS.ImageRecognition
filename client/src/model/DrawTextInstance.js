@@ -36,7 +36,7 @@
   /**
    * The DrawTextInstance model module.
    * @module model/DrawTextInstance
-   * @version 1.3.1
+   * @version 1.3.2
    */
 
   /**
@@ -103,7 +103,7 @@
    */
   exports.prototype['Text'] = undefined;
   /**
-   * Font Family to use.  Leave blank to default to \"Arial\".
+   * Font Family to use.  Leave blank to default to \"Arial\".  Supported fonts including Arial, Calibri, Cambria, Candara, Consolas, Constantia, Corbel, Courier New, Courier Regular, Georgia, Impact Regular, Lucida, Modern Regular, Tahoma, Times New Roman, Verdana
    * @member {String} FontFamilyName
    */
   exports.prototype['FontFamilyName'] = undefined;

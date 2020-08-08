@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
+[**editCompositePrecise**](EditApi.md#editCompositePrecise) | **POST** /image/edit/composite/precise | Composite two images together precisely
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**editCropCircle**](EditApi.md#editCropCircle) | **POST** /image/edit/crop/circle/{left}/{top}/{radius} | Crop an image to an circular area
 [**editCropRectangle**](EditApi.md#editCropRectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
@@ -130,6 +132,76 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
+<a name="editCompositePrecise"></a>
+# **editCompositePrecise**
+> &#39;Blob&#39; editCompositePrecise(baseImage, layeredImage, opts)
+
+Composite two images together precisely
+
+Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+
+### Example
+```javascript
+var CloudmersiveImageApiClient = require('cloudmersive-image-api-client');
+var defaultClient = CloudmersiveImageApiClient.ApiClient.instance;
+
+// Configure API key authorization: Apikey
+var Apikey = defaultClient.authentications['Apikey'];
+Apikey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.apiKeyPrefix = 'Token';
+
+var apiInstance = new CloudmersiveImageApiClient.EditApi();
+
+var baseImage = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+var layeredImage = "/path/to/file.txt"; // File | Image to layer on top of the base image.
+
+var opts = { 
+  'top': 56, // Number | Optional; Desired distance in pixels from the top of the base image to the top of the layered image.
+  'bottom': 56, // Number | Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.
+  'left': 56, // Number | Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.
+  'right': 56, // Number | Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.
+  'width': 56, // Number | Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.
+  'height': 56 // Number | Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.editCompositePrecise(baseImage, layeredImage, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **baseImage** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+ **layeredImage** | **File**| Image to layer on top of the base image. | 
+ **top** | **Number**| Optional; Desired distance in pixels from the top of the base image to the top of the layered image. | [optional] 
+ **bottom** | **Number**| Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. | [optional] 
+ **left** | **Number**| Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. | [optional] 
+ **right** | **Number**| Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. | [optional] 
+ **width** | **Number**| Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. | [optional] 
+ **height** | **Number**| Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. | [optional] 
+
+### Return type
+
+**&#39;Blob&#39;**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
 <a name="editContrastAdaptive"></a>
 # **editContrastAdaptive**
 > &#39;Blob&#39; editContrastAdaptive(gamma, imageFile)
@@ -171,6 +243,68 @@ apiInstance.editContrastAdaptive(gamma, imageFile, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gamma** | **Number**| Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. | 
+ **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**&#39;Blob&#39;**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+<a name="editCropCircle"></a>
+# **editCropCircle**
+> &#39;Blob&#39; editCropCircle(left, top, radius, imageFile)
+
+Crop an image to an circular area
+
+Crop an image to a target circular area
+
+### Example
+```javascript
+var CloudmersiveImageApiClient = require('cloudmersive-image-api-client');
+var defaultClient = CloudmersiveImageApiClient.ApiClient.instance;
+
+// Configure API key authorization: Apikey
+var Apikey = defaultClient.authentications['Apikey'];
+Apikey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.apiKeyPrefix = 'Token';
+
+var apiInstance = new CloudmersiveImageApiClient.EditApi();
+
+var left = 56; // Number | The left edge of the circular crop area in pixels (X).
+
+var top = 56; // Number | The top edge of the circular crop area in pixels (Y).
+
+var radius = 56; // Number | The radius of the circular crop area in pixels.
+
+var imageFile = "/path/to/file.txt"; // File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.editCropCircle(left, top, radius, imageFile, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **Number**| The left edge of the circular crop area in pixels (X). | 
+ **top** | **Number**| The top edge of the circular crop area in pixels (Y). | 
+ **radius** | **Number**| The radius of the circular crop area in pixels. | 
  **imageFile** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
