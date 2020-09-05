@@ -33,7 +33,7 @@
   /**
    * Edit service.
    * @module api/EditApi
-   * @version 1.3.2
+   * @version 1.3.3
    */
 
   /**

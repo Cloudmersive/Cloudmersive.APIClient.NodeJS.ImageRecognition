@@ -36,7 +36,7 @@
   /**
    * The PersonWithGender model module.
    * @module model/PersonWithGender
-   * @version 1.3.2
+   * @version 1.3.3
    */
 
   /**

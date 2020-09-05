@@ -36,7 +36,7 @@
   /**
    * The AgeDetectionResult model module.
    * @module model/AgeDetectionResult
-   * @version 1.3.2
+   * @version 1.3.3
    */
 
   /**

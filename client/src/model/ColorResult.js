@@ -36,7 +36,7 @@
   /**
    * The ColorResult model module.
    * @module model/ColorResult
-   * @version 1.3.2
+   * @version 1.3.3
    */
 
   /**
