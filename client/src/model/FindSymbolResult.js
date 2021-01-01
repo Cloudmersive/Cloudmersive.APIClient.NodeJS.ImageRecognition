@@ -36,7 +36,7 @@
   /**
    * The FindSymbolResult model module.
    * @module model/FindSymbolResult
-   * @version 1.3.3
+   * @version 1.3.4
    */
 
   /**

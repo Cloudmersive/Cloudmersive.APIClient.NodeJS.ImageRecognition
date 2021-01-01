@@ -36,7 +36,7 @@
   /**
    * The ImageMetadata model module.
    * @module model/ImageMetadata
-   * @version 1.3.3
+   * @version 1.3.4
    */
 
   /**

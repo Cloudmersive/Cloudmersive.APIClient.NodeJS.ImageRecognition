@@ -36,7 +36,7 @@
   /**
    * The PolygonPoint model module.
    * @module model/PolygonPoint
-   * @version 1.3.3
+   * @version 1.3.4
    */
 
   /**

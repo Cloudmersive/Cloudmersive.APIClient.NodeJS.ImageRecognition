@@ -36,7 +36,7 @@
   /**
    * The TextDetectionResult model module.
    * @module model/TextDetectionResult
-   * @version 1.3.3
+   * @version 1.3.4
    */
 
   /**

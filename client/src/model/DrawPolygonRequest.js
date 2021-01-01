@@ -36,7 +36,7 @@
   /**
    * The DrawPolygonRequest model module.
    * @module model/DrawPolygonRequest
-   * @version 1.3.3
+   * @version 1.3.4
    */
 
   /**

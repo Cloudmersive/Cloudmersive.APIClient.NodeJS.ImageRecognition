@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.3.3
+- Package version: 1.3.4
 
 
 ## Installation
@@ -177,12 +177,14 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeFindSymbol**](docs/RecognizeApi.md#recognizeFindSymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
 *CloudmersiveImageApiClient.ResizeApi* | [**resizePost**](docs/ResizeApi.md#resizePost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
 *CloudmersiveImageApiClient.ResizeApi* | [**resizeResizeSimple**](docs/ResizeApi.md#resizeResizeSimple) | **POST** /image/resize/target/{width}/{height} | Resize an image
+*CloudmersiveImageApiClient.TextGenerationApi* | [**textGenerationCreateHandwritingPng**](docs/TextGenerationApi.md#textGenerationCreateHandwritingPng) | **POST** /image/text/create/handwriting/png | Create an image of handwriting in PNG format
 
 
 ## Documentation for Models
 
  - [CloudmersiveImageApiClient.AgeDetectionResult](docs/AgeDetectionResult.md)
  - [CloudmersiveImageApiClient.ColorResult](docs/ColorResult.md)
+ - [CloudmersiveImageApiClient.CreateHandwritingRequest](docs/CreateHandwritingRequest.md)
  - [CloudmersiveImageApiClient.DetectedLicensePlate](docs/DetectedLicensePlate.md)
  - [CloudmersiveImageApiClient.DetectedObject](docs/DetectedObject.md)
  - [CloudmersiveImageApiClient.DominantColorResult](docs/DominantColorResult.md)
