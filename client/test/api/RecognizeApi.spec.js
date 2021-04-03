@@ -130,6 +130,36 @@
         done();
       });
     });
+    describe('recognizeSimilarityCompare', function() {
+      it('should call recognizeSimilarityCompare successfully', function(done) {
+        //uncomment below and update the code to test recognizeSimilarityCompare
+        //instance.recognizeSimilarityCompare(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('recognizeSimilarityHash', function() {
+      it('should call recognizeSimilarityHash successfully', function(done) {
+        //uncomment below and update the code to test recognizeSimilarityHash
+        //instance.recognizeSimilarityHash(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('recognizeSimilarityHashDistance', function() {
+      it('should call recognizeSimilarityHashDistance successfully', function(done) {
+        //uncomment below and update the code to test recognizeSimilarityHashDistance
+        //instance.recognizeSimilarityHashDistance(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

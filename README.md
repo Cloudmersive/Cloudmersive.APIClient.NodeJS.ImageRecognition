@@ -5,7 +5,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.3.4
+- Package version: 1.3.5
 
 
 ## Installation
@@ -175,6 +175,9 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextLarge**](docs/RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectVehicleLicensePlates**](docs/RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeFindSymbol**](docs/RecognizeApi.md#recognizeFindSymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeSimilarityCompare**](docs/RecognizeApi.md#recognizeSimilarityCompare) | **POST** /image/recognize/similarity/compare | Compare two images for similarity
+*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeSimilarityHash**](docs/RecognizeApi.md#recognizeSimilarityHash) | **POST** /image/recognize/similarity/hash | Generate a perceptual image hash
+*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeSimilarityHashDistance**](docs/RecognizeApi.md#recognizeSimilarityHashDistance) | **POST** /image/recognize/similarity/hash/distance | Calculates the similarity between two perceptual image hashes
 *CloudmersiveImageApiClient.ResizeApi* | [**resizePost**](docs/ResizeApi.md#resizePost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
 *CloudmersiveImageApiClient.ResizeApi* | [**resizeResizeSimple**](docs/ResizeApi.md#resizeResizeSimple) | **POST** /image/resize/target/{width}/{height} | Resize an image
 *CloudmersiveImageApiClient.TextGenerationApi* | [**textGenerationCreateHandwritingPng**](docs/TextGenerationApi.md#textGenerationCreateHandwritingPng) | **POST** /image/text/create/handwriting/png | Create an image of handwriting in PNG format
@@ -208,6 +211,10 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.ImageDescriptionResponse](docs/ImageDescriptionResponse.md)
  - [CloudmersiveImageApiClient.ImageMetadata](docs/ImageMetadata.md)
  - [CloudmersiveImageApiClient.ImageMetadataExifValue](docs/ImageMetadataExifValue.md)
+ - [CloudmersiveImageApiClient.ImageSimilarityComparisonResponse](docs/ImageSimilarityComparisonResponse.md)
+ - [CloudmersiveImageApiClient.ImageSimilarityHashDistanceRequest](docs/ImageSimilarityHashDistanceRequest.md)
+ - [CloudmersiveImageApiClient.ImageSimilarityHashDistanceResponse](docs/ImageSimilarityHashDistanceResponse.md)
+ - [CloudmersiveImageApiClient.ImageSimilarityHashResponse](docs/ImageSimilarityHashResponse.md)
  - [CloudmersiveImageApiClient.NsfwResult](docs/NsfwResult.md)
  - [CloudmersiveImageApiClient.ObjectDetectionResult](docs/ObjectDetectionResult.md)
  - [CloudmersiveImageApiClient.PersonWithAge](docs/PersonWithAge.md)

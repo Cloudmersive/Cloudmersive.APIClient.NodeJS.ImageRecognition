@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AgeDetectionResult', 'model/ColorResult', 'model/CreateHandwritingRequest', 'model/DetectedLicensePlate', 'model/DetectedObject', 'model/DominantColorResult', 'model/DrawPolygonInstance', 'model/DrawPolygonRequest', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse', 'model/FaceMatch', 'model/FacePoint', 'model/FaceWithLandmarks', 'model/FindSymbolResult', 'model/FineTextDetectionResult', 'model/FineTextItem', 'model/GenderDetectionResult', 'model/ImageDescriptionResponse', 'model/ImageMetadata', 'model/ImageMetadataExifValue', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/PersonWithAge', 'model/PersonWithGender', 'model/PolygonPoint', 'model/RecognitionOutcome', 'model/TextDetectionResult', 'model/TextItem', 'model/VehicleLicensePlateDetectionResult', 'api/ArtisticApi', 'api/ConvertApi', 'api/EditApi', 'api/FaceApi', 'api/FilterApi', 'api/InfoApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi', 'api/TextGenerationApi'], factory);
+    define(['ApiClient', 'model/AgeDetectionResult', 'model/ColorResult', 'model/CreateHandwritingRequest', 'model/DetectedLicensePlate', 'model/DetectedObject', 'model/DominantColorResult', 'model/DrawPolygonInstance', 'model/DrawPolygonRequest', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse', 'model/FaceMatch', 'model/FacePoint', 'model/FaceWithLandmarks', 'model/FindSymbolResult', 'model/FineTextDetectionResult', 'model/FineTextItem', 'model/GenderDetectionResult', 'model/ImageDescriptionResponse', 'model/ImageMetadata', 'model/ImageMetadataExifValue', 'model/ImageSimilarityComparisonResponse', 'model/ImageSimilarityHashDistanceRequest', 'model/ImageSimilarityHashDistanceResponse', 'model/ImageSimilarityHashResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/PersonWithAge', 'model/PersonWithGender', 'model/PolygonPoint', 'model/RecognitionOutcome', 'model/TextDetectionResult', 'model/TextItem', 'model/VehicleLicensePlateDetectionResult', 'api/ArtisticApi', 'api/ConvertApi', 'api/EditApi', 'api/FaceApi', 'api/FilterApi', 'api/InfoApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi', 'api/TextGenerationApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/ColorResult'), require('./model/CreateHandwritingRequest'), require('./model/DetectedLicensePlate'), require('./model/DetectedObject'), require('./model/DominantColorResult'), require('./model/DrawPolygonInstance'), require('./model/DrawPolygonRequest'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceCompareResponse'), require('./model/FaceLocateResponse'), require('./model/FaceLocateWithLandmarksResponse'), require('./model/FaceMatch'), require('./model/FacePoint'), require('./model/FaceWithLandmarks'), require('./model/FindSymbolResult'), require('./model/FineTextDetectionResult'), require('./model/FineTextItem'), require('./model/GenderDetectionResult'), require('./model/ImageDescriptionResponse'), require('./model/ImageMetadata'), require('./model/ImageMetadataExifValue'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/PersonWithAge'), require('./model/PersonWithGender'), require('./model/PolygonPoint'), require('./model/RecognitionOutcome'), require('./model/TextDetectionResult'), require('./model/TextItem'), require('./model/VehicleLicensePlateDetectionResult'), require('./api/ArtisticApi'), require('./api/ConvertApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/FilterApi'), require('./api/InfoApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'), require('./api/TextGenerationApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/ColorResult'), require('./model/CreateHandwritingRequest'), require('./model/DetectedLicensePlate'), require('./model/DetectedObject'), require('./model/DominantColorResult'), require('./model/DrawPolygonInstance'), require('./model/DrawPolygonRequest'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceCompareResponse'), require('./model/FaceLocateResponse'), require('./model/FaceLocateWithLandmarksResponse'), require('./model/FaceMatch'), require('./model/FacePoint'), require('./model/FaceWithLandmarks'), require('./model/FindSymbolResult'), require('./model/FineTextDetectionResult'), require('./model/FineTextItem'), require('./model/GenderDetectionResult'), require('./model/ImageDescriptionResponse'), require('./model/ImageMetadata'), require('./model/ImageMetadataExifValue'), require('./model/ImageSimilarityComparisonResponse'), require('./model/ImageSimilarityHashDistanceRequest'), require('./model/ImageSimilarityHashDistanceResponse'), require('./model/ImageSimilarityHashResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/PersonWithAge'), require('./model/PersonWithGender'), require('./model/PolygonPoint'), require('./model/RecognitionOutcome'), require('./model/TextDetectionResult'), require('./model/TextItem'), require('./model/VehicleLicensePlateDetectionResult'), require('./api/ArtisticApi'), require('./api/ConvertApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/FilterApi'), require('./api/InfoApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'), require('./api/TextGenerationApi'));
   }
-}(function(ApiClient, AgeDetectionResult, ColorResult, CreateHandwritingRequest, DetectedLicensePlate, DetectedObject, DominantColorResult, DrawPolygonInstance, DrawPolygonRequest, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse, FaceMatch, FacePoint, FaceWithLandmarks, FindSymbolResult, FineTextDetectionResult, FineTextItem, GenderDetectionResult, ImageDescriptionResponse, ImageMetadata, ImageMetadataExifValue, NsfwResult, ObjectDetectionResult, PersonWithAge, PersonWithGender, PolygonPoint, RecognitionOutcome, TextDetectionResult, TextItem, VehicleLicensePlateDetectionResult, ArtisticApi, ConvertApi, EditApi, FaceApi, FilterApi, InfoApi, NsfwApi, RecognizeApi, ResizeApi, TextGenerationApi) {
+}(function(ApiClient, AgeDetectionResult, ColorResult, CreateHandwritingRequest, DetectedLicensePlate, DetectedObject, DominantColorResult, DrawPolygonInstance, DrawPolygonRequest, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse, FaceMatch, FacePoint, FaceWithLandmarks, FindSymbolResult, FineTextDetectionResult, FineTextItem, GenderDetectionResult, ImageDescriptionResponse, ImageMetadata, ImageMetadataExifValue, ImageSimilarityComparisonResponse, ImageSimilarityHashDistanceRequest, ImageSimilarityHashDistanceResponse, ImageSimilarityHashResponse, NsfwResult, ObjectDetectionResult, PersonWithAge, PersonWithGender, PolygonPoint, RecognitionOutcome, TextDetectionResult, TextItem, VehicleLicensePlateDetectionResult, ArtisticApi, ConvertApi, EditApi, FaceApi, FilterApi, InfoApi, NsfwApi, RecognizeApi, ResizeApi, TextGenerationApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 1.3.4
+   * @version 1.3.5
    */
   var exports = {
     /**
@@ -191,6 +191,26 @@
      * @property {module:model/ImageMetadataExifValue}
      */
     ImageMetadataExifValue: ImageMetadataExifValue,
+    /**
+     * The ImageSimilarityComparisonResponse model constructor.
+     * @property {module:model/ImageSimilarityComparisonResponse}
+     */
+    ImageSimilarityComparisonResponse: ImageSimilarityComparisonResponse,
+    /**
+     * The ImageSimilarityHashDistanceRequest model constructor.
+     * @property {module:model/ImageSimilarityHashDistanceRequest}
+     */
+    ImageSimilarityHashDistanceRequest: ImageSimilarityHashDistanceRequest,
+    /**
+     * The ImageSimilarityHashDistanceResponse model constructor.
+     * @property {module:model/ImageSimilarityHashDistanceResponse}
+     */
+    ImageSimilarityHashDistanceResponse: ImageSimilarityHashDistanceResponse,
+    /**
+     * The ImageSimilarityHashResponse model constructor.
+     * @property {module:model/ImageSimilarityHashResponse}
+     */
+    ImageSimilarityHashResponse: ImageSimilarityHashResponse,
     /**
      * The NsfwResult model constructor.
      * @property {module:model/NsfwResult}

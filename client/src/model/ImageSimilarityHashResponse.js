@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DetectedObject'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DetectedObject'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.ObjectDetectionResult = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.DetectedObject);
+    root.CloudmersiveImageApiClient.ImageSimilarityHashResponse = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
-}(this, function(ApiClient, DetectedObject) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The ObjectDetectionResult model module.
-   * @module model/ObjectDetectionResult
+   * The ImageSimilarityHashResponse model module.
+   * @module model/ImageSimilarityHashResponse
    * @version 1.3.5
    */
 
   /**
-   * Constructs a new <code>ObjectDetectionResult</code>.
-   * Result of detecting objects in an image
-   * @alias module:model/ObjectDetectionResult
+   * Constructs a new <code>ImageSimilarityHashResponse</code>.
+   * Result of performing an image hash operation
+   * @alias module:model/ImageSimilarityHashResponse
    * @class
    */
   var exports = function() {
@@ -50,15 +50,14 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>ObjectDetectionResult</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ImageSimilarityHashResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ObjectDetectionResult} obj Optional instance to populate.
-   * @return {module:model/ObjectDetectionResult} The populated <code>ObjectDetectionResult</code> instance.
+   * @param {module:model/ImageSimilarityHashResponse} obj Optional instance to populate.
+   * @return {module:model/ImageSimilarityHashResponse} The populated <code>ImageSimilarityHashResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -67,31 +66,23 @@
       if (data.hasOwnProperty('Successful')) {
         obj['Successful'] = ApiClient.convertToType(data['Successful'], 'Boolean');
       }
-      if (data.hasOwnProperty('Objects')) {
-        obj['Objects'] = ApiClient.convertToType(data['Objects'], [DetectedObject]);
-      }
-      if (data.hasOwnProperty('ObjectCount')) {
-        obj['ObjectCount'] = ApiClient.convertToType(data['ObjectCount'], 'Number');
+      if (data.hasOwnProperty('ImageHash')) {
+        obj['ImageHash'] = ApiClient.convertToType(data['ImageHash'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Was the image processed successfully?
+   * True if successful, false otherwise
    * @member {Boolean} Successful
    */
   exports.prototype['Successful'] = undefined;
   /**
-   * Array of objects detected in the scene
-   * @member {Array.<module:model/DetectedObject>} Objects
+   * String representing image perceptual hash value; values with smaller Hamming Distances are more similar than ones with large Hamming Distances
+   * @member {String} ImageHash
    */
-  exports.prototype['Objects'] = undefined;
-  /**
-   * Number of objects detected in the scene
-   * @member {Number} ObjectCount
-   */
-  exports.prototype['ObjectCount'] = undefined;
+  exports.prototype['ImageHash'] = undefined;
 
 
 

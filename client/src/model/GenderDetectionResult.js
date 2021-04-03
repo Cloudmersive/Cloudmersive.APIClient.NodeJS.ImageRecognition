@@ -36,7 +36,7 @@
   /**
    * The GenderDetectionResult model module.
    * @module model/GenderDetectionResult
-   * @version 1.3.4
+   * @version 1.3.5
    */
 
   /**

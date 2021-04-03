@@ -25,7 +25,7 @@
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.RecognitionOutcome = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.ImageSimilarityHashDistanceRequest = factory(root.CloudmersiveImageApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The RecognitionOutcome model module.
-   * @module model/RecognitionOutcome
+   * The ImageSimilarityHashDistanceRequest model module.
+   * @module model/ImageSimilarityHashDistanceRequest
    * @version 1.3.5
    */
 
   /**
-   * Constructs a new <code>RecognitionOutcome</code>.
-   * Specific recognition outcome
-   * @alias module:model/RecognitionOutcome
+   * Constructs a new <code>ImageSimilarityHashDistanceRequest</code>.
+   * Request to compute the similarity between two image hashes
+   * @alias module:model/ImageSimilarityHashDistanceRequest
    * @class
    */
   var exports = function() {
@@ -53,36 +53,36 @@
   };
 
   /**
-   * Constructs a <code>RecognitionOutcome</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ImageSimilarityHashDistanceRequest</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/RecognitionOutcome} obj Optional instance to populate.
-   * @return {module:model/RecognitionOutcome} The populated <code>RecognitionOutcome</code> instance.
+   * @param {module:model/ImageSimilarityHashDistanceRequest} obj Optional instance to populate.
+   * @return {module:model/ImageSimilarityHashDistanceRequest} The populated <code>ImageSimilarityHashDistanceRequest</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('ConfidenceScore')) {
-        obj['ConfidenceScore'] = ApiClient.convertToType(data['ConfidenceScore'], 'Number');
+      if (data.hasOwnProperty('ImageHash1')) {
+        obj['ImageHash1'] = ApiClient.convertToType(data['ImageHash1'], 'String');
       }
-      if (data.hasOwnProperty('Description')) {
-        obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
+      if (data.hasOwnProperty('ImageHash2')) {
+        obj['ImageHash2'] = ApiClient.convertToType(data['ImageHash2'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Scores closer to 1 are better than scores closer to 0
-   * @member {Number} ConfidenceScore
+   * Image hash computed using Cloudmersive Image Hashing API
+   * @member {String} ImageHash1
    */
-  exports.prototype['ConfidenceScore'] = undefined;
+  exports.prototype['ImageHash1'] = undefined;
   /**
-   * English language description of the image
-   * @member {String} Description
+   * Image hash computed using Cloudmersive Image Hashing API
+   * @member {String} ImageHash2
    */
-  exports.prototype['Description'] = undefined;
+  exports.prototype['ImageHash2'] = undefined;
 
 
 

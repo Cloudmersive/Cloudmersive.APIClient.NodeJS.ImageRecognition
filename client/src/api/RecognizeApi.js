@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/FindSymbolResult', 'model/FineTextDetectionResult', 'model/ImageDescriptionResponse', 'model/ObjectDetectionResult', 'model/TextDetectionResult', 'model/VehicleLicensePlateDetectionResult'], factory);
+    define(['ApiClient', 'model/FindSymbolResult', 'model/FineTextDetectionResult', 'model/ImageDescriptionResponse', 'model/ImageSimilarityHashDistanceRequest', 'model/ImageSimilarityHashDistanceResponse', 'model/ImageSimilarityHashResponse', 'model/ObjectDetectionResult', 'model/TextDetectionResult', 'model/VehicleLicensePlateDetectionResult'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/FindSymbolResult'), require('../model/FineTextDetectionResult'), require('../model/ImageDescriptionResponse'), require('../model/ObjectDetectionResult'), require('../model/TextDetectionResult'), require('../model/VehicleLicensePlateDetectionResult'));
+    module.exports = factory(require('../ApiClient'), require('../model/FindSymbolResult'), require('../model/FineTextDetectionResult'), require('../model/ImageDescriptionResponse'), require('../model/ImageSimilarityHashDistanceRequest'), require('../model/ImageSimilarityHashDistanceResponse'), require('../model/ImageSimilarityHashResponse'), require('../model/ObjectDetectionResult'), require('../model/TextDetectionResult'), require('../model/VehicleLicensePlateDetectionResult'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.RecognizeApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.FindSymbolResult, root.CloudmersiveImageApiClient.FineTextDetectionResult, root.CloudmersiveImageApiClient.ImageDescriptionResponse, root.CloudmersiveImageApiClient.ObjectDetectionResult, root.CloudmersiveImageApiClient.TextDetectionResult, root.CloudmersiveImageApiClient.VehicleLicensePlateDetectionResult);
+    root.CloudmersiveImageApiClient.RecognizeApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.FindSymbolResult, root.CloudmersiveImageApiClient.FineTextDetectionResult, root.CloudmersiveImageApiClient.ImageDescriptionResponse, root.CloudmersiveImageApiClient.ImageSimilarityHashDistanceRequest, root.CloudmersiveImageApiClient.ImageSimilarityHashDistanceResponse, root.CloudmersiveImageApiClient.ImageSimilarityHashResponse, root.CloudmersiveImageApiClient.ObjectDetectionResult, root.CloudmersiveImageApiClient.TextDetectionResult, root.CloudmersiveImageApiClient.VehicleLicensePlateDetectionResult);
   }
-}(this, function(ApiClient, FindSymbolResult, FineTextDetectionResult, ImageDescriptionResponse, ObjectDetectionResult, TextDetectionResult, VehicleLicensePlateDetectionResult) {
+}(this, function(ApiClient, FindSymbolResult, FineTextDetectionResult, ImageDescriptionResponse, ImageSimilarityHashDistanceRequest, ImageSimilarityHashDistanceResponse, ImageSimilarityHashResponse, ObjectDetectionResult, TextDetectionResult, VehicleLicensePlateDetectionResult) {
   'use strict';
 
   /**
    * Recognize service.
    * @module api/RecognizeApi
-   * @version 1.3.4
+   * @version 1.3.5
    */
 
   /**
@@ -437,6 +437,164 @@
 
       return this.apiClient.callApi(
         '/image/recognize/find/symbol', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the recognizeSimilarityCompare operation.
+     * @callback module:api/RecognizeApi~recognizeSimilarityCompareCallback
+     * @param {String} error Error message, if any.
+     * @param {'Blob'} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Compare two images for similarity
+     * Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+     * @param {File} baseImage Image file to compare against.  Common file formats such as PNG, JPEG are supported.
+     * @param {File} comparisonImage Image to compare to the base image.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+     * @param {module:api/RecognizeApi~recognizeSimilarityCompareCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link 'Blob'}
+     */
+    this.recognizeSimilarityCompare = function(baseImage, comparisonImage, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'baseImage' is set
+      if (baseImage === undefined || baseImage === null) {
+        throw new Error("Missing the required parameter 'baseImage' when calling recognizeSimilarityCompare");
+      }
+
+      // verify the required parameter 'comparisonImage' is set
+      if (comparisonImage === undefined || comparisonImage === null) {
+        throw new Error("Missing the required parameter 'comparisonImage' when calling recognizeSimilarityCompare");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+        'recognitionMode': opts['recognitionMode']
+      };
+      var formParams = {
+        'baseImage': baseImage,
+        'comparisonImage': comparisonImage
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = 'Blob';
+
+      return this.apiClient.callApi(
+        '/image/recognize/similarity/compare', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the recognizeSimilarityHash operation.
+     * @callback module:api/RecognizeApi~recognizeSimilarityHashCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ImageSimilarityHashResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Generate a perceptual image hash
+     * Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.recognitionMode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+     * @param {module:api/RecognizeApi~recognizeSimilarityHashCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ImageSimilarityHashResponse}
+     */
+    this.recognizeSimilarityHash = function(imageFile, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'imageFile' is set
+      if (imageFile === undefined || imageFile === null) {
+        throw new Error("Missing the required parameter 'imageFile' when calling recognizeSimilarityHash");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+        'recognitionMode': opts['recognitionMode']
+      };
+      var formParams = {
+        'imageFile': imageFile
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = ImageSimilarityHashResponse;
+
+      return this.apiClient.callApi(
+        '/image/recognize/similarity/hash', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the recognizeSimilarityHashDistance operation.
+     * @callback module:api/RecognizeApi~recognizeSimilarityHashDistanceCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ImageSimilarityHashDistanceResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Calculates the similarity between two perceptual image hashes
+     * Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+     * @param {module:model/ImageSimilarityHashDistanceRequest} request 
+     * @param {module:api/RecognizeApi~recognizeSimilarityHashDistanceCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ImageSimilarityHashDistanceResponse}
+     */
+    this.recognizeSimilarityHashDistance = function(request, callback) {
+      var postBody = request;
+
+      // verify the required parameter 'request' is set
+      if (request === undefined || request === null) {
+        throw new Error("Missing the required parameter 'request' when calling recognizeSimilarityHashDistance");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'];
+      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
+      var returnType = ImageSimilarityHashDistanceResponse;
+
+      return this.apiClient.callApi(
+        '/image/recognize/similarity/hash/distance', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
