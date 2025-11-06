@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/FindSymbolResult', 'model/FineTextDetectionResult', 'model/ImageDescriptionResponse', 'model/ImageSimilarityHashDistanceRequest', 'model/ImageSimilarityHashDistanceResponse', 'model/ImageSimilarityHashResponse', 'model/ObjectDetectionResult', 'model/TextDetectionResult', 'model/VehicleLicensePlateDetectionResult'], factory);
+    define(['ApiClient', 'model/FindSymbolResult', 'model/FineTextDetectionResult', 'model/ImageDescriptionResponse', 'model/ImageSimilarityHashDistanceRequest', 'model/ImageSimilarityHashDistanceResponse', 'model/ImageSimilarityHashResponse', 'model/TextDetectionResult', 'model/VehicleLicensePlateDetectionResult'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/FindSymbolResult'), require('../model/FineTextDetectionResult'), require('../model/ImageDescriptionResponse'), require('../model/ImageSimilarityHashDistanceRequest'), require('../model/ImageSimilarityHashDistanceResponse'), require('../model/ImageSimilarityHashResponse'), require('../model/ObjectDetectionResult'), require('../model/TextDetectionResult'), require('../model/VehicleLicensePlateDetectionResult'));
+    module.exports = factory(require('../ApiClient'), require('../model/FindSymbolResult'), require('../model/FineTextDetectionResult'), require('../model/ImageDescriptionResponse'), require('../model/ImageSimilarityHashDistanceRequest'), require('../model/ImageSimilarityHashDistanceResponse'), require('../model/ImageSimilarityHashResponse'), require('../model/TextDetectionResult'), require('../model/VehicleLicensePlateDetectionResult'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.RecognizeApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.FindSymbolResult, root.CloudmersiveImageApiClient.FineTextDetectionResult, root.CloudmersiveImageApiClient.ImageDescriptionResponse, root.CloudmersiveImageApiClient.ImageSimilarityHashDistanceRequest, root.CloudmersiveImageApiClient.ImageSimilarityHashDistanceResponse, root.CloudmersiveImageApiClient.ImageSimilarityHashResponse, root.CloudmersiveImageApiClient.ObjectDetectionResult, root.CloudmersiveImageApiClient.TextDetectionResult, root.CloudmersiveImageApiClient.VehicleLicensePlateDetectionResult);
+    root.CloudmersiveImageApiClient.RecognizeApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.FindSymbolResult, root.CloudmersiveImageApiClient.FineTextDetectionResult, root.CloudmersiveImageApiClient.ImageDescriptionResponse, root.CloudmersiveImageApiClient.ImageSimilarityHashDistanceRequest, root.CloudmersiveImageApiClient.ImageSimilarityHashDistanceResponse, root.CloudmersiveImageApiClient.ImageSimilarityHashResponse, root.CloudmersiveImageApiClient.TextDetectionResult, root.CloudmersiveImageApiClient.VehicleLicensePlateDetectionResult);
   }
-}(this, function(ApiClient, FindSymbolResult, FineTextDetectionResult, ImageDescriptionResponse, ImageSimilarityHashDistanceRequest, ImageSimilarityHashDistanceResponse, ImageSimilarityHashResponse, ObjectDetectionResult, TextDetectionResult, VehicleLicensePlateDetectionResult) {
+}(this, function(ApiClient, FindSymbolResult, FineTextDetectionResult, ImageDescriptionResponse, ImageSimilarityHashDistanceRequest, ImageSimilarityHashDistanceResponse, ImageSimilarityHashResponse, TextDetectionResult, VehicleLicensePlateDetectionResult) {
   'use strict';
 
   /**
    * Recognize service.
    * @module api/RecognizeApi
-   * @version 1.3.5
+   * @version 1.4.0
    */
 
   /**
@@ -142,102 +142,6 @@
 
       return this.apiClient.callApi(
         '/image/recognize/detect-document/unskew', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the recognizeDetectObjects operation.
-     * @callback module:api/RecognizeApi~recognizeDetectObjectsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ObjectDetectionResult} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Detect objects including types and locations in an image
-     * Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
-     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-     * @param {module:api/RecognizeApi~recognizeDetectObjectsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ObjectDetectionResult}
-     */
-    this.recognizeDetectObjects = function(imageFile, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'imageFile' is set
-      if (imageFile === undefined || imageFile === null) {
-        throw new Error("Missing the required parameter 'imageFile' when calling recognizeDetectObjects");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-        'imageFile': imageFile
-      };
-
-      var authNames = ['Apikey'];
-      var contentTypes = ['multipart/form-data'];
-      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
-      var returnType = ObjectDetectionResult;
-
-      return this.apiClient.callApi(
-        '/image/recognize/detect-objects', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the recognizeDetectPeople operation.
-     * @callback module:api/RecognizeApi~recognizeDetectPeopleCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ObjectDetectionResult} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Detect people including locations in an image
-     * Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
-     * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-     * @param {module:api/RecognizeApi~recognizeDetectPeopleCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ObjectDetectionResult}
-     */
-    this.recognizeDetectPeople = function(imageFile, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'imageFile' is set
-      if (imageFile === undefined || imageFile === null) {
-        throw new Error("Missing the required parameter 'imageFile' when calling recognizeDetectPeople");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-        'imageFile': imageFile
-      };
-
-      var authNames = ['Apikey'];
-      var contentTypes = ['multipart/form-data'];
-      var accepts = ['application/json', 'text/json', 'application/xml', 'text/xml'];
-      var returnType = ObjectDetectionResult;
-
-      return this.apiClient.callApi(
-        '/image/recognize/detect-people', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

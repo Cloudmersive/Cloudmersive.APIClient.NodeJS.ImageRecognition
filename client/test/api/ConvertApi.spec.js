@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -74,6 +74,16 @@
       it('should call convertToJpg successfully', function(done) {
         //uncomment below and update the code to test convertToJpg
         //instance.convertToJpg(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('convertToJpgDefaultQuality', function() {
+      it('should call convertToJpgDefaultQuality successfully', function(done) {
+        //uncomment below and update the code to test convertToJpgDefaultQuality
+        //instance.convertToJpgDefaultQuality(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

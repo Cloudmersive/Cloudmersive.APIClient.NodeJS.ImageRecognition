@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -36,12 +36,12 @@
   /**
    * The AgeDetectionResult model module.
    * @module model/AgeDetectionResult
-   * @version 1.3.5
+   * @version 1.4.0
    */
 
   /**
    * Constructs a new <code>AgeDetectionResult</code>.
-   * Result from classifying the Age of people in an image
+   * Result from classifying the Age and Gender of people in an image
    * @alias module:model/AgeDetectionResult
    * @class
    */
@@ -83,7 +83,7 @@
    */
   exports.prototype['Successful'] = undefined;
   /**
-   * People in the image annotated with age information
+   * People in the image annotated with age and gender information
    * @member {Array.<module:model/PersonWithAge>} PeopleWithAge
    */
   exports.prototype['PeopleWithAge'] = undefined;

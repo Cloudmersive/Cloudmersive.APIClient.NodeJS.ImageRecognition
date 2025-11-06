@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -76,6 +76,24 @@
 
     it('should have the property age (base name: "Age")', function() {
       // uncomment below and update the code to test the property age
+      //var instane = new CloudmersiveImageApiClient.PersonWithAge();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property genderClassification (base name: "GenderClassification")', function() {
+      // uncomment below and update the code to test the property genderClassification
+      //var instane = new CloudmersiveImageApiClient.PersonWithAge();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property genderFemaleConfidence (base name: "GenderFemaleConfidence")', function() {
+      // uncomment below and update the code to test the property genderFemaleConfidence
+      //var instane = new CloudmersiveImageApiClient.PersonWithAge();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property genderMaleConfidence (base name: "GenderMaleConfidence")', function() {
+      // uncomment below and update the code to test the property genderMaleConfidence
       //var instane = new CloudmersiveImageApiClient.PersonWithAge();
       //expect(instance).to.be();
     });

@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -36,7 +36,7 @@
   /**
    * The PersonWithAge model module.
    * @module model/PersonWithAge
-   * @version 1.3.5
+   * @version 1.4.0
    */
 
   /**
@@ -47,6 +47,9 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
 
 
 
@@ -77,6 +80,15 @@
       if (data.hasOwnProperty('Age')) {
         obj['Age'] = ApiClient.convertToType(data['Age'], 'Number');
       }
+      if (data.hasOwnProperty('GenderClassification')) {
+        obj['GenderClassification'] = ApiClient.convertToType(data['GenderClassification'], 'String');
+      }
+      if (data.hasOwnProperty('GenderFemaleConfidence')) {
+        obj['GenderFemaleConfidence'] = ApiClient.convertToType(data['GenderFemaleConfidence'], 'Number');
+      }
+      if (data.hasOwnProperty('GenderMaleConfidence')) {
+        obj['GenderMaleConfidence'] = ApiClient.convertToType(data['GenderMaleConfidence'], 'Number');
+      }
     }
     return obj;
   }
@@ -97,9 +109,25 @@
    */
   exports.prototype['AgeClass'] = undefined;
   /**
+   * The specific estimated age of the person
    * @member {Number} Age
    */
   exports.prototype['Age'] = undefined;
+  /**
+   * Gender estimation classification as Female or Male
+   * @member {String} GenderClassification
+   */
+  exports.prototype['GenderClassification'] = undefined;
+  /**
+   * Confidence level of classification as female; possible values are between 0.0 and 1.0
+   * @member {Number} GenderFemaleConfidence
+   */
+  exports.prototype['GenderFemaleConfidence'] = undefined;
+  /**
+   * Confidence level of classification as male; possible values are between 0.0 and 1.0
+   * @member {Number} GenderMaleConfidence
+   */
+  exports.prototype['GenderMaleConfidence'] = undefined;
 
 
 

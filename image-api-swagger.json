@@ -1,0 +1,3744 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "imageapi",
+    "description": "Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations."
+  },
+  "host": "api.cloudmersive.com",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/image/ai-detection/file": {
+      "post": {
+        "tags": [
+          "AiImageDetection"
+        ],
+        "summary": "Detect if an input image was generated using AI",
+        "description": "Detects if the input image was generated using AI tools.",
+        "operationId": "AiImageDetection_DetectFile",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImageAiDetectionResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/artistic/painting/{style}": {
+      "post": {
+        "tags": [
+          "Artistic"
+        ],
+        "summary": "Transform an image into an artistic painting automatically",
+        "description": "Uses machine learning to automatically transform an image into an artistic painting.  Due to depth of AI processing, depending on image size this operation can take up to 20 seconds.",
+        "operationId": "Artistic_Painting",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "style",
+            "in": "path",
+            "description": "The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\".",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/convert/to/png": {
+      "post": {
+        "tags": [
+          "Convert"
+        ],
+        "summary": "Convert input image to PNG format",
+        "description": "Converts the input image into PNG format.  Transparency is preserved when present.  Supported input file formats include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.",
+        "operationId": "Convert_ToPng",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/convert/to/jpg": {
+      "post": {
+        "tags": [
+          "Convert"
+        ],
+        "summary": "Convert input image to JPG, JPEG format",
+        "description": "Converts the input image into JPEG/JPG format.  Customize encoding parameters.  Supported input file formats include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.",
+        "operationId": "Convert_ToJpgDefaultQuality",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/convert/to/jpg/{quality}": {
+      "post": {
+        "tags": [
+          "Convert"
+        ],
+        "summary": "Convert input image to JPG, JPEG format at specific quality",
+        "description": "Converts the input image into JPEG/JPG format.  Customize encoding parameters.  Supported input file formats include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.",
+        "operationId": "Convert_ToJpg",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "quality",
+            "in": "path",
+            "description": "Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/convert/to/gif": {
+      "post": {
+        "tags": [
+          "Convert"
+        ],
+        "summary": "Convert input image to GIF format",
+        "description": "Converts the input image into GIF format.  Supported input file formats include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.",
+        "operationId": "Convert_ToGif",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/convert/to/psd": {
+      "post": {
+        "tags": [
+          "Convert"
+        ],
+        "summary": "Convert input image to Photoshop PSD format",
+        "description": "Converts the input image into PSD format.  Supported input file formats include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.",
+        "operationId": "Convert_ToPhotoshop",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/convert/to/bmp": {
+      "post": {
+        "tags": [
+          "Convert"
+        ],
+        "summary": "Convert input image to Bitmap BMP format",
+        "description": "Converts the input image into PSD format.  Supported input file formats include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.",
+        "operationId": "Convert_ToBmp",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/convert/to/webp": {
+      "post": {
+        "tags": [
+          "Convert"
+        ],
+        "summary": "Convert input image to WebP format",
+        "description": "Converts the input image into WebP format.  Supported input file formats include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.",
+        "operationId": "Convert_ToWebP",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/convert/to/tiff": {
+      "post": {
+        "tags": [
+          "Convert"
+        ],
+        "summary": "Convert input image to TIFF format",
+        "description": "Converts the input image into TIFF format.  Supported input file formats include AAI, ART, ARW, AVS, BPG, BMP, BMP2, BMP3, BRF, CALS, CGM, CIN, CMYK, CMYKA, CR2, CRW, CUR, CUT, DCM, DCR, DCX, DDS, DIB, DJVU, DNG, DOT, DPX, EMF, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EXR, FAX, FIG, FITS, FPX, GIF, GPLT, GRAY, HDR, HEIC, HPGL, HRZ, ICO, ISOBRL, ISBRL6, JBIG, JNG, JP2, JPT, J2C, J2K, JPEG/JPG, JXR, MAT, MONO, MNG, M2V, MRW, MTV, NEF, ORF, OTB, P7, PALM, PAM, PBM, PCD, PCDS, PCL, PCX, PDF, PEF, PES, PFA, PFB, PFM, PGM, PICON, PICT, PIX, PNG, PNG8, PNG00, PNG24, PNG32, PNG48, PNG64, PNM, PPM, PSB, PSD, PTIF, PWB, RAD, RAF, RGB, RGBA, RGF, RLA, RLE, SCT, SFW, SGI, SID, SUN, SVG, TGA, TIFF, TIM, UIL, VIFF, VICAR, VBMP, WDP, WEBP, WPG, X, XBM, XCF, XPM, XWD, X3F, YCbCr, YCbCrA, YUV.",
+        "operationId": "Convert_ToTiff",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/contrast/{gamma}/adaptive": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Adaptively adjust the contrast of the image to be more appealing and easy to see",
+        "description": "Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.",
+        "operationId": "Edit_ContrastAdaptive",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "gamma",
+            "in": "path",
+            "description": "Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast.",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/rotate/{degrees}/angle": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Rotate an image any number of degrees",
+        "description": "Rotates an image by an arbitrary number of degrees",
+        "operationId": "Edit_Rotate",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "degrees",
+            "in": "path",
+            "description": "Degrees to rotate the image; values range from 0.0 to 360.0.",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/crop/rectangle/{left}/{top}/{width}/{height}": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Crop an image to a rectangular area",
+        "description": "Crop an image to a target rectangular area",
+        "operationId": "Edit_CropRectangle",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "left",
+            "in": "path",
+            "description": "The left edge of the rectangular crop area in pixels (X).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "top",
+            "in": "path",
+            "description": "The top edge of the rectangular crop area in pixels (Y).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "width",
+            "in": "path",
+            "description": "The width of the rectangular crop area in pixels.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "height",
+            "in": "path",
+            "description": "The height of the rectangular crop area in pixels.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/crop/circle/{left}/{top}/{radius}": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Crop an image to an circular area",
+        "description": "Crop an image to a target circular area",
+        "operationId": "Edit_CropCircle",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "left",
+            "in": "path",
+            "description": "The left edge of the circular crop area in pixels (X).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "top",
+            "in": "path",
+            "description": "The top edge of the circular crop area in pixels (Y).",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "radius",
+            "in": "path",
+            "description": "The radius of the circular crop area in pixels.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/invert": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Invert, negate the colors in the image",
+        "description": "Inverts (negates) all of the colors in the image.  If the image contains transparency, the transparency will first be removed prior to inverting the image.",
+        "operationId": "Edit_Invert",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/remove-transparency": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Remove transparency from the image",
+        "description": "Removes any active transparency in the image.  Effectively renders the image at the same resolution, in the same file format, over a white background, thus removing transparency.",
+        "operationId": "Edit_RemoveTransparency",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/remove-exif": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Remove EXIF data from the image",
+        "description": "Removes any EXIF data and profiles .",
+        "operationId": "Edit_RemoveExifData",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/auto-orient/remove-exif": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Normalizes image rotation and removes EXIF rotation data",
+        "description": "Automatically orients the input image based on EXIF information and then removes the EXIF information.  EXIF is an additional set of information stored in some images taken with cell phone cameras based on the orientation of the camera.  By normalizing rotation and removing EXIF data these images become much easier to process.",
+        "operationId": "Edit_AutoOrient",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity}": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Add a customizeable drop shadow to an image",
+        "description": "Add a customizeable drop shadow to the image",
+        "operationId": "Edit_DropShadow",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "X",
+            "in": "path",
+            "description": "Horizontal (X) offset of the drop shadow",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "Y",
+            "in": "path",
+            "description": "Vertical (Y) offset of the drop shadow",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sigma",
+            "in": "path",
+            "description": "Sigma (blur distance) of the drop shadow",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "opacity",
+            "in": "path",
+            "description": "Opacity of the drop shadow; 0 is 0% and 100 is 100%",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/composite/{location}": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Composite two images together",
+        "description": "Composites two input images together; a layered image onto a base image.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.",
+        "operationId": "Edit_CompositeBasic",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "location",
+            "in": "path",
+            "description": "Location to composite the layered images; possible values are: \"center\", \"top-left\", \"top-center\", \"top-right\", \"center-left\", \"center-right\", \"bottom-left\", \"bottom-center\", \"bottom-right\"",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "baseImage",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "layeredImage",
+            "in": "formData",
+            "description": "Image to layer on top of the base image.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/composite/precise": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Composite two images together precisely",
+        "description": "Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.",
+        "operationId": "Edit_CompositePrecise",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "baseImage",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "layeredImage",
+            "in": "formData",
+            "description": "Image to layer on top of the base image.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "top",
+            "in": "header",
+            "description": "Optional; Desired distance in pixels from the top of the base image to the top of the layered image.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "bottom",
+            "in": "header",
+            "description": "Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "left",
+            "in": "header",
+            "description": "Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "right",
+            "in": "header",
+            "description": "Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "width",
+            "in": "header",
+            "description": "Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "height",
+            "in": "header",
+            "description": "Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/draw/text": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Draw text onto an image",
+        "description": "Draw one or more pieces of text, with customized visuals, onto an image",
+        "operationId": "Edit_DrawText",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Draw text parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DrawTextRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/draw/polygon": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Draw a polygon onto an image",
+        "description": "Draw one or more polygons, with customized visuals, onto an image",
+        "operationId": "Edit_DrawPolygon",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Polygon drawing request parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DrawPolygonRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/edit/draw/rectangle": {
+      "post": {
+        "tags": [
+          "Edit"
+        ],
+        "summary": "Draw a rectangle onto an image",
+        "description": "Draw one or more rectangles, with customized visuals, onto an image",
+        "operationId": "Edit_DrawRectangle",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Draw rectangle parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DrawRectangleRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/face/locate": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Detect and find faces in an image",
+        "description": "Locate the positions of all faces in an image",
+        "operationId": "Face_Locate",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FaceLocateResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/face/locate-with-landmarks": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Detect and find faces and landmarks eyes and nose and mouth in image",
+        "description": "Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each",
+        "operationId": "Face_LocateWithLandmarks",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FaceLocateWithLandmarksResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/face/compare-and-match": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Compare and match faces",
+        "description": "Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.",
+        "operationId": "Face_Compare",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "inputImage",
+            "in": "formData",
+            "description": "Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "matchFace",
+            "in": "formData",
+            "description": "Image of a single face to compare and match against.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FaceCompareResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/face/crop/first": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Crop image to face with square crop",
+        "description": "Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.",
+        "operationId": "Face_CropFirst",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/face/crop/first/round": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Crop image to face with round crop",
+        "description": "Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.",
+        "operationId": "Face_CropFirstRound",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/face/detect-age": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Detect the age of people in an image",
+        "description": "Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.",
+        "operationId": "Face_DetectAge",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AgeDetectionResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/face/detect-gender": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "summary": "Detect the gender of people in an image",
+        "description": "Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.",
+        "operationId": "Face_DetectGender",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AgeDetectionResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/filter/blur/guassian/{radius}/{sigma}": {
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "Perform a guassian blur on the input image",
+        "description": "Perform a gaussian blur on the input image",
+        "operationId": "Filter_GaussianBlur",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "radius",
+            "in": "path",
+            "description": "Radius in pixels of the blur operation; a larger radius will produce a greater blur effect",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sigma",
+            "in": "path",
+            "description": "Sigma, or variance, of the gaussian blur operation",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/filter/blur/motion/{radius}/{sigma}/{angle}": {
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "Perform a motion blur on the input image",
+        "description": "Perform a motion blur on the input image at a specific angle",
+        "operationId": "Filter_MotionBlur",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "radius",
+            "in": "path",
+            "description": "Radius in pixels of the blur operation; a larger radius will produce a greater blur effect",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sigma",
+            "in": "path",
+            "description": "Sigma, or variance, of the motion blur operation",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "angle",
+            "in": "path",
+            "description": "Angle of the motion blur in degrees",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/filter/edge-detect/{radius}": {
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "Detect and highlight edges in an image",
+        "description": "Perform an edge detection operation on the input image",
+        "operationId": "Filter_EdgeDetect",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "radius",
+            "in": "path",
+            "description": "Radius in pixels of the edge detection operation; a larger radius will produce a greater effect",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/filter/emboss/{radius}/{sigma}": {
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "Emboss an image",
+        "description": "Perform an emboss operation on the input image",
+        "operationId": "Filter_Emboss",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "radius",
+            "in": "path",
+            "description": "Radius in pixels of the emboss operation; a larger radius will produce a greater effect",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sigma",
+            "in": "path",
+            "description": "Sigma, or variance, of the emboss operation",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/filter/black-and-white": {
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "Convert image to black-and-white grayscale",
+        "description": "Remove color from the image by converting to a grayscale, black-and-white image",
+        "operationId": "Filter_BlackAndWhite",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/filter/despeckle": {
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "Despeckle to remove point noise from the image",
+        "description": "Remove point noise / despeckle the input image",
+        "operationId": "Filter_Despeckle",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/filter/swirl": {
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "Swirl distort the image",
+        "description": "Swirl distort the image by the specified number of degrees",
+        "operationId": "Filter_Swirl",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "degrees",
+            "in": "query",
+            "description": "Degrees of swirl",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/filter/posterize": {
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "Posterize the image by reducing distinct colors",
+        "description": "Reduce the unique number of colors in the image to the specified level",
+        "operationId": "Filter_Posterize",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "levels",
+            "in": "query",
+            "description": "Number of unique colors to retain in the output image",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/get-info/metadata": {
+      "post": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Returns the image metadata including EXIF and resolution",
+        "description": "Returns the metadata information on the image, including file type, EXIF (if available), and resolution.",
+        "operationId": "Info_GetMetadata",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImageMetadata"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/get-info/dominant-color": {
+      "post": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Returns the dominant colors of the image",
+        "description": "Uses advanced image processing to extract the top 5 dominant colors in the image, returned in the order of dominance with the most-dominant color first.  These are the primary perceptual colors used in the image as perceived by a viewer.",
+        "operationId": "Info_GetDominantColor",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DominantColorResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/nsfw/classify": {
+      "post": {
+        "tags": [
+          "Nsfw"
+        ],
+        "summary": "Not safe for work (NSFW) content classification for Images",
+        "description": "Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.",
+        "operationId": "Nsfw_Classify",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NsfwResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/nsfw/classify/advanced": {
+      "post": {
+        "tags": [
+          "Nsfw"
+        ],
+        "summary": "Advanced content moderation and not safe for work (NSFW) content classification for Images",
+        "description": "Uses advanced AI to classify an image into Not Safe For Work (NSFW) or not and determine if it contains nudity, graphic violence, non-graphic violence, self-harm, hate, potential illegal activity, medical imagery, or profanity.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG.  Consumes 100 API calls.  Requires Managed Instance or Private Cloud deployment, and a GPU.",
+        "operationId": "Nsfw_ClassifyAdvanced",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NsfwAdvancedResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/nsfw/classify/document": {
+      "post": {
+        "tags": [
+          "Nsfw"
+        ],
+        "summary": "Not safe for work (NSFW) content classification for Documents",
+        "description": "Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.",
+        "operationId": "Nsfw_ClassifyDocument",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NsfwResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/nsfw/classify/video": {
+      "post": {
+        "tags": [
+          "Nsfw"
+        ],
+        "summary": "Not safe for work (NSFW) content classification for Video",
+        "description": "Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.",
+        "operationId": "Nsfw_ClassifyVideo",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "videoFile",
+            "in": "formData",
+            "description": "Video file to perform the operation on.  Common file formats such as MP4, MPG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NsfwResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/similarity/compare": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Compare two images for similarity",
+        "description": "Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity",
+        "operationId": "Recognize_SimilarityCompare",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "baseImage",
+            "in": "formData",
+            "description": "Image file to compare against.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "comparisonImage",
+            "in": "formData",
+            "description": "Image to compare to the base image.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "recognitionMode",
+            "in": "header",
+            "description": "Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/similarity/hash": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Generate a perceptual image hash",
+        "description": "Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.",
+        "operationId": "Recognize_SimilarityHash",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "recognitionMode",
+            "in": "header",
+            "description": "Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImageSimilarityHashResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/similarity/hash/distance": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Calculates the similarity between two perceptual image hashes",
+        "description": "Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.",
+        "operationId": "Recognize_SimilarityHashDistance",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ImageSimilarityHashDistanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImageSimilarityHashDistanceResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/describe": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Describe an image in natural language",
+        "description": "Generate an English language text description of the image as a sentence.",
+        "operationId": "Recognize_Describe",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ImageDescriptionResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/find/symbol": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Find the location of a symbol in an image",
+        "description": "Determine if an image contains a symbol, and if so, the location of that symbol in the image.",
+        "operationId": "Recognize_FindSymbol",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "inputImage",
+            "in": "formData",
+            "description": "Image file to search through for the target image.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "targetImage",
+            "in": "formData",
+            "description": "Image to find in the input image.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FindSymbolResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/detect-vehicle-license-plates": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Detect vehicle license plates in an image",
+        "description": "Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.",
+        "operationId": "Recognize_DetectVehicleLicensePlates",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VehicleLicensePlateDetectionResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/detect-document/unskew": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Detect and unskew a photo of a document",
+        "description": "Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.",
+        "operationId": "Recognize_DetectAndUnskewDocument",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "PostProcessingEffect",
+            "in": "header",
+            "description": "Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations).",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/detect-text/large": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Detect large text in a photo",
+        "description": "Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.",
+        "operationId": "Recognize_DetectTextLarge",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TextDetectionResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/recognize/detect-text/fine": {
+      "post": {
+        "tags": [
+          "Recognize"
+        ],
+        "summary": "Detect fine text in a photo of a document",
+        "description": "Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.",
+        "operationId": "Recognize_DetectTextFine",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FineTextDetectionResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/resize/ai/target": {
+      "post": {
+        "tags": [
+          "Resize"
+        ],
+        "summary": "Resize an image with AI super sampling",
+        "description": "Use AI super sampling to resize a small or low resolution image to twice the size.  Input image should be PNG or JPG, and smaller than 200 x 200 pixels (larger images will be resized down).  Consumes 20 API calls.",
+        "operationId": "Resize_ResizeAISuperSampling",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/resize/target/{width}/{height}": {
+      "post": {
+        "tags": [
+          "Resize"
+        ],
+        "summary": "Resize an image",
+        "description": "Resize an image to a specific width and specific height.  Resize is EXIF-aware.",
+        "operationId": "Resize_ResizeSimple",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "width",
+            "in": "path",
+            "description": "Width of the output image - final image will be exactly this width",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "height",
+            "in": "path",
+            "description": "Height of the output image - final image will be exactly this height",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/resize/preserveAspectRatio/{maxWidth}/{maxHeight}": {
+      "post": {
+        "tags": [
+          "Resize"
+        ],
+        "summary": "Resize an image while preserving aspect ratio",
+        "description": "Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio.  Resize is EXIF-aware.",
+        "operationId": "Resize_Post",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "maxWidth",
+            "in": "path",
+            "description": "Maximum width of the output image - final image will be as large as possible while less than or equial to this width",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "maxHeight",
+            "in": "path",
+            "description": "Maximum height of the output image - final image will be as large as possible while less than or equial to this height",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "imageFile",
+            "in": "formData",
+            "description": "Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "byte",
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    },
+    "/image/text/create/handwriting/png": {
+      "post": {
+        "tags": [
+          "TextGeneration"
+        ],
+        "summary": "Create an image of handwriting in PNG format",
+        "description": "Uses Deep Learning to generate realistic handwriting and returns the result as a PNG image",
+        "operationId": "TextGeneration_CreateHandwritingPng",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Draw text parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateHandwritingRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "Apikey": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ImageAiDetectionResult": {
+      "description": "Result of performing an AI Image detection",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if the image is clean (not AI generated) and false otherwise",
+          "type": "boolean"
+        },
+        "AiGeneratedRiskScore": {
+          "format": "double",
+          "description": "Risk score between 0.0 (no risk) and 1.0 (highest risk), with anything over 0.8 being high risk",
+          "type": "number"
+        },
+        "AiSource": {
+          "description": "Tool used to generate the image, if identified (this cannot always be identified)",
+          "type": "string"
+        }
+      }
+    },
+    "DrawTextRequest": {
+      "description": "Request to draw one or more pieces of text onto an image",
+      "type": "object",
+      "properties": {
+        "BaseImageBytes": {
+          "format": "byte",
+          "description": "Image to draw text on, in bytes.  You can also use the BaseImageUrl instead to supply image input as a URL",
+          "type": "string"
+        },
+        "BaseImageUrl": {
+          "description": "Image to draw text on, as an HTTP or HTTPS fully-qualified URL",
+          "type": "string"
+        },
+        "TextToDraw": {
+          "description": "One or more pieces of text to draw onto the image",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DrawTextInstance"
+          }
+        }
+      }
+    },
+    "DrawTextInstance": {
+      "description": "Text instance to draw on an image",
+      "type": "object",
+      "properties": {
+        "Text": {
+          "description": "Text string to draw",
+          "type": "string"
+        },
+        "FontFamilyName": {
+          "description": "Font Family to use.  Leave blank to default to \"Arial\".  Supported fonts including Arial, Calibri, Cambria, Candara, Consolas, Constantia, Corbel, Courier New, Courier Regular, Georgia, Impact Regular, Lucida, Modern Regular, Tahoma, Times New Roman, Verdana",
+          "type": "string"
+        },
+        "FontSize": {
+          "format": "double",
+          "description": "Font size to use.",
+          "type": "number"
+        },
+        "Color": {
+          "description": "Color to use - can be a hex value (with #) or HTML common color name",
+          "type": "string"
+        },
+        "X": {
+          "format": "double",
+          "description": "Pixel location of the left edge of the text location",
+          "type": "number"
+        },
+        "Y": {
+          "format": "double",
+          "description": "Pixel location of the top edge of the text location",
+          "type": "number"
+        },
+        "Width": {
+          "format": "double",
+          "description": "Width in pixels of the text box to draw the text in; text will wrap inside this box",
+          "type": "number"
+        },
+        "Height": {
+          "format": "double",
+          "description": "Height in pixels of the text box to draw the text in; text will wrap inside this box",
+          "type": "number"
+        }
+      }
+    },
+    "DrawPolygonRequest": {
+      "description": "Request to draw one or more polygons on a base image",
+      "type": "object",
+      "properties": {
+        "BaseImageBytes": {
+          "format": "byte",
+          "description": "Image to draw polygons on, in bytes.  You can also use the BaseImageUrl instead to supply image input as a URL",
+          "type": "string"
+        },
+        "BaseImageUrl": {
+          "description": "Image to draw polygons on, as an HTTP or HTTPS fully-qualified URL",
+          "type": "string"
+        },
+        "PolygonsToDraw": {
+          "description": "Polygons to draw on the image.  Polygons are drawn in index order.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DrawPolygonInstance"
+          }
+        }
+      }
+    },
+    "DrawPolygonInstance": {
+      "description": "Polygon instance to draw on an image",
+      "type": "object",
+      "properties": {
+        "BorderColor": {
+          "description": "Border Color to use - can be a hex value (with #) or HTML common color name.  Transparent colors are supported.",
+          "type": "string"
+        },
+        "BorderWidth": {
+          "format": "double",
+          "description": "Width in pixels of the border.  Pass in 0 to draw a polygon with no border",
+          "type": "number"
+        },
+        "FillColor": {
+          "description": "Fill Color to use - can be a hex value (with #) or HTML common color name.  Transparent colors are supported.  Leave blank to not fill the polygon.",
+          "type": "string"
+        },
+        "Points": {
+          "description": "Points (vertices) which comprise the polygon; valid polygons must have at least 3 points",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolygonPoint"
+          }
+        }
+      }
+    },
+    "PolygonPoint": {
+      "description": "One point in a polygon",
+      "type": "object",
+      "properties": {
+        "X": {
+          "format": "double",
+          "description": "X location in pixels of this point in the polygon",
+          "type": "number"
+        },
+        "Y": {
+          "format": "double",
+          "description": "Y location in pixels of this point in the polygon",
+          "type": "number"
+        }
+      }
+    },
+    "DrawRectangleRequest": {
+      "description": "Request to draw one or more rectangles on a base image",
+      "type": "object",
+      "properties": {
+        "BaseImageBytes": {
+          "format": "byte",
+          "description": "Image to draw rectangles on, in bytes.  You can also use the BaseImageUrl instead to supply image input as a URL",
+          "type": "string"
+        },
+        "BaseImageUrl": {
+          "description": "Image to draw rectangles on, as an HTTP or HTTPS fully-qualified URL",
+          "type": "string"
+        },
+        "RectanglesToDraw": {
+          "description": "Rectangles to draw on the image.  Rectangles are drawn in index order.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DrawRectangleInstance"
+          }
+        }
+      }
+    },
+    "DrawRectangleInstance": {
+      "description": "Rectangle instance to draw on an image",
+      "type": "object",
+      "properties": {
+        "BorderColor": {
+          "description": "Border Color to use - can be a hex value (with #) or HTML common color name.  Transparent colors are supported.",
+          "type": "string"
+        },
+        "BorderWidth": {
+          "format": "double",
+          "description": "Width in pixels of the border.  Pass in 0 to draw a rectangle with no border",
+          "type": "number"
+        },
+        "FillColor": {
+          "description": "Fill Color to use - can be a hex value (with #) or HTML common color name.  Transparent colors are supported.  Leave blank to not fill the rectangle.",
+          "type": "string"
+        },
+        "X": {
+          "format": "double",
+          "description": "Pixel location of the left edge of the rectangle location",
+          "type": "number"
+        },
+        "Y": {
+          "format": "double",
+          "description": "Pixel location of the top edge of the rectangle location",
+          "type": "number"
+        },
+        "Width": {
+          "format": "double",
+          "description": "Width in pixels of the rectangle",
+          "type": "number"
+        },
+        "Height": {
+          "format": "double",
+          "description": "Height in pixels of the rectangle",
+          "type": "number"
+        }
+      }
+    },
+    "FaceLocateResponse": {
+      "description": "Results of locating faces in an image",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was successful, false otherwise",
+          "type": "boolean"
+        },
+        "Faces": {
+          "description": "Array of faces found in the image",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Face"
+          }
+        },
+        "FaceCount": {
+          "format": "int32",
+          "description": "Number of faces found in the image",
+          "type": "integer"
+        },
+        "ErrorDetails": {
+          "description": "Details of any errors that occurred",
+          "type": "string"
+        }
+      }
+    },
+    "Face": {
+      "description": "Location of one face in an image",
+      "type": "object",
+      "properties": {
+        "LeftX": {
+          "format": "int32",
+          "description": "X coordinate of the left side of the face",
+          "type": "integer"
+        },
+        "TopY": {
+          "format": "int32",
+          "description": "Y coordinate of the top side of the face",
+          "type": "integer"
+        },
+        "RightX": {
+          "format": "int32",
+          "description": "X coordinate of the right side of the face",
+          "type": "integer"
+        },
+        "BottomY": {
+          "format": "int32",
+          "description": "Y coordinate of the bottom side of the face",
+          "type": "integer"
+        }
+      }
+    },
+    "FaceLocateWithLandmarksResponse": {
+      "description": "Results of locating faces in an image",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was successful, false otherwise",
+          "type": "boolean"
+        },
+        "Faces": {
+          "description": "Array of faces found in the image",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FaceWithLandmarks"
+          }
+        },
+        "FaceCount": {
+          "format": "int32",
+          "description": "Number of faces found in the image",
+          "type": "integer"
+        },
+        "ErrorDetails": {
+          "description": "Details of any errors that occurred",
+          "type": "string"
+        }
+      }
+    },
+    "FaceWithLandmarks": {
+      "description": "Location of one face in an image",
+      "type": "object",
+      "properties": {
+        "LeftX": {
+          "format": "int32",
+          "description": "X coordinate of the left side of the face",
+          "type": "integer"
+        },
+        "TopY": {
+          "format": "int32",
+          "description": "Y coordinate of the top side of the face",
+          "type": "integer"
+        },
+        "RightX": {
+          "format": "int32",
+          "description": "X coordinate of the right side of the face",
+          "type": "integer"
+        },
+        "BottomY": {
+          "format": "int32",
+          "description": "Y coordinate of the bottom side of the face",
+          "type": "integer"
+        },
+        "LeftEyebrow": {
+          "description": "Point locations of the left eyebrow (the eyebrow cloesest to the left side of the picture)",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        },
+        "RightEyebrow": {
+          "description": "Point locations of the right eyebrow (the eyebrow cloesest to the right side of the picture)",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        },
+        "LeftEye": {
+          "description": "Point locations of the left eye (the eye closest to the left side of the picture)",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        },
+        "RightEye": {
+          "description": "Point locations of the right eye (the eye closest to the right side of the picture)",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        },
+        "BottomAndSidesOfFace": {
+          "description": "Point locations of the bottom and sides of the face (cheeks and chin)",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        },
+        "NoseBridge": {
+          "description": "Point locations of the nose bridge (the vertical portion of the nose)",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        },
+        "NoseBottom": {
+          "description": "Point locations of the bottom (nostrils) of the nose",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        },
+        "LipsInnerOutline": {
+          "description": "Point locations of the inner outline of the lips",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        },
+        "LipsOuterOutline": {
+          "description": "Point locations of the outer outline of the lips",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FacePoint"
+          }
+        }
+      }
+    },
+    "FacePoint": {
+      "description": "Point location within a face",
+      "type": "object",
+      "properties": {
+        "X": {
+          "format": "int32",
+          "description": "X location, where 0 is the left-most pixel",
+          "type": "integer"
+        },
+        "Y": {
+          "format": "int32",
+          "description": "Y location, where 0 is the top-most pixel",
+          "type": "integer"
+        }
+      }
+    },
+    "FaceCompareResponse": {
+      "description": "Results of comparing/matching faces in an image",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was successful, false otherwise",
+          "type": "boolean"
+        },
+        "Faces": {
+          "description": "Array of faces found in the input image",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FaceMatch"
+          }
+        },
+        "FaceCount": {
+          "format": "int32",
+          "description": "Number of faces found in the image",
+          "type": "integer"
+        },
+        "ErrorDetails": {
+          "description": "Details of any errors that occurred",
+          "type": "string"
+        }
+      }
+    },
+    "FaceMatch": {
+      "description": "Location of one face in an image, along with match results",
+      "type": "object",
+      "properties": {
+        "LeftX": {
+          "format": "int32",
+          "description": "X coordinate of the left side of the face",
+          "type": "integer"
+        },
+        "TopY": {
+          "format": "int32",
+          "description": "Y coordinate of the top side of the face",
+          "type": "integer"
+        },
+        "RightX": {
+          "format": "int32",
+          "description": "X coordinate of the right side of the face",
+          "type": "integer"
+        },
+        "BottomY": {
+          "format": "int32",
+          "description": "Y coordinate of the bottom side of the face",
+          "type": "integer"
+        },
+        "HighConfidenceMatch": {
+          "description": "True if there is a high confidence match, false otherwise",
+          "type": "boolean"
+        },
+        "MatchScore": {
+          "format": "double",
+          "description": "Match score from 0.0 to 1.0 with higher scores indicating a greater match; scores above 0.7 indicate a match",
+          "type": "number"
+        }
+      }
+    },
+    "AgeDetectionResult": {
+      "description": "Result from classifying the Age and Gender of people in an image",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was successful, false otherwise",
+          "type": "boolean"
+        },
+        "PeopleWithAge": {
+          "description": "People in the image annotated with age and gender information",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PersonWithAge"
+          }
+        },
+        "PeopleIdentified": {
+          "format": "int32",
+          "description": "Number of people identified in the image with an age",
+          "type": "integer"
+        }
+      }
+    },
+    "PersonWithAge": {
+      "description": "A person identified in an image age classification operation",
+      "type": "object",
+      "properties": {
+        "FaceLocation": {
+          "$ref": "#/definitions/Face",
+          "description": "Location and other information about the person's face corresponding to this age classification"
+        },
+        "AgeClassificationConfidence": {
+          "format": "double",
+          "description": "Confidence level of age classification; possible values are between 0.0 and 1.0; higher is better, with values &gt; 0.50 being high confidence results",
+          "type": "number"
+        },
+        "AgeClass": {
+          "description": "The person's age range classification result in years; possible values are \"0-2\", \"4-6\", \"8-13\", \"15-20\", \"25-32\", \"38-43\", \"48-53\", \"60+\"",
+          "type": "string"
+        },
+        "Age": {
+          "format": "double",
+          "description": "The specific estimated age of the person",
+          "type": "number"
+        },
+        "GenderClassification": {
+          "description": "Gender estimation classification as Female or Male",
+          "type": "string"
+        },
+        "GenderFemaleConfidence": {
+          "format": "double",
+          "description": "Confidence level of classification as female; possible values are between 0.0 and 1.0",
+          "type": "number"
+        },
+        "GenderMaleConfidence": {
+          "format": "double",
+          "description": "Confidence level of classification as male; possible values are between 0.0 and 1.0",
+          "type": "number"
+        }
+      }
+    },
+    "ImageMetadata": {
+      "description": "Metadata from an image",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was successful, false otherwise",
+          "type": "boolean"
+        },
+        "IsValidImage": {
+          "description": "True if the input image is a valid image file, false otherwise",
+          "type": "boolean"
+        },
+        "FileFormat": {
+          "description": "File format of the image",
+          "type": "string"
+        },
+        "Width": {
+          "format": "int32",
+          "description": "Width of the image in pixels",
+          "type": "integer"
+        },
+        "Height": {
+          "format": "int32",
+          "description": "Height of the image in pixels",
+          "type": "integer"
+        },
+        "BitDepth": {
+          "format": "int32",
+          "description": "Bits per pixel",
+          "type": "integer"
+        },
+        "HasTransparency": {
+          "description": "True if the image has transaprency in the form of an alpha channel, false otherwise",
+          "type": "boolean"
+        },
+        "ColorSpace": {
+          "description": "Color space of the image",
+          "type": "string"
+        },
+        "ExifProfileName": {
+          "description": "Name of the EXIF profile used",
+          "type": "string"
+        },
+        "ExifValues": {
+          "description": "EXIF tags and values embedded in the image",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImageMetadataExifValue"
+          }
+        }
+      }
+    },
+    "ImageMetadataExifValue": {
+      "description": "EXIF tag and value",
+      "type": "object",
+      "properties": {
+        "Tag": {
+          "description": "Tag name for the EXIF value",
+          "type": "string"
+        },
+        "DataType": {
+          "description": "Date type of the EXIF value",
+          "type": "string"
+        },
+        "DataValue": {
+          "description": "Value, formatted as a string of the EXIF value",
+          "type": "string"
+        }
+      }
+    },
+    "DominantColorResult": {
+      "description": "Result of performing a get dominant color operation",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was successful, false otherwise",
+          "type": "boolean"
+        },
+        "DominantColors": {
+          "description": "Dominant colors in the image, in order where most dominant color is in the first index position (0), the second most-dominant color is in index position 1 and so on",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ColorResult"
+          }
+        }
+      }
+    },
+    "ColorResult": {
+      "description": "Individual color",
+      "type": "object",
+      "properties": {
+        "R": {
+          "format": "int32",
+          "description": "Red (R) channel pixel value of this color",
+          "type": "integer"
+        },
+        "G": {
+          "format": "int32",
+          "description": "Green (G) channel pixel value of this color",
+          "type": "integer"
+        },
+        "B": {
+          "format": "int32",
+          "description": "Blue (B) channel pixel value of this color",
+          "type": "integer"
+        }
+      }
+    },
+    "NsfwResult": {
+      "description": "Result of an NSFW classification",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the classification was successfully run, false otherwise",
+          "type": "boolean"
+        },
+        "Score": {
+          "format": "double",
+          "description": "Score between 0.0 and 1.0.  Scores of 0.0-0.2 represent high probability safe content, while scores 0.8-1.0 represent high probability unsafe content.  Content between 0.2 and 0.8 is of increasing raciness.",
+          "type": "number"
+        },
+        "ClassificationOutcome": {
+          "description": "Classification result into four categories: SafeContent_HighProbability, UnsafeContent_HighProbability, RacyContent, SafeContent_ModerateProbability",
+          "type": "string"
+        }
+      }
+    },
+    "NsfwAdvancedResult": {
+      "description": "Result of an Advanced NSFW classification",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the classification was successfully run, false otherwise",
+          "type": "boolean"
+        },
+        "CleanResult": {
+          "description": "True if the result was clean, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsNudity": {
+          "description": "True if the image contains nudity or sex, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsGraphicViolence": {
+          "description": "True if the image contains graphic violence and/or gore, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsNonGraphicViolence": {
+          "description": "True if the image contains non-graphic violence, e.g. weapons, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsSelfHarm": {
+          "description": "True if the image contains self-harm or suicide imagery, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsHate": {
+          "description": "True if the image contains hate, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsPotentialIllegalActivity": {
+          "description": "True if the image contains potentially illegal activity such as drugs, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsMedicalImagery": {
+          "description": "True if the image contains medical imagery, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsProfanity": {
+          "description": "True if the image contains profanity or obscenities, false otherwise",
+          "type": "boolean"
+        },
+        "Score": {
+          "format": "double",
+          "description": "Score between 0.0 and 1.0.  Scores of 0.0-0.2 represent high probability safe content, while scores 0.8-1.0 represent high probability unsafe content.  Content between 0.2 and 0.8 is of increasing raciness.",
+          "type": "number"
+        },
+        "ClassificationOutcome": {
+          "description": "Classification result into four categories: SafeContent_HighProbability, UnsafeContent_HighProbability, RacyContent, SafeContent_ModerateProbability",
+          "type": "string"
+        }
+      }
+    },
+    "ImageSimilarityComparisonResponse": {
+      "description": "Result of performing an image similarity operation",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "AreImagesSimilar": {
+          "description": "True if images are similar, false otherwise",
+          "type": "boolean"
+        },
+        "ImageSimilarityScore": {
+          "format": "double",
+          "description": "Similarity score between 0.0 and 1.0, with 1.0 meaning highly similar and 0.0 meaning highly dissimilar",
+          "type": "number"
+        }
+      }
+    },
+    "ImageSimilarityHashResponse": {
+      "description": "Result of performing an image hash operation",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "ImageHash": {
+          "description": "String representing image perceptual hash value; values with smaller Hamming Distances are more similar than ones with large Hamming Distances",
+          "type": "string"
+        }
+      }
+    },
+    "ImageSimilarityHashDistanceRequest": {
+      "description": "Request to compute the similarity between two image hashes",
+      "type": "object",
+      "properties": {
+        "ImageHash1": {
+          "description": "Image hash computed using Cloudmersive Image Hashing API",
+          "type": "string"
+        },
+        "ImageHash2": {
+          "description": "Image hash computed using Cloudmersive Image Hashing API",
+          "type": "string"
+        }
+      }
+    },
+    "ImageSimilarityHashDistanceResponse": {
+      "description": "Result of computing the similarity between two image hashes",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "ImageSimilarityScore": {
+          "format": "double",
+          "description": "Similarity score between 0.0 and 1.0, with 1.0 meaning highly similar and 0.0 meaning highly dissimilar",
+          "type": "number"
+        }
+      }
+    },
+    "ImageDescriptionResponse": {
+      "description": "Result of recognizing an image",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "Was the image processed successfully?",
+          "type": "boolean"
+        },
+        "Highconfidence": {
+          "description": "Is the resulting best outcome recognition a high confidence outcome?",
+          "type": "boolean"
+        },
+        "BestOutcome": {
+          "$ref": "#/definitions/RecognitionOutcome",
+          "description": "The best Machine Learning outcome"
+        },
+        "RunnerUpOutcome": {
+          "$ref": "#/definitions/RecognitionOutcome",
+          "description": "Best backup (\"runner up\") Machine Learning outcome"
+        }
+      }
+    },
+    "RecognitionOutcome": {
+      "description": "Specific recognition outcome",
+      "type": "object",
+      "properties": {
+        "ConfidenceScore": {
+          "format": "double",
+          "description": "Scores closer to 1 are better than scores closer to 0",
+          "type": "number"
+        },
+        "Description": {
+          "description": "English language description of the image",
+          "type": "string"
+        }
+      }
+    },
+    "FindSymbolResult": {
+      "description": "Result of a find symbol operation on an input image",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "MatchScore": {
+          "format": "double",
+          "description": "Score between 0.0 and 1.0 that measures how closely the symbol matched; scores above 0.2 are good",
+          "type": "number"
+        },
+        "XLeft": {
+          "format": "int32",
+          "description": "X location of the left edge of the found location in pixels",
+          "type": "integer"
+        },
+        "YTop": {
+          "format": "int32",
+          "description": "Y location of the top edge of the found location in pixels",
+          "type": "integer"
+        },
+        "Width": {
+          "format": "int32",
+          "description": "Width of the found location in pixels",
+          "type": "integer"
+        },
+        "Height": {
+          "format": "int32",
+          "description": "Height of the found location in pixels",
+          "type": "integer"
+        }
+      }
+    },
+    "VehicleLicensePlateDetectionResult": {
+      "description": "Result of detecting vehicle license plates in an image",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "Was the image processed successfully?",
+          "type": "boolean"
+        },
+        "DetectedLicensePlates": {
+          "description": "License plates found in the image",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DetectedLicensePlate"
+          }
+        },
+        "DetectedLicensePlateCount": {
+          "format": "int32",
+          "description": "The number of license plates detected in the image",
+          "type": "integer"
+        }
+      }
+    },
+    "DetectedLicensePlate": {
+      "description": "License plate found in the image",
+      "type": "object",
+      "properties": {
+        "LicensePlateText_BestMatch": {
+          "description": "Text from the license plate, highest-confidence result",
+          "type": "string"
+        },
+        "LicensePlateText_RunnerUp": {
+          "description": "Alternate text from the license plate, based on second-highest-confidence result",
+          "type": "string"
+        },
+        "LocationX": {
+          "format": "int32",
+          "description": "X location of the left edge of the license plate, starting from the left edge of the photo (X = 0)",
+          "type": "integer"
+        },
+        "LocationY": {
+          "format": "int32",
+          "description": "Y location of the top edge of the license plate, starting from the top edge of the photo (Y = 0)",
+          "type": "integer"
+        },
+        "Width": {
+          "format": "int32",
+          "description": "Width of the license plate's location in pixels",
+          "type": "integer"
+        },
+        "Height": {
+          "format": "int32",
+          "description": "Height of the license plate's location in pixels",
+          "type": "integer"
+        },
+        "LicensePlateRecognitionConfidenceLevel": {
+          "format": "double",
+          "description": "Confidence score on a range of 0.0 - 1.0 of the accuracy of the detected license plate, with higher scores being better; values about 0.75 are high confidence",
+          "type": "number"
+        }
+      }
+    },
+    "TextDetectionResult": {
+      "description": "Result of an operation to detect text in a photo",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was successful, false otherwise",
+          "type": "boolean"
+        },
+        "TextItems": {
+          "description": "Text items found in the input image",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TextItem"
+          }
+        },
+        "TextItemsCount": {
+          "format": "int32",
+          "description": "Count of text items found in the input image",
+          "type": "integer"
+        }
+      }
+    },
+    "TextItem": {
+      "description": "Individual instance of text occuring in an image; one piece of text",
+      "type": "object",
+      "properties": {
+        "DetectedText": {
+          "description": "Text detected in the image",
+          "type": "string"
+        },
+        "LeftX": {
+          "format": "int32",
+          "description": "Left X coordinate of the text location; 0 represents the left edge of the input image",
+          "type": "integer"
+        },
+        "TopY": {
+          "format": "int32",
+          "description": "Top Y coordinate of the text location; 0 represents the top edge of the input image",
+          "type": "integer"
+        },
+        "Width": {
+          "format": "int32",
+          "description": "Width in pixels of the text item",
+          "type": "integer"
+        },
+        "Height": {
+          "format": "int32",
+          "description": "Height in pixels of the text item",
+          "type": "integer"
+        }
+      }
+    },
+    "FineTextDetectionResult": {
+      "description": "Result of an operation to detect text in a photo",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was successful, false otherwise",
+          "type": "boolean"
+        },
+        "TextItems": {
+          "description": "Text items found in the input image",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FineTextItem"
+          }
+        },
+        "TextItemsCount": {
+          "format": "int32",
+          "description": "Count of text items found in the input image",
+          "type": "integer"
+        }
+      }
+    },
+    "FineTextItem": {
+      "description": "Individual instance of text occuring in an image; one piece of text",
+      "type": "object",
+      "properties": {
+        "DetectedText": {
+          "description": "Detected text in the image",
+          "type": "string"
+        },
+        "TopLeftX": {
+          "format": "int32",
+          "description": "X coordinate of the top/left text location; 0 represents the left edge of the input image",
+          "type": "integer"
+        },
+        "TopLeftY": {
+          "format": "int32",
+          "description": "Y coordinate of the top/left text location; 0 represents the top edge of the input image",
+          "type": "integer"
+        },
+        "TopRightX": {
+          "format": "int32",
+          "description": "X coordinate of the top/right text location; 0 represents the left edge of the input image",
+          "type": "integer"
+        },
+        "TopRightY": {
+          "format": "int32",
+          "description": "Y coordinate of the top/right text location; 0 represents the top edge of the input image",
+          "type": "integer"
+        },
+        "BottomLeftX": {
+          "format": "int32",
+          "description": "X coordinate of the bottom/left text location; 0 represents the left edge of the input image",
+          "type": "integer"
+        },
+        "BottomLeftY": {
+          "format": "int32",
+          "description": "Y coordinate of the bottom/left text location; 0 represents the top edge of the input image",
+          "type": "integer"
+        },
+        "BottomRightX": {
+          "format": "int32",
+          "description": "X coordinate of the bottom/right text location; 0 represents the left edge of the input image",
+          "type": "integer"
+        },
+        "BottomRightY": {
+          "format": "int32",
+          "description": "Y coordinate of the bottom/right text location; 0 represents the top edge of the input image",
+          "type": "integer"
+        },
+        "Width": {
+          "format": "int32",
+          "description": "Width in pixels of the text",
+          "type": "integer"
+        },
+        "Height": {
+          "format": "int32",
+          "description": "Height in pixels of the text",
+          "type": "integer"
+        },
+        "Angle": {
+          "format": "double",
+          "description": "Rotation Angle in radians of the text",
+          "type": "number"
+        }
+      }
+    },
+    "CreateHandwritingRequest": {
+      "description": "Request to create a PNG of handwriting",
+      "type": "object",
+      "properties": {
+        "TextInput": {
+          "description": "Text to convert to handwriting",
+          "type": "string"
+        },
+        "TargetWidth": {
+          "format": "int32",
+          "description": "Desired width in pixels of the resulting image",
+          "type": "integer"
+        },
+        "StrokeWidth": {
+          "format": "int32",
+          "description": "Optinoal; Width of the text stroke in pixels; default is 2",
+          "type": "integer"
+        },
+        "Color": {
+          "description": "HTML hexadecimal color, or HTML common color name (e.g. 'black', 'red'), for the handwriting",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Apikey": {
+      "type": "apiKey",
+      "description": "API Key Authentication",
+      "name": "Apikey",
+      "in": "header"
+    }
+  }
+}

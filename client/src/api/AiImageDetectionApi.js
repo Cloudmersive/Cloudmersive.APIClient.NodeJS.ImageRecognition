@@ -16,29 +16,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/ImageAiDetectionResult'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('../model/ImageAiDetectionResult'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersiveImageApiClient) {
       root.CloudmersiveImageApiClient = {};
     }
-    root.CloudmersiveImageApiClient.ArtisticApi = factory(root.CloudmersiveImageApiClient.ApiClient);
+    root.CloudmersiveImageApiClient.AiImageDetectionApi = factory(root.CloudmersiveImageApiClient.ApiClient, root.CloudmersiveImageApiClient.ImageAiDetectionResult);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, ImageAiDetectionResult) {
   'use strict';
 
   /**
-   * Artistic service.
-   * @module api/ArtisticApi
+   * AiImageDetection service.
+   * @module api/AiImageDetectionApi
    * @version 1.4.0
    */
 
   /**
-   * Constructs a new ArtisticApi. 
-   * @alias module:api/ArtisticApi
+   * Constructs a new AiImageDetectionApi. 
+   * @alias module:api/AiImageDetectionApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -48,37 +48,30 @@
 
 
     /**
-     * Callback function to receive the result of the artisticPainting operation.
-     * @callback module:api/ArtisticApi~artisticPaintingCallback
+     * Callback function to receive the result of the aiImageDetectionDetectFile operation.
+     * @callback module:api/AiImageDetectionApi~aiImageDetectionDetectFileCallback
      * @param {String} error Error message, if any.
-     * @param {'Blob'} data The data returned by the service call.
+     * @param {module:model/ImageAiDetectionResult} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Transform an image into an artistic painting automatically
-     * Uses machine learning to automatically transform an image into an artistic painting.  Due to depth of AI processing, depending on image size this operation can take up to 20 seconds.
-     * @param {String} style The style of the painting to apply.  To start, try \&quot;udnie\&quot; a painting style.  Possible values are: \&quot;udnie\&quot;, \&quot;wave\&quot;, \&quot;la_muse\&quot;, \&quot;rain_princess\&quot;.
+     * Detect if an input image was generated using AI
+     * Detects if the input image was generated using AI tools.
      * @param {File} imageFile Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-     * @param {module:api/ArtisticApi~artisticPaintingCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'Blob'}
+     * @param {module:api/AiImageDetectionApi~aiImageDetectionDetectFileCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ImageAiDetectionResult}
      */
-    this.artisticPainting = function(style, imageFile, callback) {
+    this.aiImageDetectionDetectFile = function(imageFile, callback) {
       var postBody = null;
-
-      // verify the required parameter 'style' is set
-      if (style === undefined || style === null) {
-        throw new Error("Missing the required parameter 'style' when calling artisticPainting");
-      }
 
       // verify the required parameter 'imageFile' is set
       if (imageFile === undefined || imageFile === null) {
-        throw new Error("Missing the required parameter 'imageFile' when calling artisticPainting");
+        throw new Error("Missing the required parameter 'imageFile' when calling aiImageDetectionDetectFile");
       }
 
 
       var pathParams = {
-        'style': style
       };
       var queryParams = {
       };
@@ -93,10 +86,10 @@
       var authNames = ['Apikey'];
       var contentTypes = ['multipart/form-data'];
       var accepts = ['application/octet-stream'];
-      var returnType = 'Blob';
+      var returnType = ImageAiDetectionResult;
 
       return this.apiClient.callApi(
-        '/image/artistic/painting/{style}', 'POST',
+        '/image/ai-detection/file', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

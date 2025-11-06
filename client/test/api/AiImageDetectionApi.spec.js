@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.FacePoint();
+    instance = new CloudmersiveImageApiClient.AiImageDetectionApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,25 +49,17 @@
       object[property] = value;
   }
 
-  describe('FacePoint', function() {
-    it('should create an instance of FacePoint', function() {
-      // uncomment below and update the code to test FacePoint
-      //var instane = new CloudmersiveImageApiClient.FacePoint();
-      //expect(instance).to.be.a(CloudmersiveImageApiClient.FacePoint);
+  describe('AiImageDetectionApi', function() {
+    describe('aiImageDetectionDetectFile', function() {
+      it('should call aiImageDetectionDetectFile successfully', function(done) {
+        //uncomment below and update the code to test aiImageDetectionDetectFile
+        //instance.aiImageDetectionDetectFile(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property X (base name: "X")', function() {
-      // uncomment below and update the code to test the property X
-      //var instane = new CloudmersiveImageApiClient.FacePoint();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property Y (base name: "Y")', function() {
-      // uncomment below and update the code to test the property Y
-      //var instane = new CloudmersiveImageApiClient.FacePoint();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -54,6 +54,36 @@
       it('should call nsfwClassify successfully', function(done) {
         //uncomment below and update the code to test nsfwClassify
         //instance.nsfwClassify(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('nsfwClassifyAdvanced', function() {
+      it('should call nsfwClassifyAdvanced successfully', function(done) {
+        //uncomment below and update the code to test nsfwClassifyAdvanced
+        //instance.nsfwClassifyAdvanced(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('nsfwClassifyDocument', function() {
+      it('should call nsfwClassifyDocument successfully', function(done) {
+        //uncomment below and update the code to test nsfwClassifyDocument
+        //instance.nsfwClassifyDocument(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('nsfwClassifyVideo', function() {
+      it('should call nsfwClassifyVideo successfully', function(done) {
+        //uncomment below and update the code to test nsfwClassifyVideo
+        //instance.nsfwClassifyVideo(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

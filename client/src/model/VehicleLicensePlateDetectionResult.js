@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -36,7 +36,7 @@
   /**
    * The VehicleLicensePlateDetectionResult model module.
    * @module model/VehicleLicensePlateDetectionResult
-   * @version 1.3.5
+   * @version 1.4.0
    */
 
   /**

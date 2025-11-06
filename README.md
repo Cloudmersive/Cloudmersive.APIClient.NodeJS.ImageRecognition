@@ -1,11 +1,11 @@
 # cloudmersive-image-api-client
 
 CloudmersiveImageApiClient - JavaScript client for cloudmersive-image-api-client
-Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.3.5
+- Package version: 1.4.0
 
 
 ## Installation
@@ -103,9 +103,7 @@ Apikey.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Apikey.apiKeyPrefix['Apikey'] = "Token"
 
-var api = new CloudmersiveImageApiClient.ArtisticApi()
-
-var style = "style_example"; // {String} The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\".
+var api = new CloudmersiveImageApiClient.AiImageDetectionApi()
 
 var imageFile = "/path/to/file.txt"; // {File} Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -117,7 +115,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.artisticPainting(style, imageFile, callback);
+api.aiImageDetectionDetectFile(imageFile, callback);
 
 ```
 
@@ -127,10 +125,12 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CloudmersiveImageApiClient.AiImageDetectionApi* | [**aiImageDetectionDetectFile**](docs/AiImageDetectionApi.md#aiImageDetectionDetectFile) | **POST** /image/ai-detection/file | Detect if an input image was generated using AI
 *CloudmersiveImageApiClient.ArtisticApi* | [**artisticPainting**](docs/ArtisticApi.md#artisticPainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToBmp**](docs/ConvertApi.md#convertToBmp) | **POST** /image/convert/to/bmp | Convert input image to Bitmap BMP format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToGif**](docs/ConvertApi.md#convertToGif) | **POST** /image/convert/to/gif | Convert input image to GIF format
-*CloudmersiveImageApiClient.ConvertApi* | [**convertToJpg**](docs/ConvertApi.md#convertToJpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG, JPEG format
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToJpg**](docs/ConvertApi.md#convertToJpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG, JPEG format at specific quality
+*CloudmersiveImageApiClient.ConvertApi* | [**convertToJpgDefaultQuality**](docs/ConvertApi.md#convertToJpgDefaultQuality) | **POST** /image/convert/to/jpg | Convert input image to JPG, JPEG format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToPhotoshop**](docs/ConvertApi.md#convertToPhotoshop) | **POST** /image/convert/to/psd | Convert input image to Photoshop PSD format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToPng**](docs/ConvertApi.md#convertToPng) | **POST** /image/convert/to/png | Convert input image to PNG format
 *CloudmersiveImageApiClient.ConvertApi* | [**convertToTiff**](docs/ConvertApi.md#convertToTiff) | **POST** /image/convert/to/tiff | Convert input image to TIFF format
@@ -166,11 +166,12 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.FilterApi* | [**filterSwirl**](docs/FilterApi.md#filterSwirl) | **POST** /image/filter/swirl | Swirl distort the image
 *CloudmersiveImageApiClient.InfoApi* | [**infoGetDominantColor**](docs/InfoApi.md#infoGetDominantColor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
 *CloudmersiveImageApiClient.InfoApi* | [**infoGetMetadata**](docs/InfoApi.md#infoGetMetadata) | **POST** /image/get-info/metadata | Returns the image metadata including EXIF and resolution
-*CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work NSFW racy content classification
+*CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassify**](docs/NsfwApi.md#nsfwClassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) content classification for Images
+*CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassifyAdvanced**](docs/NsfwApi.md#nsfwClassifyAdvanced) | **POST** /image/nsfw/classify/advanced | Advanced content moderation and not safe for work (NSFW) content classification for Images
+*CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassifyDocument**](docs/NsfwApi.md#nsfwClassifyDocument) | **POST** /image/nsfw/classify/document | Not safe for work (NSFW) content classification for Documents
+*CloudmersiveImageApiClient.NsfwApi* | [**nsfwClassifyVideo**](docs/NsfwApi.md#nsfwClassifyVideo) | **POST** /image/nsfw/classify/video | Not safe for work (NSFW) content classification for Video
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDescribe**](docs/RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectObjects**](docs/RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects including types and locations in an image
-*CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectPeople**](docs/RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people including locations in an image
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextFine**](docs/RecognizeApi.md#recognizeDetectTextFine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectTextLarge**](docs/RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeDetectVehicleLicensePlates**](docs/RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
@@ -179,6 +180,7 @@ Class | Method | HTTP request | Description
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeSimilarityHash**](docs/RecognizeApi.md#recognizeSimilarityHash) | **POST** /image/recognize/similarity/hash | Generate a perceptual image hash
 *CloudmersiveImageApiClient.RecognizeApi* | [**recognizeSimilarityHashDistance**](docs/RecognizeApi.md#recognizeSimilarityHashDistance) | **POST** /image/recognize/similarity/hash/distance | Calculates the similarity between two perceptual image hashes
 *CloudmersiveImageApiClient.ResizeApi* | [**resizePost**](docs/ResizeApi.md#resizePost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
+*CloudmersiveImageApiClient.ResizeApi* | [**resizeResizeAISuperSampling**](docs/ResizeApi.md#resizeResizeAISuperSampling) | **POST** /image/resize/ai/target | Resize an image with AI super sampling
 *CloudmersiveImageApiClient.ResizeApi* | [**resizeResizeSimple**](docs/ResizeApi.md#resizeResizeSimple) | **POST** /image/resize/target/{width}/{height} | Resize an image
 *CloudmersiveImageApiClient.TextGenerationApi* | [**textGenerationCreateHandwritingPng**](docs/TextGenerationApi.md#textGenerationCreateHandwritingPng) | **POST** /image/text/create/handwriting/png | Create an image of handwriting in PNG format
 
@@ -189,7 +191,6 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.ColorResult](docs/ColorResult.md)
  - [CloudmersiveImageApiClient.CreateHandwritingRequest](docs/CreateHandwritingRequest.md)
  - [CloudmersiveImageApiClient.DetectedLicensePlate](docs/DetectedLicensePlate.md)
- - [CloudmersiveImageApiClient.DetectedObject](docs/DetectedObject.md)
  - [CloudmersiveImageApiClient.DominantColorResult](docs/DominantColorResult.md)
  - [CloudmersiveImageApiClient.DrawPolygonInstance](docs/DrawPolygonInstance.md)
  - [CloudmersiveImageApiClient.DrawPolygonRequest](docs/DrawPolygonRequest.md)
@@ -207,7 +208,7 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.FindSymbolResult](docs/FindSymbolResult.md)
  - [CloudmersiveImageApiClient.FineTextDetectionResult](docs/FineTextDetectionResult.md)
  - [CloudmersiveImageApiClient.FineTextItem](docs/FineTextItem.md)
- - [CloudmersiveImageApiClient.GenderDetectionResult](docs/GenderDetectionResult.md)
+ - [CloudmersiveImageApiClient.ImageAiDetectionResult](docs/ImageAiDetectionResult.md)
  - [CloudmersiveImageApiClient.ImageDescriptionResponse](docs/ImageDescriptionResponse.md)
  - [CloudmersiveImageApiClient.ImageMetadata](docs/ImageMetadata.md)
  - [CloudmersiveImageApiClient.ImageMetadataExifValue](docs/ImageMetadataExifValue.md)
@@ -215,10 +216,9 @@ Class | Method | HTTP request | Description
  - [CloudmersiveImageApiClient.ImageSimilarityHashDistanceRequest](docs/ImageSimilarityHashDistanceRequest.md)
  - [CloudmersiveImageApiClient.ImageSimilarityHashDistanceResponse](docs/ImageSimilarityHashDistanceResponse.md)
  - [CloudmersiveImageApiClient.ImageSimilarityHashResponse](docs/ImageSimilarityHashResponse.md)
+ - [CloudmersiveImageApiClient.NsfwAdvancedResult](docs/NsfwAdvancedResult.md)
  - [CloudmersiveImageApiClient.NsfwResult](docs/NsfwResult.md)
- - [CloudmersiveImageApiClient.ObjectDetectionResult](docs/ObjectDetectionResult.md)
  - [CloudmersiveImageApiClient.PersonWithAge](docs/PersonWithAge.md)
- - [CloudmersiveImageApiClient.PersonWithGender](docs/PersonWithGender.md)
  - [CloudmersiveImageApiClient.PolygonPoint](docs/PolygonPoint.md)
  - [CloudmersiveImageApiClient.RecognitionOutcome](docs/RecognitionOutcome.md)
  - [CloudmersiveImageApiClient.TextDetectionResult](docs/TextDetectionResult.md)

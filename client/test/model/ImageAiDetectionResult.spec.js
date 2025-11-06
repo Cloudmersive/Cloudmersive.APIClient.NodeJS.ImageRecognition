@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CloudmersiveImageApiClient.ObjectDetectionResult();
+    instance = new CloudmersiveImageApiClient.ImageAiDetectionResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,28 +49,28 @@
       object[property] = value;
   }
 
-  describe('ObjectDetectionResult', function() {
-    it('should create an instance of ObjectDetectionResult', function() {
-      // uncomment below and update the code to test ObjectDetectionResult
-      //var instane = new CloudmersiveImageApiClient.ObjectDetectionResult();
-      //expect(instance).to.be.a(CloudmersiveImageApiClient.ObjectDetectionResult);
+  describe('ImageAiDetectionResult', function() {
+    it('should create an instance of ImageAiDetectionResult', function() {
+      // uncomment below and update the code to test ImageAiDetectionResult
+      //var instane = new CloudmersiveImageApiClient.ImageAiDetectionResult();
+      //expect(instance).to.be.a(CloudmersiveImageApiClient.ImageAiDetectionResult);
     });
 
-    it('should have the property successful (base name: "Successful")', function() {
-      // uncomment below and update the code to test the property successful
-      //var instane = new CloudmersiveImageApiClient.ObjectDetectionResult();
+    it('should have the property cleanResult (base name: "CleanResult")', function() {
+      // uncomment below and update the code to test the property cleanResult
+      //var instane = new CloudmersiveImageApiClient.ImageAiDetectionResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property objects (base name: "Objects")', function() {
-      // uncomment below and update the code to test the property objects
-      //var instane = new CloudmersiveImageApiClient.ObjectDetectionResult();
+    it('should have the property aiGeneratedRiskScore (base name: "AiGeneratedRiskScore")', function() {
+      // uncomment below and update the code to test the property aiGeneratedRiskScore
+      //var instane = new CloudmersiveImageApiClient.ImageAiDetectionResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property objectCount (base name: "ObjectCount")', function() {
-      // uncomment below and update the code to test the property objectCount
-      //var instane = new CloudmersiveImageApiClient.ObjectDetectionResult();
+    it('should have the property aiSource (base name: "AiSource")', function() {
+      // uncomment below and update the code to test the property aiSource
+      //var instane = new CloudmersiveImageApiClient.ImageAiDetectionResult();
       //expect(instance).to.be();
     });
 

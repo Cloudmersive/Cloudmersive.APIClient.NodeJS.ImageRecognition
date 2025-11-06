@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -16,16 +16,16 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AgeDetectionResult', 'model/ColorResult', 'model/CreateHandwritingRequest', 'model/DetectedLicensePlate', 'model/DetectedObject', 'model/DominantColorResult', 'model/DrawPolygonInstance', 'model/DrawPolygonRequest', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse', 'model/FaceMatch', 'model/FacePoint', 'model/FaceWithLandmarks', 'model/FindSymbolResult', 'model/FineTextDetectionResult', 'model/FineTextItem', 'model/GenderDetectionResult', 'model/ImageDescriptionResponse', 'model/ImageMetadata', 'model/ImageMetadataExifValue', 'model/ImageSimilarityComparisonResponse', 'model/ImageSimilarityHashDistanceRequest', 'model/ImageSimilarityHashDistanceResponse', 'model/ImageSimilarityHashResponse', 'model/NsfwResult', 'model/ObjectDetectionResult', 'model/PersonWithAge', 'model/PersonWithGender', 'model/PolygonPoint', 'model/RecognitionOutcome', 'model/TextDetectionResult', 'model/TextItem', 'model/VehicleLicensePlateDetectionResult', 'api/ArtisticApi', 'api/ConvertApi', 'api/EditApi', 'api/FaceApi', 'api/FilterApi', 'api/InfoApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi', 'api/TextGenerationApi'], factory);
+    define(['ApiClient', 'model/AgeDetectionResult', 'model/ColorResult', 'model/CreateHandwritingRequest', 'model/DetectedLicensePlate', 'model/DominantColorResult', 'model/DrawPolygonInstance', 'model/DrawPolygonRequest', 'model/DrawRectangleInstance', 'model/DrawRectangleRequest', 'model/DrawTextInstance', 'model/DrawTextRequest', 'model/Face', 'model/FaceCompareResponse', 'model/FaceLocateResponse', 'model/FaceLocateWithLandmarksResponse', 'model/FaceMatch', 'model/FacePoint', 'model/FaceWithLandmarks', 'model/FindSymbolResult', 'model/FineTextDetectionResult', 'model/FineTextItem', 'model/ImageAiDetectionResult', 'model/ImageDescriptionResponse', 'model/ImageMetadata', 'model/ImageMetadataExifValue', 'model/ImageSimilarityComparisonResponse', 'model/ImageSimilarityHashDistanceRequest', 'model/ImageSimilarityHashDistanceResponse', 'model/ImageSimilarityHashResponse', 'model/NsfwAdvancedResult', 'model/NsfwResult', 'model/PersonWithAge', 'model/PolygonPoint', 'model/RecognitionOutcome', 'model/TextDetectionResult', 'model/TextItem', 'model/VehicleLicensePlateDetectionResult', 'api/AiImageDetectionApi', 'api/ArtisticApi', 'api/ConvertApi', 'api/EditApi', 'api/FaceApi', 'api/FilterApi', 'api/InfoApi', 'api/NsfwApi', 'api/RecognizeApi', 'api/ResizeApi', 'api/TextGenerationApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/ColorResult'), require('./model/CreateHandwritingRequest'), require('./model/DetectedLicensePlate'), require('./model/DetectedObject'), require('./model/DominantColorResult'), require('./model/DrawPolygonInstance'), require('./model/DrawPolygonRequest'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceCompareResponse'), require('./model/FaceLocateResponse'), require('./model/FaceLocateWithLandmarksResponse'), require('./model/FaceMatch'), require('./model/FacePoint'), require('./model/FaceWithLandmarks'), require('./model/FindSymbolResult'), require('./model/FineTextDetectionResult'), require('./model/FineTextItem'), require('./model/GenderDetectionResult'), require('./model/ImageDescriptionResponse'), require('./model/ImageMetadata'), require('./model/ImageMetadataExifValue'), require('./model/ImageSimilarityComparisonResponse'), require('./model/ImageSimilarityHashDistanceRequest'), require('./model/ImageSimilarityHashDistanceResponse'), require('./model/ImageSimilarityHashResponse'), require('./model/NsfwResult'), require('./model/ObjectDetectionResult'), require('./model/PersonWithAge'), require('./model/PersonWithGender'), require('./model/PolygonPoint'), require('./model/RecognitionOutcome'), require('./model/TextDetectionResult'), require('./model/TextItem'), require('./model/VehicleLicensePlateDetectionResult'), require('./api/ArtisticApi'), require('./api/ConvertApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/FilterApi'), require('./api/InfoApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'), require('./api/TextGenerationApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AgeDetectionResult'), require('./model/ColorResult'), require('./model/CreateHandwritingRequest'), require('./model/DetectedLicensePlate'), require('./model/DominantColorResult'), require('./model/DrawPolygonInstance'), require('./model/DrawPolygonRequest'), require('./model/DrawRectangleInstance'), require('./model/DrawRectangleRequest'), require('./model/DrawTextInstance'), require('./model/DrawTextRequest'), require('./model/Face'), require('./model/FaceCompareResponse'), require('./model/FaceLocateResponse'), require('./model/FaceLocateWithLandmarksResponse'), require('./model/FaceMatch'), require('./model/FacePoint'), require('./model/FaceWithLandmarks'), require('./model/FindSymbolResult'), require('./model/FineTextDetectionResult'), require('./model/FineTextItem'), require('./model/ImageAiDetectionResult'), require('./model/ImageDescriptionResponse'), require('./model/ImageMetadata'), require('./model/ImageMetadataExifValue'), require('./model/ImageSimilarityComparisonResponse'), require('./model/ImageSimilarityHashDistanceRequest'), require('./model/ImageSimilarityHashDistanceResponse'), require('./model/ImageSimilarityHashResponse'), require('./model/NsfwAdvancedResult'), require('./model/NsfwResult'), require('./model/PersonWithAge'), require('./model/PolygonPoint'), require('./model/RecognitionOutcome'), require('./model/TextDetectionResult'), require('./model/TextItem'), require('./model/VehicleLicensePlateDetectionResult'), require('./api/AiImageDetectionApi'), require('./api/ArtisticApi'), require('./api/ConvertApi'), require('./api/EditApi'), require('./api/FaceApi'), require('./api/FilterApi'), require('./api/InfoApi'), require('./api/NsfwApi'), require('./api/RecognizeApi'), require('./api/ResizeApi'), require('./api/TextGenerationApi'));
   }
-}(function(ApiClient, AgeDetectionResult, ColorResult, CreateHandwritingRequest, DetectedLicensePlate, DetectedObject, DominantColorResult, DrawPolygonInstance, DrawPolygonRequest, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse, FaceMatch, FacePoint, FaceWithLandmarks, FindSymbolResult, FineTextDetectionResult, FineTextItem, GenderDetectionResult, ImageDescriptionResponse, ImageMetadata, ImageMetadataExifValue, ImageSimilarityComparisonResponse, ImageSimilarityHashDistanceRequest, ImageSimilarityHashDistanceResponse, ImageSimilarityHashResponse, NsfwResult, ObjectDetectionResult, PersonWithAge, PersonWithGender, PolygonPoint, RecognitionOutcome, TextDetectionResult, TextItem, VehicleLicensePlateDetectionResult, ArtisticApi, ConvertApi, EditApi, FaceApi, FilterApi, InfoApi, NsfwApi, RecognizeApi, ResizeApi, TextGenerationApi) {
+}(function(ApiClient, AgeDetectionResult, ColorResult, CreateHandwritingRequest, DetectedLicensePlate, DominantColorResult, DrawPolygonInstance, DrawPolygonRequest, DrawRectangleInstance, DrawRectangleRequest, DrawTextInstance, DrawTextRequest, Face, FaceCompareResponse, FaceLocateResponse, FaceLocateWithLandmarksResponse, FaceMatch, FacePoint, FaceWithLandmarks, FindSymbolResult, FineTextDetectionResult, FineTextItem, ImageAiDetectionResult, ImageDescriptionResponse, ImageMetadata, ImageMetadataExifValue, ImageSimilarityComparisonResponse, ImageSimilarityHashDistanceRequest, ImageSimilarityHashDistanceResponse, ImageSimilarityHashResponse, NsfwAdvancedResult, NsfwResult, PersonWithAge, PolygonPoint, RecognitionOutcome, TextDetectionResult, TextItem, VehicleLicensePlateDetectionResult, AiImageDetectionApi, ArtisticApi, ConvertApi, EditApi, FaceApi, FilterApi, InfoApi, NsfwApi, RecognizeApi, ResizeApi, TextGenerationApi) {
   'use strict';
 
   /**
-   * Image_Recognition_and_Processing_APIs_let_you_use_Machine_Learning_to_recognize_and_process_images_and_also_perform_useful_image_modification_operations_.<br>
+   * Image_Recognition_and_Processing_APIs_let_you_use_Artificial_Intelligence_and_Machine_Learning_to_recognize_and_process_images_and_also_perform_useful_image_modification_operations_.<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 1.3.5
+   * @version 1.4.0
    */
   var exports = {
     /**
@@ -81,11 +81,6 @@
      * @property {module:model/DetectedLicensePlate}
      */
     DetectedLicensePlate: DetectedLicensePlate,
-    /**
-     * The DetectedObject model constructor.
-     * @property {module:model/DetectedObject}
-     */
-    DetectedObject: DetectedObject,
     /**
      * The DominantColorResult model constructor.
      * @property {module:model/DominantColorResult}
@@ -172,10 +167,10 @@
      */
     FineTextItem: FineTextItem,
     /**
-     * The GenderDetectionResult model constructor.
-     * @property {module:model/GenderDetectionResult}
+     * The ImageAiDetectionResult model constructor.
+     * @property {module:model/ImageAiDetectionResult}
      */
-    GenderDetectionResult: GenderDetectionResult,
+    ImageAiDetectionResult: ImageAiDetectionResult,
     /**
      * The ImageDescriptionResponse model constructor.
      * @property {module:model/ImageDescriptionResponse}
@@ -212,25 +207,20 @@
      */
     ImageSimilarityHashResponse: ImageSimilarityHashResponse,
     /**
+     * The NsfwAdvancedResult model constructor.
+     * @property {module:model/NsfwAdvancedResult}
+     */
+    NsfwAdvancedResult: NsfwAdvancedResult,
+    /**
      * The NsfwResult model constructor.
      * @property {module:model/NsfwResult}
      */
     NsfwResult: NsfwResult,
     /**
-     * The ObjectDetectionResult model constructor.
-     * @property {module:model/ObjectDetectionResult}
-     */
-    ObjectDetectionResult: ObjectDetectionResult,
-    /**
      * The PersonWithAge model constructor.
      * @property {module:model/PersonWithAge}
      */
     PersonWithAge: PersonWithAge,
-    /**
-     * The PersonWithGender model constructor.
-     * @property {module:model/PersonWithGender}
-     */
-    PersonWithGender: PersonWithGender,
     /**
      * The PolygonPoint model constructor.
      * @property {module:model/PolygonPoint}
@@ -256,6 +246,11 @@
      * @property {module:model/VehicleLicensePlateDetectionResult}
      */
     VehicleLicensePlateDetectionResult: VehicleLicensePlateDetectionResult,
+    /**
+     * The AiImageDetectionApi service constructor.
+     * @property {module:api/AiImageDetectionApi}
+     */
+    AiImageDetectionApi: AiImageDetectionApi,
     /**
      * The ArtisticApi service constructor.
      * @property {module:api/ArtisticApi}

@@ -1,6 +1,6 @@
 /**
  * imageapi
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  *
@@ -36,7 +36,7 @@
   /**
    * The TextItem model module.
    * @module model/TextItem
-   * @version 1.3.5
+   * @version 1.4.0
    */
 
   /**
@@ -47,6 +47,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -65,6 +66,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('DetectedText')) {
+        obj['DetectedText'] = ApiClient.convertToType(data['DetectedText'], 'String');
+      }
       if (data.hasOwnProperty('LeftX')) {
         obj['LeftX'] = ApiClient.convertToType(data['LeftX'], 'Number');
       }
@@ -81,6 +85,11 @@
     return obj;
   }
 
+  /**
+   * Text detected in the image
+   * @member {String} DetectedText
+   */
+  exports.prototype['DetectedText'] = undefined;
   /**
    * Left X coordinate of the text location; 0 represents the left edge of the input image
    * @member {Number} LeftX
